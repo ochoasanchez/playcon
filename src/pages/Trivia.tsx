@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import RadioInput from "../components/RadioInput";
-import { questions } from '../utils/questions.constants';
+import { questions } from '../utils/questions.es.constants';
 
 export function Trivia() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
