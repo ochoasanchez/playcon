@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import RadioInput from "../components/RadioInput";
-import { questions } from '../assets/questions.constants';
+import { questions } from '../utils/questions.constants';
 
 export function Trivia() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -64,8 +64,9 @@ export function Trivia() {
                 </>
             ) : (
                 <>
-                    <p className="text-6xl">You got {score} questions right out of {questions.length}</p>
-                    <Link to="/" className="text-white mt-4">Go home</Link>
+                    <p className="text-6xl opacity-0 animate-fade-in">You got {score} questions right out of {questions.length}</p>
+          
+                    <Link to="/" className="text-white bg-orange-500 rounded-md mt-4 p-4 font-bold uppercase animate-slide-in-5">Go home</Link>
                 </>
             )}
         </div>
