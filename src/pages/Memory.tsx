@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
 import { cardsArray as uniqueCardsArray} from '../utils/pokemons.constants';
+import Nav from "../components/Nav";
 
 function shuffleCards<T>(array: T[]): T[] {
   const length = array.length;
@@ -109,13 +110,13 @@ export function Memory() {
 
   return (
     <div className="memory flex flex-col items-center justify-center">
-      <header className="text-center">
-        <h1 className="text-6xl font-bold text-white mt-4 text-left md:text-center animate-slide-in-1">Juego de Memoria</h1>
+      <header className="text-center animate-slide-in-1">
+        <h1 className="text-6xl font-bold text-white mt-4 text-left md:text-center">Juego de memoria</h1>
         <p className="mt-4 text-lg">
             Selecciona dos cartas iguales para hacerlas desaparecer
         </p>
       </header>
-      <div className="card-container">
+      <div className="card-container animate-slide-in-2">
         {cards.map((card, index) => (
           <Card
             key={index}
@@ -128,7 +129,7 @@ export function Memory() {
           />
         ))}
       </div>
-      <footer className="mt-4">
+      <footer className="mt-4 animate-slide-in-3">
         <div className="flex justify-center gap-x-8 uppercase">
           <div>
             <span className="font-bold">Jugadas:</span> {moves}
@@ -140,8 +141,9 @@ export function Memory() {
           )}
         </div>
         <div className="flex justify-center">
-            <button onClick={handleRestart} className="bg-orange-500 rounded-md mt-4 p-4 font-bold uppercase animate-slide-in-5">Reiniciar</button>
+            <button onClick={handleRestart} className="bg-orange-500 rounded-md mt-4 p-4 font-bold uppercase animate-slide-in-4">Reiniciar</button>
         </div>
+        <Nav />
       </footer>
       { showModal && 
         <>

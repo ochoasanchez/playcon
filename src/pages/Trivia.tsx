@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import RadioInput from "../components/RadioInput";
 import { questions } from '../utils/questions.es.constants';
+import Nav from "../components/Nav";
 
 export function Trivia() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -35,11 +36,11 @@ export function Trivia() {
                             ></div>
                         ))}
                     </div>
-                    <p className="text-yellow-300 font-bold mt-10 uppercase">Question {currentQuestionIndex + 1} of {questions.length}</p>
+                    <p className="text-yellow-300 font-bold mt-10 uppercase">Pregunta {currentQuestionIndex + 1} de {questions.length}</p>
                     <h1 key={`title-${currentQuestionIndex}`} className="text-6xl font-bold text-white mt-4 text-left md:text-center animate-slide-in-1">{questions[currentQuestionIndex].question}</h1>
                             {/* <div className={`w-full bg-yellow-300 h-4 rounded-lg`}></div> */}
                             
-                    <div className="flex flex-col w-full md:w-8/12 lg:w-3/12 mt-4">
+                    <div className="flex flex-col w-full md:w-8/12 lg:w-3/12 mt-2">
                         <form className="flex flex-col">
                             {questions[currentQuestionIndex].options.map((option, index) => (
                                 <RadioInput
@@ -58,15 +59,16 @@ export function Trivia() {
                             >
                                 Next
                             </button>
-                            <p className="text-xl text-center mt-4">Score: {score}</p>
+                            <p className="text-xl text-center mt-4 uppercase">Puntos: {score}</p>
                         </form>
+                        <Nav />
                     </div>
                 </>
             ) : (
                 <>
-                    <p className="text-6xl opacity-0 animate-fade-in">You got {score} questions right out of {questions.length}</p>
+                    <p className="text-6xl opacity-0 animate-fade-in">Respondiste {score} de {questions.length} preguntas correctamente</p>
           
-                    <Link to="/" className="text-white bg-orange-500 rounded-md mt-4 p-4 font-bold uppercase animate-slide-in-5">Go home</Link>
+                    <Link to="/" className="text-white bg-orange-500 rounded-md mt-4 p-4 font-bold uppercase animate-slide-in-5">Volver</Link>
                 </>
             )}
         </div>
