@@ -1,5 +1,7 @@
 // import { Link } from "react-router-dom";
-import MikiaLogo from "../assets/images/logo.jpg";
+import { Link } from "react-router-dom";
+import logo from "../assets/images/logo-blanco.png";
+import icons from "../assets/images/icons.png";
 import Nav from "../components/Nav";
 
 // TODO: Video or image background
@@ -8,12 +10,12 @@ export function Home() {
     
     return (
         <div className="h-lvh w-full flex flex-col items-center justify-center px-4 md:px-0 animate-fade-in">
-            <img src={MikiaLogo} className="w-40 h-40 rounded-full"/>
+            <img src={logo} className="w-64"/>
             {/* <p className="mt-4">Producción y Comercialización de productos químicos 🧪</p> */}
             <div className="flex flex-col w-full md:w-8/12 lg:w-8/12 text-center py-6">
                 
-            <h1 className="text-5xl font-bold mt-2">¡Bienvenidos a nuestro stand!</h1>
-            <p className="text-xl mt-4">Descubre el mundo de la producción y comercialización de productos químicos con nosotros 🧪 </p>
+            <h1 className="text-6xl font-bold mt-2 uppercase">¡Desafía tus <br />conocimientos!</h1>
+            <p className="text-3xl mt-8 font-bold">Descubre el lado divertido de la Limpieza, Santiziación y Desinfección 🧪 </p>
                 {/* <form className="flex flex-col">
                     <label htmlFor="name" className="mt-4">Nombre</label>
                     <input type="text" name="name" className="flex rounded-md px-3 py-4 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-600 outline-none text-black"></input>
@@ -26,7 +28,8 @@ export function Home() {
                 </form> */}
             </div>
             <div className="flex flex-col w-full md:w-8/12 lg:w-3/12 mt-4 text-center">
-                <button className="bg-orange-500 rounded-full py-4 uppercase font-bold animate-bounce">Empezar</button>
+                <Link to="/form"  className="bg-orange-500 rounded-full py-4 uppercase font-bold animate-bounce text-2xl">Empezar</Link>
+                <img src={icons} className="mt-16"/>
                 <Nav />
             </div>
         </div>

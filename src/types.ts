@@ -17,4 +17,27 @@ type CardType = {
     id: number;
     type: string;
     image: string;
-  }
+}
+
+type MemoryCard = {
+    id: number;
+    attributes: {
+        name: string;
+        imageUrl: string;
+    }
+}
+
+type CardsData = {
+    cards: {
+        data: MemoryCard[],
+    }
+}
+
+type ScoreType = {
+    playerId: number,
+    playerName: string,
+    playerCompany: string,
+    scoreValue: number,
+    scoreType: string, 
+    game: string 
+}

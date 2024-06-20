@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
+import { cardsArray as uniqueCardsArray} from '../utils/pokemons.constants';
 import Nav from "../components/Nav";
-import getMemoryCards from "../helpers/memory.helper";
 
 function shuffleCards<T>(array: T[]): T[] {
   const length = array.length;
@@ -16,37 +16,64 @@ function shuffleCards<T>(array: T[]): T[] {
 }
 
 export function Memory() {
-  const [cards, setCards] = useState<MemoryCard[]>([]);
+  const [cards, setCards] = useState<CardType[]>(() =>
+    shuffleCards([...uniqueCardsArray, ...uniqueCardsArray])
+  );
   const [openCards, setOpenCards] = useState<number[]>([]);
   const [clearedCards, setClearedCards] = useState<{ [key: string]: boolean }>({});
   const [shouldDisableAllCards, setShouldDisableAllCards] = useState<boolean>(false);
   const [moves, setMoves] = useState<number>(0);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
+ 
   const localStorageBestScore = localStorage.getItem("bestScore");
   const initialBestScore = localStorageBestScore !== null ? JSON.parse(localStorageBestScore) : Number.POSITIVE_INFINITY;
+
   const [bestScore, setBestScore] = useState<number>(initialBestScore);
+
 
   const timeout = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const memoryCards = await getMemoryCards();
-        setCards(shuffleCards([...memoryCards, ...memoryCards]));
-        console.log('Fetched data:', memoryCards); // Debugging statement
-        debugger;
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching memory cards:', error);
-        setError("Error fetching memory cards.");
-        setLoading(false);
+  const disable = () => {
+    setShouldDisableAllCards(true);
+  };
+  const enable = () => {
+    setShouldDisableAllCards(false);
+  };
+
+  const checkCompletion = () => {
+    if (Object.keys(clearedCards).length === uniqueCardsArray.length) {
+      setShowModal(true);
+      const highScore = Math.min(moves, bestScore);
+      setBestScore(highScore);
+      localStorage.setItem("bestScore", highScore.toString());
+    }
+  };
+
+  const evaluate = () => {
+    const [first, second] = openCards;
+    enable();
+    if (cards[first].type === cards[second].type) {
+      setClearedCards((prev) => ({ ...prev, [cards[first].type]: true }));
+      setOpenCards([]);
+      return;
+    }
+    
+    timeout.current = setTimeout(() => {
+      setOpenCards([]);
+    }, 500);
+  };
+  const handleCardClick = (index: number) => {
+    if (openCards.length === 1) {
+      setOpenCards((prev) => [...prev, index]);
+      setMoves((moves) => moves + 1);
+      disable();
+    } else {
+      if (timeout.current) {
+        clearTimeout(timeout.current);
       }
-    };
-    fetchData();
-  }, []);
+      setOpenCards([index]);
+    }
+  };
 
   useEffect(() => {
     let timeoutRef: NodeJS.Timeout | null = null;
@@ -64,58 +91,12 @@ export function Memory() {
     checkCompletion();
   }, [clearedCards]);
 
-  const disable = () => {
-    setShouldDisableAllCards(true);
-  };
-
-  const enable = () => {
-    setShouldDisableAllCards(false);
-  };
-
-  const checkCompletion = () => {
-    if (Object.keys(clearedCards).length === cards.length / 2) {
-      setShowModal(true);
-      const highScore = Math.min(moves, bestScore);
-      setBestScore(highScore);
-      localStorage.setItem("bestScore", highScore.toString());
-    }
-  };
-
-  // check properties :/
-
-  const evaluate = () => {
-    const [first, second] = openCards;
-    enable();
-    if (cards[first].attributes.name === cards[second].attributes.name) {
-      setClearedCards((prev) => ({ ...prev, [cards[first].attributes.name]: true }));
-      setOpenCards([]);
-      return;
-    }
-
-    timeout.current = setTimeout(() => {
-      setOpenCards([]);
-    }, 500);
-  };
-
-  const handleCardClick = (index: number) => {
-    if (openCards.length === 1) {
-      setOpenCards((prev) => [...prev, index]);
-      setMoves((moves) => moves + 1);
-      disable();
-    } else {
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-      setOpenCards([index]);
-    }
-  };
-
   const checkIsFlipped = (index: number) => {
     return openCards.includes(index);
   };
 
-  const checkIsInactive = (card: MemoryCard) => {
-    return Boolean(clearedCards[card.attributes.name]);
+  const checkIsInactive = (card: CardType) => {
+    return Boolean(clearedCards[card.type]);
   };
 
   const handleRestart = () => {
@@ -124,29 +105,21 @@ export function Memory() {
     setShowModal(false);
     setMoves(0);
     setShouldDisableAllCards(false);
-    setCards(shuffleCards([...cards.slice(0, cards.length / 2), ...cards.slice(0, cards.length / 2)]));
+    setCards(shuffleCards([...uniqueCardsArray, ...uniqueCardsArray]));
   };
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
 
   return (
     <div className="memory flex flex-col items-center justify-center">
       <header className="text-center animate-slide-in-1">
         <h1 className="text-6xl font-bold text-white mt-4 text-left md:text-center">Mikia Memory Challenge</h1>
-        <p className="mt-4 text-lg">
-          Selecciona dos cartas iguales para hacerlas desaparecer
+        <p className="mt-4 text-2xl font-bold">
+            Selecciona dos cartas iguales para hacerlas desaparecer
         </p>
       </header>
-      <div className="card-container animate-slide-in-2">
+      <div className="card-container animate-slide-in-2 mt-8">
         {cards.map((card, index) => (
           <Card
-            key={card.id}
+            key={index}
             card={card}
             index={index}
             isDisabled={shouldDisableAllCards}
@@ -168,14 +141,14 @@ export function Memory() {
           )}
         </div>
         <div className="flex justify-center">
-          <button onClick={handleRestart} className="bg-orange-500 rounded-md mt-4 p-4 font-bold uppercase animate-slide-in-4">Reiniciar</button>
+            <button onClick={handleRestart} className="bg-orange-500 rounded-full px-12 mt-4 p-4 font-bold uppercase animate-slide-in-4 text-2xl">Reiniciar</button>
         </div>
         <Nav />
       </footer>
-      {showModal &&
+      { showModal && 
         <>
-          <p>You completed the challenge! Moves: {moves} | Score: {bestScore}</p>
-          <button onClick={handleRestart}>RESTART</button>
+            <p>¡Completaste el desafío! Jugadas: {moves} | Resultado: {bestScore}</p>
+            <button onClick={handleRestart}>RESTART</button>
         </>
       }
     </div>

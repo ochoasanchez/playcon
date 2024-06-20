@@ -1,14 +1,11 @@
 // import classnames from "classnames";
-import pokeball from "../assets/images/pokeball.png";
+import logo from "../assets/images/logo-blanco.png";
 // import "./card.scss";
 
 type CardProps = {
     onClick: (id: number) => void,
-    // card: Pokemon,
-    card: {
-      type: string,
-      image: string,
-    },
+    card: CardType,
+    // card: MemoryCard,
     index: number,
     isInactive?: boolean,
     isFlipped?: boolean,
@@ -31,11 +28,12 @@ const Card = ({ onClick, card, index, isInactive, isFlipped, isDisabled} : CardP
       className={`card ${isFlipped && 'is-flipped'} ${isInactive && 'is-inactive'}`}
       onClick={handleClick}
     >
-      <div className="card-face card-font-face">
-        <img src={pokeball} alt="pokeball" />
+      <div className="card-face card-front-face">
+        <img src={logo} alt="Mikia" />
       </div>
       <div className="card-face card-back-face">
-        <img src={card.image} alt="pokeball" />
+      <img src={card.image} alt={card.type} />
+      {/* <img src={card.attributes.imageUrl} alt={card.attributes.name} /> */}
       </div>
     </div>
   );
