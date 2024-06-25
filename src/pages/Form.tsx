@@ -2,14 +2,17 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Nav from "../components/Nav";
+import { ActionButton } from '../components/ActionButton';
 
 export function Form() {
     const [formData, setFormData] = useState({
-        name: null,
-        phone: null,
-        company: null,
-        position: null
+        name: "",
+        phone: "",
+        company: "",
+        position: ""
     });
+
+    localStorage.clear();
     
     const [loading, setLoading] = useState(false);
 
@@ -23,6 +26,11 @@ export function Form() {
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+
+        const isFormInvalid = formData.name === "" || formData.phone === "" || formData.company === "" || formData.position === "";   
+        
+        if (isFormInvalid) return;
+
         e.preventDefault();
         setLoading(true);
         
@@ -38,8 +46,10 @@ export function Form() {
             const response = await axios.post('http://localhost:1337/api/clients', data, config);
             console.log('Data submitted successfully:', response.data);
 
-             // Store response data in localStorage
             localStorage.setItem('userData', JSON.stringify(response.data));
+            localStorage.setItem('userHasPlayed', "false");
+            localStorage.setItem('userIsRegistered', "false");
+
             navigate("/menu");
             debugger;
         } catch (error) {
@@ -58,7 +68,7 @@ export function Form() {
             <div className="flex flex-col w-full md:w-8/12 lg:w-3/12 mt-8">
                 <form className="flex flex-col" onSubmit={handleSubmit}>
                     <div className="animate-slide-in-1 mt-4">
-                        <label htmlFor="name">Nombre</label>
+                        <label htmlFor="name">Nombre y Apellido</label>
                         <input 
                             type="text" 
                             name="name" 
@@ -106,7 +116,8 @@ export function Form() {
                         />
                     </div>
                     <p className="text-3xl mt-8 text-center font-bold">¡Compite y participa por premios sopresa!</p>
-                    <button type="submit" className="bg-orange-500 rounded-full mt-8 py-4 animate-slide-in-5 uppercase font-bold text-2xl" disabled={loading}>Siguiente</button>
+                    <ActionButton type="submit" text="Siguiente" disabled={loading}/>
+                    <button type="submit"  className="bg-orange-500 rounded-full mt-8 py-4 animate-slide-in-5 uppercase font-bold text-2xl" disabled={loading}>Siguiente</button>
                     <Nav />
                 </form>
             </div>

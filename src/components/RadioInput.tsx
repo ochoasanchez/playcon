@@ -25,7 +25,7 @@ const RadioInput = ({ id, index, label, selectedOption, onChange }: RadioInputPr
         checked={isSelected} 
         onChange={() => {}}
       />
-      <label htmlFor={id} className="text-black ml-3">{label}</label>
+      <label htmlFor={id} className="text-black text-2xl ml-3">{label}</label>
     </div>
   );
 }

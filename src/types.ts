@@ -33,11 +33,52 @@ type CardsData = {
     }
 }
 
-type ScoreType = {
+// type ScoreType = {
+//     playerId: number,
+//     playerName: string,
+//     playerCompany: string,
+//     scoreValue: number,
+//     scoreType: string, 
+//     game: string 
+// }
+
+interface TriviaAnswerAttrs {
+    options: string[];
+  }
+  
+  interface TriviaQuestionAttrs {
+    title: string;
+    options: TriviaAnswerAttrs;
+    answer: string;
+  }
+  
+  interface TriviaQuestion {
+    attributes: TriviaQuestionAttrs;
+  }
+  
+  interface QuestionsData {
+    data: TriviaQuestion[];
+  }
+  
+  interface TriviaData {
+    questions: QuestionsData;
+  }
+  
+  type ScoreType = {
     playerId: number,
     playerName: string,
     playerCompany: string,
     scoreValue: number,
-    scoreType: string, 
-    game: string 
-}
+    scoreType: string,
+    game: string
+  }
+
+   
+  type ParticipantType = {
+    userId: number,
+    userName: string,
+    userCompany: string,
+    userPhone: string,
+    level: number,
+    hasPlayed: boolean,
+  }

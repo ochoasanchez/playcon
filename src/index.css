@@ -152,9 +152,28 @@
 	}
 }
 
-.orange-circle{
-  /* @apply bg-orange-500 w-full h-72 flex flex-col; */
-  @apply flex flex-col;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+.trivia-score {
+  position: relative;
+  height: 100vh; /* Ensure it takes the full viewport height */
+}
+
+.orange-circle {
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  right: 0;
+  background-color: #ff6f00;
+  border-radius: 50% 50% 0 0;
+  width: 120%;
+  height: 40%; /* Adjust as necessary */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  position: relative;
+  z-index: 1;
+  margin-top: -30px; /* Adjust as necessary to ensure it is above the circle */
 }
