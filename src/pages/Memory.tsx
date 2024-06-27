@@ -37,7 +37,7 @@ export function Memory() {
         const memoryCards = await getMemoryCards();
         setCards(shuffleCards([...memoryCards, ...memoryCards]));
         console.log('Fetched data:', memoryCards); // Debugging statement
-        debugger;
+        // debugger;
         setLoading(false);
       } catch (error) {
         console.error('Error fetching memory cards:', error);

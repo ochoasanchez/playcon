@@ -6,6 +6,8 @@ import { Trivia } from './pages/Trivia'
 import { Memory } from './pages/MemoryLegacy'
 import { Participate } from './pages/Participate'
 import { Raffle } from './pages/Raffle'
+import { MemoryScoreboard } from './pages/MemoryScoreboard'
+import { TriviaScoreboard } from './pages/TriviaScoreboard'
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <Route path="/memory" element={<Memory />} />
       <Route path="/participate" element={<Participate />} />
       <Route path="/sorteo" element={<Raffle />} />
+      <Route path="/memory/scoreboard" element={<MemoryScoreboard />} />
+      <Route path="/trivia/scoreboard" element={<TriviaScoreboard />} />
     </Routes>
   )
 }

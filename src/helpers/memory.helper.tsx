@@ -18,7 +18,7 @@ const getMemoryCards = async () => {
 
         const cards = response.data.data[0].attributes.cards.data;
         console.log(cards);
-        debugger;
+        // debugger;
 
         return cards;
     } catch (error) {
@@ -72,11 +72,11 @@ const getMemoryScoreboard = async () => {
 // };
 
 const sendMemoryData = async (scoreData: ScoreType) => {
-    debugger;
+    // debugger;
     try {
       const response = await sendScore({data: scoreData});
       console.log('Data submitted successfully:', response.data);
-      debugger;
+    //   debugger;
     } catch (error) {
       console.error('Error submitting data:', error);
     }

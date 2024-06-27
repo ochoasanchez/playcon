@@ -6,12 +6,14 @@ const TriviaScore = ({ score, totalQuestions }: { score: number, totalQuestions:
 
     return (        
         <div className="trivia-score h-lvh w-full flex flex-col items-center mt-4 px-4 md:px-0 text-center relative">
-            <img src={image} className="w-96 mt-40" alt="Result" />
-            <p className="text-2xl">Respondiste {score} de {totalQuestions} preguntas correctamente</p>
+            <img src={image} className="w-8/12 mt-12" alt="Result" />
+            <p className="text-3xl">Respondiste {score} de {totalQuestions} preguntas correctamente</p>
             <div className="orange-circle">
-                <p className="score-message font-bold text-4xl">{message}</p>
-                <ActionButton url="/scoreboard/trivia" text="Ver tabla de posiciones" className="bg-white text-orange-500" />
-                <ActionButton url="/menu" text="Volver al menú" className="bg-white text-orange-500" />
+                <p className="score-message font-splash text-4xl">{message}</p>
+                <div className="flex">
+                    <ActionButton url="/trivia/scoreboard" text="Ver tabla" className="w-fit"/>
+                    <ActionButton url="/menu" text="Volver" className="w-fit" />
+                </div>
             </div>
         </div>
     );

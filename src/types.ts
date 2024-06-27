@@ -82,3 +82,22 @@ interface TriviaAnswerAttrs {
     level: number,
     hasPlayed: boolean,
   }
+
+
+
+interface ScoreAttributes {
+  playerId: number;
+  playerName: string;
+  playerCompany: string;
+  scoreValue: number;
+  scoreType: string;
+  game: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
+interface ScoreEntry {
+  id: number;
+  attributes: ScoreAttributes;
+}

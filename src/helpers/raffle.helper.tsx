@@ -15,7 +15,7 @@ const signUpParticipant = async (data: ParticipantType ) => {
         },
       });
       console.log('signUpResponse:', response)
-      debugger;
+      // debugger;
       
       return response.data;
 
@@ -36,7 +36,7 @@ const getRaffleParticipants = async () => {
         },
       });
       console.log('Participants:', response.data)
-      debugger;
+      // debugger;
       return response.data;
   
     } catch (error) {

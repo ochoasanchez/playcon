@@ -20,12 +20,10 @@ export function Raffle() {
 
     const startRaffle = () => {
         if (raffleParticipants && raffleParticipants.data.length > 0) {
-            debugger;
             setIsLoading(true);
 
             const winner = raffleParticipants.data[Math.floor(Math.random() * raffleParticipants.data.length)];
             setRaffleWinner(winner);
-            debugger;
 
             setTimeout(() => {
                 setIsLoading(false)
@@ -35,16 +33,22 @@ export function Raffle() {
 
     return (
         <div className="h-lvh w-full flex flex-col items-center justify-center px-4 md:px-0 animate-slide-in-1">
-            <div className="flex flex-col w-full md:w-10/12 lg:w-8/12 text-center py-6">
-                <h1 className="text-6xl font-bold mt-2 uppercase">Sorteo <br /> Principal</h1>
-                {/* <p className="text-3xl mt-8 font-bold">Regístrate ahora y gana un<br /> premio sensacional</p> */}
-            </div>
-            <div className="flex flex-col w-full md:w-8/12 lg:w-3/12 mt-4 text-center">
-                <ActionButton onClick={startRaffle} text="Empezar rifa" />
-            </div>
             {isLoading && <p>Loading...</p>}
-            {!isLoading && raffleWinner && (
-                <p>El ganador es: {raffleWinner.attributes.userName}</p>
+            {!isLoading && raffleWinner ? (
+                <>
+                    <p className="text-4xl font-bold animate-bounce">El ganador es: {raffleWinner.attributes.userName}</p>
+                    <ActionButton url="/menu" text="Volver al menu" />
+                </>
+            ) : (
+                <>
+                    <div className="flex flex-col w-full md:w-10/12 lg:w-8/12 text-center py-6">
+                        <h1 className="text-6xl font-bold mt-2 uppercase">Sorteo <br /> Principal</h1>
+                        {/* <p className="text-3xl mt-8 font-bold">Regístrate ahora y gana un<br /> premio sensacional</p> */}
+                    </div>
+                    <div className="flex flex-col w-full md:w-8/12 lg:w-3/12 mt-4 text-center">
+                        <ActionButton onClick={startRaffle} text="Empezar rifa" />
+                    </div>
+                </>
             )}
         </div>
     );

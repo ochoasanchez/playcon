@@ -4,6 +4,7 @@ import { cardsArray as uniqueCardsArray } from '../utils/pokemons.constants';
 import Nav from "../components/Nav";
 import { sendMemoryData } from "../helpers/memory.helper";
 import { ActionButton } from "../components/ActionButton";
+import MemoryScore from "../components/MemoryScore";
 
 interface CardType {
   id: number;
@@ -140,7 +141,7 @@ export function Memory() {
       };
 
       sendMemoryData(scoreData);
-      debugger;
+      // debugger;
     }
   }, [isCompleted]);
 
@@ -149,11 +150,12 @@ export function Memory() {
   // FINALIZAR / JUGAR DE NUEVO
   if (isCompleted) return (
     <>
-      <p>¡Completaste el desafío! Tiempo: {(elapsedTime / 1000).toFixed(3)} segundos</p>
+      <MemoryScore timeInMs={elapsedTime} />
+      {/* <p>¡Completaste el desafío! Tiempo: {(elapsedTime / 1000).toFixed(3)} segundos</p>
       
-      <ActionButton url="/trivia" text="Desafío mental" />
-      <ActionButton onClick={handleRestart} text="Reiniciar" />
-      {/* <button onClick={handleRestart}>Restart</button> */}
+      <ActionButton url="/memory/scoreboard" text="Ver tabla" />
+      <ActionButton url="/menu" text="Volver" className="ml-2" />
+      <button onClick={handleRestart}>Reiniciar</button> */}
     </>
 
   ) 

@@ -62,7 +62,7 @@ export function Participate() {
             console.log("Raffle response:", response);
             
             localStorage.setItem('userIsRegistered', "true");
-            debugger;
+            // debugger;
           } catch (error) {
             console.error('Error submitting data:', error);
         }

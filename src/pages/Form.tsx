@@ -51,7 +51,7 @@ export function Form() {
             localStorage.setItem('userIsRegistered', "false");
 
             navigate("/menu");
-            debugger;
+            // debugger;
         } catch (error) {
             console.error('Error submitting data:', error);
         }
@@ -66,7 +66,7 @@ export function Form() {
                 {/* <p className="text-xl mt-4">Completa nuestro formulario y recibe actualizaciones, ofertas especiales y contenido exclusivo de nuestra empresa</p> */}
             </header>
             <div className="flex flex-col w-full md:w-8/12 lg:w-3/12 mt-8">
-                <form className="flex flex-col" onSubmit={handleSubmit}>
+                <form className="flex flex-col text-2xl" onSubmit={handleSubmit}>
                     <div className="animate-slide-in-1 mt-4">
                         <label htmlFor="name">Nombre y Apellido</label>
                         <input 
@@ -117,7 +117,7 @@ export function Form() {
                     </div>
                     <p className="text-3xl mt-8 text-center font-bold">¡Compite y participa por premios sopresa!</p>
                     <ActionButton type="submit" text="Siguiente" disabled={loading}/>
-                    <button type="submit"  className="bg-orange-500 rounded-full mt-8 py-4 animate-slide-in-5 uppercase font-bold text-2xl" disabled={loading}>Siguiente</button>
+                    {/* <button type="submit"  className="bg-orange-500 rounded-full mt-8 py-4 animate-slide-in-5 uppercase font-bold text-2xl" disabled={loading}>Siguiente</button> */}
                     <Nav />
                 </form>
             </div>
