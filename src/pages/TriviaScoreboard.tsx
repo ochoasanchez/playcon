@@ -1,4 +1,3 @@
-import icons from "../assets/images/icons.png";
 import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
 import { getTriviaScoreboard } from "../helpers/trivia.helper";
@@ -27,40 +26,41 @@ export function TriviaScoreboard() {
     }
 
     // Sort the scores by scoreValue in ascending order
-    // const sortedScores = scoreboard.sort((a, b) => a.attributes.scoreValue - b.attributes.scoreValue);
     const sortedScores = scoreboard ? scoreboard.sort((a, b) => b.attributes.scoreValue - a.attributes.scoreValue) : [];
 
     return (
-        <div className="h-lvh w-full flex flex-col items-center justify-center px-4 md:px-0 animate-slide-in-1">
-            <div className="flex flex-col w-full md:w-10/12 lg:w-8/12 text-center py-6">
-                <h1 className="text-6xl font-bold mt-2 uppercase">Tabla de Posiciones</h1>
-                <p className="text-3xl mt-8 font-bold">Mikia Memory Challenge</p>
-                <table className="min-w-full mt-12 text-2xl">
-                    <thead>
-                        <tr>
-                            <th className="py-2">Lugar</th>
-                            <th className="py-2">Nombre</th>
-                            <th className="py-2">Compañía</th>
-                            <th className="py-2">Puntaje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {sortedScores.map((score, index) => (
-                            <tr key={score.id}>
-                                <td className="py-2">{index + 1}</td>
-                                <td className="py-2">{score.attributes.playerName}</td>
-                                <td className="py-2">{score.attributes.playerCompany}</td>
-                                <td className="py-2">{score.attributes.scoreValue}</td>
+        <main className="animate-slide-in-1 px-6">
+            {/* <div className="flex flex-col w-full text-center py-6"> */}
+                <h1 className="main__title font-bold uppercase">Tabla de Posiciones</h1>
+                <p className="main__subtitle">Desafío Mental</p>
+                <div className="mt-12 h-4/6 overflow-y-auto w-full">
+                    <table className="w-full">
+                        <thead>
+                            <tr className="bg-orange-500 rounded-md text-5xl">
+                                <th className="py-2">Lugar</th>
+                                <th className="py-2">Nombre</th>
+                                <th className="py-2">Compañía</th>
+                                <th className="py-2">Puntos</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody className="text-5xl text-center">
+                            {sortedScores.map((score, index) => (
+                                <tr key={score.id}>
+                                    <td className="py-4">{index + 1}</td>
+                                    <td className="py-4">{score.attributes.playerName}</td>
+                                    <td className="py-4">{score.attributes.playerCompany}</td>
+                                    <td className="py-4">{score.attributes.scoreValue}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            {/* </div> */}
             <div className="flex flex-col w-full md:w-8/12 lg:w-3/12 mt-4 text-center">
                 <ActionButton url="/menu" text="Volver" />
-                <img src={icons} className="mt-16" alt="Icons" />
+                {/* <img src={icons} className="mt-16" alt="Icons" /> */}
                 <Nav />
             </div>
-        </div>
+        </main>
     )
 }

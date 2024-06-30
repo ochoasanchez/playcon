@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Intensa Fuente";
-  src: url("../assets/fonts/Intensafuente.ttf") format("truetype");;
+  src: url("assets/fonts/Intensafuente.ttf") format("truetype");;
 }
 
 :root {
@@ -93,13 +93,17 @@
   margin: 0 auto;
 }
 
+.btn-alternate {
+  @apply bg-white text-orange-500;
+}
+
 .card-container {
-  @apply gap-4 mt-4 grid grid-cols-3 grid-rows-4 max-w-max;
+  @apply gap-4 mt-8 grid grid-cols-3 grid-rows-4 max-w-max;
 }
 
 
 .card {
-  @apply h-32 w-32 flex items-center justify-center mx-auto;
+  @apply w-64 h-64 flex items-center justify-center mx-auto;
   background-color: #0a452c;
   border-radius: 1rem;
   transition: 0.3s;
@@ -110,7 +114,17 @@
 
 
 .card-face.card-front-face > img {
-  @apply h-20 w-20;
+  @apply h-32;
+}
+
+#confetti{
+	background: #000;
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: -1;
 }
 
 
@@ -174,7 +188,7 @@
   background-color: #ff6f00;
   border-radius: 50% 50% 0 0;
   width: 120%;
-  height: 40%; /* Adjust as necessary */
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -185,4 +199,39 @@
   position: relative;
   z-index: 1;
   margin-top: -30px; /* Adjust as necessary to ensure it is above the circle */
+}
+
+#confetti{
+  background: linear-gradient(-45deg, #8fc333, #007b9a);
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: -1;
+}
+
+main {
+  @apply h-lvh w-full flex flex-col items-center justify-center gap-y-12;
+}
+
+.main__title {
+  @apply text-8xl font-bold text-center;
+}
+
+.main__subtitle {
+  @apply text-6xl font-bold text-center;
+}
+/* form > div > label {
+  @apply text-5xl;
+} */
+.form__label {
+  @apply text-5xl;
+}
+.form__input {
+  @apply flex w-full rounded-md px-3 py-4 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-600 outline-none text-black text-5xl mt-2;
+}
+
+.score-message{
+  line-height: 0.8;
 }

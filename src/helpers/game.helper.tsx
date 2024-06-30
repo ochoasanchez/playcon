@@ -30,7 +30,7 @@ const sendScore = async ({data} : {data: ScoreType }) => {
 function getResultMessage(scoreValue: number, game: string) {
   
   const badMessage = "Hoy como que no es tu día de suerte";
-  const regularMessage = "Parece que estás en entrando en granjas desconocidas";
+  const regularMessage = "Parece que estás entrando en granjas desconocidas";
   const goodMessage = "Estamos en una academia de genios y tú pareces el líder";
 
   if (game === "trivia") {
@@ -53,20 +53,23 @@ function getResultMessage(scoreValue: number, game: string) {
   }
 
   // Memory
-  if (scoreValue > 30) {
+  if (scoreValue/1000 <= 15) {
+    // debugger;
       return {
-          image: escudoTriste,
-          message: badMessage,
+          image: escudoFeliz,
+          message: goodMessage,
       };
-  } else if (scoreValue > 15) {
+  } else if (scoreValue/1000 <= 25) {
+    // debugger;
       return {
           image: escudoBurla,
           message: regularMessage,
       };
   } else {
+    // debugger;
       return {
-          image: escudoFeliz,
-          message: goodMessage,
+          image: escudoTriste,
+          message: badMessage,
       };
   }
 }

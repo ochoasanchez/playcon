@@ -19,7 +19,8 @@ export function Participate() {
 
     const userData = JSON.parse(localStorage.getItem('userData') || '{}');
     const userHasPlayed = JSON.parse(localStorage.getItem('userHasPlayed') || '{}');
-    const userIsRegistered = JSON.parse(localStorage.getItem('userIsRegistered') || '{}');
+    // const userIsRegistered = JSON.parse(localStorage.getItem('userIsRegistered') || '{}');
+    const userIsRegistered = true;
 
     // debugger
     if (isLoading) {
@@ -33,10 +34,10 @@ export function Participate() {
         return (
                    
             <div className="trivia-score h-lvh w-full flex flex-col items-center justify-center mt-4 px-4 md:px-0 text-center relative">
-                <img src={escudoFeliz} className="w-96" alt="Result" />
-                <p className="text-4xl mt-4">¡Ya estás participando en el sorteo!</p>
+                <img src={escudoFeliz} className="w-8/12" alt="Result" />
+                <p className="text-5xl mt-4 font-bold">¡Gracias por registrarte!</p>
                     {/* <p className="score-message font-bold text-4xl">{message}</p> */}
-                <ActionButton url="/menu" text="Volver" className="mt-8"/>
+                <ActionButton url="/" text="Volver" className="mt-8"/>
             </div>
         )
     }

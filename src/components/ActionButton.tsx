@@ -10,7 +10,7 @@ type ActionButtonProps = {
 }
 
 export function ActionButton({ url, type, text, onClick, className, disabled }: ActionButtonProps) {
-    const baseClasses = "bg-orange-500 rounded-full py-4 px-8 font-bold uppercase mt-4 text-2xl";
+    const baseClasses = "bg-orange-500 rounded-full py-8 px-8 font-bold uppercase text-5xl w-full text-center flex items-center justify-center";
     const combinedClasses = `${baseClasses} ${className ?? ''}`;
 
     return (
