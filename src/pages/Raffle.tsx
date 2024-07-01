@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { getRaffleParticipants } from "../helpers/raffle.helper";
 import { ActionButton } from "../components/ActionButton";
 import { useParams } from "react-router-dom";
-import logo from "../assets/images/logo-blanco.png";
-import escudoFeliz from "../assets/images/escudo-feliz.gif";
+import escudoGanador from "../assets/images/escudo-ganador.gif";
 import Logo from "../components/Logo";
+import useWindowDimensions from '../helpers/app.helper';
+import Confetti from 'react-confetti'
+import Loader from "../components/Loader";
 
 export function Raffle() {
     const [raffleParticipants, setRaffleParticipants] = useState<any>(null);
@@ -13,6 +15,7 @@ export function Raffle() {
     const [isLoading, setIsLoading] = useState(false);
 
     const { tipo } = useParams<{ tipo: 'main' | 'memory' | 'trivia' }>();
+    const { width, height } = useWindowDimensions();
 
     console.log(tipo);
     // debugger;
@@ -63,21 +66,28 @@ export function Raffle() {
             // debugger;
             setTimeout(() => {
                 setIsLoading(false)
-            }, 3000);
+            }, 7000);
         }
     };
 
+    if (isLoading) return <Loader roulette={true} />;
+
     return (
         <main className="px-12">
-            {isLoading && <p>Loading...</p>}
             {!isLoading && raffleWinner ? (
                 <>
+                    <Confetti
+                    width={width}
+                    height={height}
+                    gravity={0.05}
+                    numberOfPieces={420}
+                    />
                     <Logo />
                     <p className="main__subtitle uppercase mt-8">El ganador es</p>
                     <div className="bg-orange-500 text-white p-4 mt-8 rounded-md">
-                        <p className="text-9xl font-bold uppercase">{raffleWinnerName}</p>
+                        <p className="text-9xl font-bold uppercase text-center">{raffleWinnerName}</p>
                     </div>
-                    <img src={escudoFeliz} className="w-8/12" alt="Result" />
+                    <img src={escudoGanador} className="w-10/12 ml-24" alt="Result" />
                     <ActionButton url="/sorteo" text="Volver al menu"  className="btn-alternate" />
                 </>
             ) : (
@@ -85,10 +95,8 @@ export function Raffle() {
                     <Logo />
                     <h1 className="main__title font-bold uppercase w-10/12">{getRaffleName(tipo)}</h1>
                     <p className="main__subtitle mt-8 font-bold">¿Será que hoy es tu día de suerte? <br />Vamos a descubrirlo...</p> 
-                    {/* <div className="flex flex-col w-full md:w-8/12 lg:w-6/12 text-center mt-4 animate-slide-in-2"> */}
                     <ActionButton onClick={startRaffle} text="Empezar" />
                     <ActionButton url="/sorteo" text="Volver" className="btn-alternate" />
-                    {/* </div> */}
                 </>
             )}
         </main>

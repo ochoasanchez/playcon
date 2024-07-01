@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import { useEffect, useState } from "react";
 import { getTriviaScoreboard } from "../helpers/trivia.helper";
 import { ActionButton } from "../components/ActionButton";
+import Loader from "../components/Loader";
 
 export function TriviaScoreboard() {
     const [isLoading, setIsloading] = useState(true);
@@ -19,11 +20,7 @@ export function TriviaScoreboard() {
 
     useEffect(() => { getScoreboard() }, []);
 
-    if (isLoading) {
-        return (
-            <p>Loading...</p>
-        )
-    }
+    if (isLoading) return <Loader />;
 
     // Sort the scores by scoreValue in ascending order
     const sortedScores = scoreboard ? scoreboard.sort((a, b) => b.attributes.scoreValue - a.attributes.scoreValue) : [];

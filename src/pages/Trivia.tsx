@@ -4,13 +4,14 @@ import Nav from "../components/Nav";
 import { getTriviaQuestions, sendTriviaData } from "../helpers/trivia.helper";
 import TriviaScore from "../components/TriviaScore";
 import { ActionButton } from "../components/ActionButton";
+import Loader from "../components/Loader";
 
 export function Trivia() {
   const [triviaQuestion, setTriviaQuestion] = useState<TriviaData | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
   const [score, setScore] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -25,7 +26,7 @@ export function Trivia() {
         console.error("Error fetching trivia questions:", error);
         setError("Error fetching trivia questions.");
       }
-      setLoading(false);
+      setIsLoading(false);
     };
     fetchData();
   }, []);
@@ -81,13 +82,9 @@ export function Trivia() {
     };
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  if (isLoading) return <Loader />;
 
-  if (error) {
-    return <p>{error}</p>;
-  }
+  if (error) return <p>{error}</p>;
 
   if (
     !triviaQuestion ||
@@ -101,7 +98,7 @@ export function Trivia() {
   if (isCompleted) {
     return (
       <TriviaScore
-        score={score}
+        score={4}
         totalQuestions={triviaQuestion.questions.data.length}
       />
     );

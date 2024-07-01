@@ -14,23 +14,17 @@ export function Form() {
         email: ""
     });
 
-    // localStorage.clear();
-    
     const [loading, setLoading] = useState(false);
     const [isPlayer, setIsPlayer] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
-    const { player } = useParams<{ player?: string }>();  // useParams to capture player parameter
-    // debugger;
+    const { player } = useParams<{ player?: string }>();  
 
     useEffect(() => {
         if (player) {
             setIsPlayer(true);  
-            console.log("Player parameter:", player);
-            // debugger;
         } else {
             setIsPlayer(false);
-            console.log("Player parameter not found");
-            // debugger;
         }
     }, [player]);
 
@@ -41,12 +35,13 @@ export function Form() {
         });
     };
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setShowModal(true);
+    };
 
-        const isFormInvalid = formData.name === "" || formData.phone === "" || formData.company === "" || formData.position === "";   
-        if (isFormInvalid) return;
-
+    const handleSubmit = async () => {
+        setShowModal(false);
         setLoading(true);
         
         const token = import.meta.env.VITE_STRAPI_TOKEN;
@@ -58,10 +53,7 @@ export function Form() {
         }
 
         try {
-            // TODO post to 'Participants'
             const response = await axios.post('http://localhost:1337/api/clients', data, config);
-            console.log('Data submitted successfully:', response.data);
-
             localStorage.setItem('userData', JSON.stringify(response.data));
             localStorage.setItem('userHasPlayed', "false");
             localStorage.setItem('userIsRegistered', "false");
@@ -74,20 +66,18 @@ export function Form() {
         }
     };
 
+    const handleGoBack = () => {
+        setShowModal(false);
+    };
+
     return (
         <main>
             <Logo />
             <header className="text-center animate-slide-in-1">
-                { isPlayer && <h1 className="main__title">
-                    ¡Completa este formulario <br/>y empieza el desafío!
-                </h1>}
-                { !isPlayer && <h1 className="main__title">
-                    ¡Completa este formulario!
-                </h1>}
-                
+                { isPlayer ? <h1 className="main__title">¡Completa este formulario <br/>y empieza el desafío!</h1> : <h1 className="main__title">¡Completa este formulario!</h1> }
             </header>
             <div className="flex flex-col w-full md:w-8/12 lg:w-8/12 mt-8">
-                <form className="flex flex-col gap-y-8" onSubmit={handleSubmit}>
+                <form className="flex flex-col gap-y-8" onSubmit={handleFormSubmit}>
                     <div className="animate-slide-in-1">
                         <label className="form__label" htmlFor="name">Nombre y Apellido</label>
                         <input 
@@ -138,11 +128,22 @@ export function Form() {
                             className="form__input"
                         />
                     </div>
-                    {/* <p className="text-3xl mt-8 text-center font-bold">¡Compite y participa por premios sopresa!</p> */}
                     <ActionButton type="submit" text="Siguiente" disabled={loading} className='mt-6 rounded-md'/>
                     <Nav />
                 </form>
             </div>
+
+            {showModal && (
+                <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+                    <div className="bg-white p-6 rounded-md flex flex-col w-10/12 gap-12 py-12">
+                        <p className="text-6xl text-center text-black">¿Confirmas que deseas enviar<br /> este formulario?</p>
+                        <div className="flex justify-center gap-12">
+                            <ActionButton onClick={handleGoBack} text="Volver" size='small' className='btn-alternate border-4 border-orange-500'/>
+                            <ActionButton onClick={handleSubmit} text="Enviar" size='small' />
+                        </div>
+                    </div>
+                </div>
+            )}
         </main>
     );
 }

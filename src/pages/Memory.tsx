@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
 import Nav from "../components/Nav";
 import getMemoryCards from "../helpers/memory.helper";
+import Loader from "../components/Loader";
 
 function shuffleCards<T>(array: T[]): T[] {
   const length = array.length;
@@ -128,7 +129,7 @@ export function Memory() {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   if (error) {

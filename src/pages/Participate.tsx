@@ -5,6 +5,7 @@ import { ActionButton } from "../components/ActionButton";
 import { useState } from "react";
 import { signUpParticipant } from "../helpers/raffle.helper";
 import escudoFeliz from "../assets/images/escudo-feliz.gif";
+import Loader from "../components/Loader";
 
 // TODO: Video or image background
 
@@ -23,11 +24,7 @@ export function Participate() {
     const userIsRegistered = true;
 
     // debugger
-    if (isLoading) {
-        return (
-            <p>Loading...</p>
-        )
-    }
+    if (isLoading) return <Loader />;
 
     if (userIsRegistered === true) {
         // debugger

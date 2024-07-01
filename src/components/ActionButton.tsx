@@ -7,11 +7,13 @@ type ActionButtonProps = {
     onClick?: () => void,
     className?: string,
     disabled?: boolean,
+    size?: 'small' | 'large',
 }
 
-export function ActionButton({ url, type, text, onClick, className, disabled }: ActionButtonProps) {
-    const baseClasses = "bg-orange-500 rounded-full py-8 px-8 font-bold uppercase text-5xl w-full text-center flex items-center justify-center";
-    const combinedClasses = `${baseClasses} ${className ?? ''}`;
+export function ActionButton({ url, type, text, onClick, className, disabled, size = 'large' }: ActionButtonProps) {
+    const baseClasses = "bg-orange-500 rounded-full font-bold uppercase text-5xl w-full text-center flex items-center justify-center";
+    const sizeClasses = size === 'large' ? "p-8" : "p-4";
+    const combinedClasses = `${baseClasses} ${sizeClasses} ${className ?? ''}`;
 
     return (
         url ? (

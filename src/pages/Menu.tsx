@@ -1,6 +1,4 @@
-import logo from "../assets/images/logo-blanco.png";
 import icons from "../assets/images/icons.png";
-import Nav from "../components/Nav";
 import { ActionButton } from "../components/ActionButton";
 import Logo from "../components/Logo";
 
