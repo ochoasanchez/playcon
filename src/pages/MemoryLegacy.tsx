@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
 import { cardsArray as uniqueCardsArray } from '../utils/pokemons.constants';
-import Nav from "../components/Nav";
 import { sendMemoryData } from "../helpers/memory.helper";
 import { ActionButton } from "../components/ActionButton";
 import MemoryScore from "../components/MemoryScore";
@@ -145,29 +144,19 @@ export function Memory() {
     }
   }, [isCompleted]);
 
+  if (isCompleted) return <MemoryScore timeInMs={elapsedTime} />;
   
-  // TODO FIX UI HERE AND CREATE BUTTON COMPONENT
-  // FINALIZAR / JUGAR DE NUEVO
-  if (isCompleted) return (
-    <>
-      <MemoryScore timeInMs={elapsedTime} />
-      {/* <p>¡Completaste el desafío! Tiempo: {(elapsedTime / 1000).toFixed(3)} segundos</p>
-      
-      <ActionButton url="/memory/scoreboard" text="Ver tabla" />
-      <ActionButton url="/menu" text="Volver" className="ml-2" />
-      <button onClick={handleRestart}>Reiniciar</button> */}
-    </>
-
-  ) 
-  
-
   return (
-    <main className="memory flex flex-col items-center justify-center">
-        <h1 className="main__title">Mikia Memory Challenge</h1>
-        <p className="main__subtitle">
-          Descubre todos los pares de cartas<br />en el menor tiempo posible
-        </p>
-      <div className="card-container animate-slide-in-2 mt-8">
+    <main className="memory gap-18">
+      <div className="flex flex-col gap-6">
+          <h1 className="main__title">Mikia Memory Challenge</h1>
+
+          <p className="main__subtitle">
+            Revela todos los pares de cartas<br />en el menor tiempo posible
+          </p>
+      </div>
+
+      <div className="card-container animate-slide-in-2 mt-4">
         {cards.map((card, index) => (
           <Card
             key={index}
@@ -180,19 +169,15 @@ export function Memory() {
           />
         ))}
       </div>
-      {/* <footer className="mt-4 animate-slide-in-3"> */}
-        <div className="flex justify-center gap-x-8 mt-2">
-          <div className="text-6xl">
-            <span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s
-          </div>
+
+        <div className="flex items-center justify-center gap-x-36 w-full mt-4">
+          <ActionButton url="/" text="Volver" className="btn-alternate w-min px-12" />
+
+          <ActionButton onClick={handleRestart} text="Reiniciar" className="w-min px-12"  />
+          
+          <p className="text-6xl"><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s
+          </p>
         </div>
-        <div className="flex justify-center gap-x-8 mt-2">
-          {/* <button onClick={handleRestart} className="bg-orange-500 rounded-full px-12 mt-4 p-4 font-bold uppercase animate-slide-in-4 text-2xl">Reiniciar</button> */}
-          <ActionButton url="/" text="Volver" className="btn-alternate" />
-          <ActionButton onClick={handleRestart} text="Reiniciar"  />
-        </div>
-        <Nav />
-      {/* </footer> */}
     </main>
   );
 }

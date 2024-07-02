@@ -1,5 +1,5 @@
 // import classnames from "classnames";
-import logo from "../assets/images/logo-blanco.png";
+import logo from "../assets/images/logo-white.svg";
 // import "./card.scss";
 
 type CardProps = {
@@ -32,7 +32,7 @@ const Card = ({ onClick, card, index, isInactive, isFlipped, isDisabled} : CardP
         <img src={logo} alt="Mikia" />
       </div>
       <div className="card-face card-back-face">
-      <img src={card.image} alt={card.type} />
+      <img src={card.image} alt={card.type} className="rounded-3xl"/>
       {/* <img src={card.attributes.imageUrl} alt={card.attributes.name} /> */}
       </div>
     </div>

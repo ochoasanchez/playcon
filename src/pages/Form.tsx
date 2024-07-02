@@ -71,12 +71,14 @@ export function Form() {
     };
 
     return (
-        <main>
-            <Logo />
-            <header className="text-center animate-slide-in-1">
+        <main className='gap-20'>
+            <div className="flex justify-center px-12 w-full">
+                <Logo />
+            </div>
+            <div className="text-center animate-slide-in-1">
                 { isPlayer ? <h1 className="main__title">¡Completa este formulario <br/>y empieza el desafío!</h1> : <h1 className="main__title">¡Completa este formulario!</h1> }
-            </header>
-            <div className="flex flex-col w-full md:w-8/12 lg:w-8/12 mt-8">
+            </div>
+            <div className="flex flex-col w-full md:w-8/12 lg:w-8/12">
                 <form className="flex flex-col gap-y-8" onSubmit={handleFormSubmit}>
                     <div className="animate-slide-in-1">
                         <label className="form__label" htmlFor="name">Nombre y Apellido</label>
@@ -128,16 +130,17 @@ export function Form() {
                             className="form__input"
                         />
                     </div>
-                    <ActionButton type="submit" text="Siguiente" disabled={loading} className='mt-6 rounded-md'/>
+                    {/* TODO: VOLVER BTN */}
+                    <ActionButton type="submit" text="Siguiente" disabled={loading} className='mt-6 rounded-xl animate-slide-in-5'/>
                     <Nav />
                 </form>
             </div>
 
             {showModal && (
                 <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-white p-6 rounded-md flex flex-col w-10/12 gap-12 py-12">
+                    <div className="bg-white p-6 rounded-md flex flex-col w-10/12 gap-16 py-16">
                         <p className="text-6xl text-center text-black">¿Confirmas que deseas enviar<br /> este formulario?</p>
-                        <div className="flex justify-center gap-12">
+                        <div className="flex justify-around px-12 gap-12">
                             <ActionButton onClick={handleGoBack} text="Volver" size='small' className='btn-alternate border-4 border-orange-500'/>
                             <ActionButton onClick={handleSubmit} text="Enviar" size='small' />
                         </div>

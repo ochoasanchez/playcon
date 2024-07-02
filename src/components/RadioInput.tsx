@@ -36,7 +36,7 @@ const RadioInput = ({
     <div
       className={`${backgroundColor} border-4 ${
         isSelected ? "border-orange-500" : "border-white"
-      } flex text-lg rounded-md px-6 py-6 transition duration-300 hover:border-orange-500 focus-within:border-orange-500 cursor-pointer animate-slide-in-${
+      } flex text-lg rounded-xl px-6 py-6 transition duration-300 hover:border-orange-500 focus-within:border-orange-500 cursor-pointer animate-slide-in-${
         index + 1
       }`}
       onClick={handleClick}

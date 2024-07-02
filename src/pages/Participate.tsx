@@ -1,4 +1,3 @@
-// import logo from "../assets/images/logo-blanco.png";
 import icons from "../assets/images/icons.png";
 import Nav from "../components/Nav";
 import { ActionButton } from "../components/ActionButton";
@@ -7,16 +6,9 @@ import { signUpParticipant } from "../helpers/raffle.helper";
 import escudoFeliz from "../assets/images/escudo-feliz.gif";
 import Loader from "../components/Loader";
 
-// TODO: Video or image background
-
 export function Participate() {
 
     const [isLoading, setIsloading] = useState(false);
-    // const [userIsRegistered, setUserIsRegistered] = useState(false);
-    // const user = localStorage.userData ? JSON.parse(localStorage.userData) : "";
-    // const userName = localStorage.userData ? user.data.attributes.name.replace(/ .*/,'') : "";
-
-    
 
     const userData = JSON.parse(localStorage.getItem('userData') || '{}');
     const userHasPlayed = JSON.parse(localStorage.getItem('userHasPlayed') || '{}');
@@ -30,12 +22,12 @@ export function Participate() {
         // debugger
         return (
                    
-            <div className="trivia-score h-lvh w-full flex flex-col items-center justify-center mt-4 px-4 md:px-0 text-center relative">
-                <img src={escudoFeliz} className="w-8/12" alt="Result" />
-                <p className="text-5xl mt-4 font-bold">¡Gracias por registrarte!</p>
+            <main className="px-12 animate-slide-in-1">
+                <img src={escudoFeliz} className="w-10/12" alt="Result" />
+                <p className="main__title mt-4 font-bold">¡Gracias por registrarte!</p>
                     {/* <p className="score-message font-bold text-4xl">{message}</p> */}
                 <ActionButton url="/" text="Volver" className="mt-8"/>
-            </div>
+            </main>
         )
     }
 
@@ -70,7 +62,7 @@ export function Participate() {
 
     
     return (
-        <div className="h-lvh w-full flex flex-col items-center justify-center px-4 md:px-0 animate-slide-in-1">
+        <main className="px-12 animate-slide-in-1">
             {/* <img src={logo} className="w-64"/> */}
             {/* <p className="mt-4">Producción y Comercialización de productos químicos 🧪</p> */}
             <div className="flex flex-col w-full md:w-10/12 lg:w-8/12 text-center py-6">
@@ -85,6 +77,6 @@ export function Participate() {
                 <Nav />
                 {/* <p>No eres Juan? Empieza una nueva partida</p> */}
             </div>
-        </div>
+        </main>
     )
 }
