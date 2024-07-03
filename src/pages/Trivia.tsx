@@ -105,24 +105,26 @@ export function Trivia() {
   }
 
   return (
-    <main className="gap-y-18 px-12">
+    <main className="gap-24 px-12">
       <h1 className="main__title uppercase">¡Descubramos<br /> cuánto sabes!</h1>
 
-      <div id="progressBar" className="flex w-lvw gap-6 md:gap-12 md:px-12">
-        {triviaQuestion.questions.data.map((_, i) => (
-          <div
-            key={i}
-            className={`w-full bg-${
-              i <= currentQuestionIndex ? "yellow-300" : "white"
-            } h-4 rounded-lg`}
-          ></div>
-        ))}
-      </div>
+      <div className="flex flex-col items-center gap-12">
+        <div id="progressBar" className="flex w-lvw gap-6 md:gap-12 md:px-12">
+          {triviaQuestion.questions.data.map((_, i) => (
+            <div
+              key={i}
+              className={`w-full bg-${
+                i <= currentQuestionIndex ? "yellow-300" : "white"
+              } h-4 rounded-lg`}
+            ></div>
+          ))}
+        </div>
 
-      <p className="text-yellow-300 text-5xl uppercase">
-        Pregunta {currentQuestionIndex + 1} de{" "}
-        {triviaQuestion.questions.data.length}
-      </p>
+        <p className="text-yellow-300 text-5xl uppercase">
+          Pregunta {currentQuestionIndex + 1} de{" "}
+          {triviaQuestion.questions.data.length}
+        </p>
+      </div>
 
       <div className="px-12">
         <h2
@@ -133,7 +135,6 @@ export function Trivia() {
         </h2>
       </div>
 
-      {/* <div className="flex flex-col w-full md:w-8/12 lg:w-8/12"> */}
         <form className="flex flex-col gap-y-6 min-w-full">
           {triviaQuestion.questions.data[
             currentQuestionIndex
@@ -153,18 +154,9 @@ export function Trivia() {
               }
             />
           ))}
-          <ActionButton onClick={handleNextQuestion} disabled={!selectedOption || showFeedback} text={"Siguiente"} className="rounded-md" />
-          {/* <button
-            type="button"
-            className="bg-orange-500 rounded-md py-4 font-bold uppercase animate-slide-in-5 text-3xl"
-            onClick={handleNextQuestion}
-            disabled={!selectedOption || showFeedback}
-          >
-            Siguiente
-          </button> */}
+          <ActionButton onClick={handleNextQuestion} disabled={!selectedOption || showFeedback} text={"Siguiente"} className="rounded-md animate-slide-in-5" />
         </form>
         <Nav />
-      {/* </div> */}
     </main>
   );
 }

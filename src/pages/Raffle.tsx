@@ -78,12 +78,12 @@ export function Raffle() {
                 <Confetti
                 width={width}
                 height={height}
-                gravity={0.05}
-                numberOfPieces={420}
+                gravity={0.03}
+                numberOfPieces={640}
                 />
                 <Logo />
                 <p className="main__subtitle uppercase mt-8">El ganador es</p>
-                <div className="bg-orange-500 text-white p-4 mt-8 rounded-md">
+                <div className="bg-orange-500 text-white p-4 mt-8 rounded-xl">
                     <p className="text-9xl font-bold uppercase text-center">{raffleWinnerName}</p>
                 </div>
                 <img src={escudoGanador} className="w-10/12 ml-24" alt="Result" />
