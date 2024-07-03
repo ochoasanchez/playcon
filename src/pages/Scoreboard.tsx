@@ -9,6 +9,7 @@ export function Scoreboard({ scoreboard, game } : { scoreboard: ScoreEntry[], ga
         if (game === 'memory' && scoreValue/1000 <= 15) return "bg-teal-500";
         if (game === 'memory' && scoreValue/1000 <= 25) return "bg-teal-600";
         if (game === 'memory' && scoreValue/1000 < 50) return "bg-teal-700";
+        if (game === 'trivia' && scoreValue === 0) return "bg-teal-800";
         if (game === 'trivia' && scoreValue < 3) return "bg-teal-700";
         if (game === 'trivia' && scoreValue < 5) return "bg-teal-600";
         if (game === 'trivia' && scoreValue === 5) return "bg-teal-500";

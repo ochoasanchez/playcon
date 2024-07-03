@@ -72,33 +72,35 @@ export function Raffle() {
 
     if (isLoading) return <Loader roulette={true} />;
 
+    if (!isLoading && raffleWinner) {
+        return (
+            <main className="px-12 animate-fade-in">
+                <Confetti
+                width={width}
+                height={height}
+                gravity={0.05}
+                numberOfPieces={420}
+                />
+                <Logo />
+                <p className="main__subtitle uppercase mt-8">El ganador es</p>
+                <div className="bg-orange-500 text-white p-4 mt-8 rounded-md">
+                    <p className="text-9xl font-bold uppercase text-center">{raffleWinnerName}</p>
+                </div>
+                <img src={escudoGanador} className="w-10/12 ml-24" alt="Result" />
+                <ActionButton url="/sorteo" text="Volver al menu"  className="btn-alternate" />
+            </main>
+        )
+    }
+
     return (
-        <main className="px-12">
-            {!isLoading && raffleWinner ? (
-                <>
-                    <Confetti
-                    width={width}
-                    height={height}
-                    gravity={0.05}
-                    numberOfPieces={420}
-                    />
-                    <Logo />
-                    <p className="main__subtitle uppercase mt-8">El ganador es</p>
-                    <div className="bg-orange-500 text-white p-4 mt-8 rounded-md">
-                        <p className="text-9xl font-bold uppercase text-center">{raffleWinnerName}</p>
-                    </div>
-                    <img src={escudoGanador} className="w-10/12 ml-24" alt="Result" />
-                    <ActionButton url="/sorteo" text="Volver al menu"  className="btn-alternate" />
-                </>
-            ) : (
-                <>
-                    <Logo />
-                    <h1 className="main__title font-bold uppercase w-10/12">{getRaffleName(tipo)}</h1>
-                    <p className="main__subtitle mt-8 font-bold">¿Será que hoy es tu día de suerte? <br />Vamos a descubrirlo...</p> 
-                    <ActionButton onClick={startRaffle} text="Empezar" />
-                    <ActionButton url="/sorteo" text="Volver" className="btn-alternate" />
-                </>
-            )}
+        <main className="px-12 gap-20 animate-fade-in">
+            <Logo />
+            <h1 className="main__title font-bold uppercase">{getRaffleName(tipo)}</h1>
+            <p className="main__subtitle mt-8 font-bold">¿Será que hoy es tu día de suerte? <br />Vamos a descubrirlo...</p> 
+            <div className="flex flex-col w-full gap-12">
+                <ActionButton onClick={startRaffle} text="Empezar" />
+                <ActionButton url="/sorteo" text="Volver" className="btn-alternate" />
+            </div>
         </main>
     );
 }

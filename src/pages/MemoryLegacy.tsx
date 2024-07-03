@@ -81,7 +81,14 @@ export function Memory() {
         const start = Date.now();
         setStartTime(start);
         intervalRef.current = setInterval(() => {
-          setElapsedTime(Date.now() - start);
+          const elapsed = Date.now() - start;
+          setElapsedTime(elapsed);
+          if (elapsed >= 50000) {
+            setIsCompleted(true);
+            if (intervalRef.current) {
+              clearInterval(intervalRef.current);
+            }
+          }
         }, 10);
       }
     }
@@ -109,7 +116,6 @@ export function Memory() {
   const checkIsInactive = (card: CardType) => {
     return Boolean(clearedCards[card.type]);
   };
-  
 
   const handleRestart = () => {
     setClearedCards({});
@@ -125,9 +131,9 @@ export function Memory() {
   };
 
   useEffect(() => {
-    if (isCompleted) {
+    if (isCompleted && elapsedTime < 50000) {
       const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-      
+
       localStorage.setItem('userHasPlayed', "true");
 
       const scoreData: ScoreType = {
@@ -140,20 +146,19 @@ export function Memory() {
       };
 
       sendMemoryData(scoreData);
-      // debugger;
     }
   }, [isCompleted]);
 
   if (isCompleted) return <MemoryScore timeInMs={elapsedTime} />;
-  
-  return (
-    <main className="memory gap-18">
-      <div className="flex flex-col gap-6">
-          <h1 className="main__title">Mikia Memory Challenge</h1>
 
-          <p className="main__subtitle">
-            Revela todos los pares de cartas<br />en el menor tiempo posible
-          </p>
+  return (
+    <main className="memory gap-12">
+      <div className="flex flex-col gap-6">
+        <h1 className="main__title">Mikia Memory Challenge</h1>
+
+        <p className="main__subtitle">
+          Revela todos los pares de cartas<br />en el menor tiempo posible
+        </p>
       </div>
 
       <div className="card-container animate-slide-in-2 mt-4">
@@ -170,14 +175,14 @@ export function Memory() {
         ))}
       </div>
 
-        <div className="flex items-center justify-center gap-x-36 w-full mt-4">
-          <ActionButton url="/" text="Volver" className="btn-alternate w-min px-12" />
+      <div className="flex items-center justify-center gap-x-14 w-full mt-4">
+        <ActionButton url="/" text="Volver" className="btn-alternate w-min px-12" />
 
-          <ActionButton onClick={handleRestart} text="Reiniciar" className="w-min px-12"  />
-          
-          <p className="text-6xl"><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s
-          </p>
-        </div>
+        <ActionButton onClick={handleRestart} text="Reiniciar" className="w-min px-12" />
+
+        <p className="text-6xl"><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s
+        </p>
+      </div>
     </main>
   );
 }

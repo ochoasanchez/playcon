@@ -53,13 +53,13 @@ function getResultMessage(scoreValue: number, game: string) {
   }
 
   // Memory
-  if (scoreValue/1000 <= 15) {
+  if (scoreValue/1000 <= 30) {
     // debugger;
       return {
           image: escudoFeliz,
           message: goodMessage,
       };
-  } else if (scoreValue/1000 <= 25) {
+  } else if (scoreValue/1000 < 50) {
     // debugger;
       return {
           image: escudoBurla,

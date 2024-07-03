@@ -1,5 +1,6 @@
 import icons from "../assets/images/icons.png";
 import { ActionButton } from "../components/ActionButton";
+import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
 
 // TODO: Video or image background
@@ -18,9 +19,9 @@ export function Menu() {
             
             <ActionButton url="/trivia" text="Desafío mental" />
             <ActionButton url="/memory" text="Mikia memory challenge" />
-            <ActionButton url="/" text="ir al Inicio" className="btn-alternate" />
+            <ActionButton url="/" text="Volver al Inicio" className="btn-alternate" />
             
-            <img src={icons} />
+            <FooterIcons />
         </main>
     )
 }
