@@ -1,6 +1,5 @@
 import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import axios from 'axios';
-import Nav from "../components/Nav";
 import { ActionButton } from '../components/ActionButton';
 import { useNavigate, useParams } from "react-router-dom";
 import Logo from '../components/Logo';
@@ -12,6 +11,13 @@ export function Form() {
         company: "",
         position: "",
         email: ""
+    });
+
+    const [fieldErrors, setFieldErrors] = useState({
+        name: false,
+        phone: false,
+        company: false,
+        position: false
     });
 
     const [loading, setLoading] = useState(false);
@@ -33,17 +39,39 @@ export function Form() {
             ...formData,
             [e.target.name]: e.target.value
         });
+
+        if (fieldErrors[e.target.name as keyof typeof fieldErrors]) {
+            setFieldErrors({
+                ...fieldErrors,
+                [e.target.name]: false
+            });
+        }
+    };
+
+    const validateFields = () => {
+        const errors = {
+            name: formData.name === "",
+            phone: formData.phone === "",
+            company: formData.company === "",
+            position: formData.position === ""
+        };
+
+        setFieldErrors(errors);
+
+        return !Object.values(errors).includes(true);
     };
 
     const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setShowModal(true);
+        if (validateFields()) {
+            setShowModal(true);
+        }
     };
 
     const handleSubmit = async () => {
         setShowModal(false);
         setLoading(true);
-        
+
         const token = import.meta.env.VITE_STRAPI_TOKEN;
         const data = { data: formData };
         const config = {
@@ -71,53 +99,53 @@ export function Form() {
     };
 
     return (
-        <main className='gap-20'>
+        <main className='gap-16'>
             <div className="flex justify-center px-12 w-full">
                 <Logo />
             </div>
-            <div className="text-center animate-slide-in-1">
-                { isPlayer ? <h1 className="main__title">¡Completa este formulario <br/>y empieza el desafío!</h1> : <h1 className="main__title">¡Completa este formulario!</h1> }
+            <div className="text-center animate-slide-in-1 px-12">
+                { isPlayer ? <h1 className="main__title">¡Completa este formulario y empieza <br />el desafío!</h1> : <h1 className="main__title">¡Completa este formulario!</h1> }
             </div>
             <div className="flex flex-col w-full md:w-8/12 lg:w-8/12">
-                <form className="flex flex-col gap-y-8" onSubmit={handleFormSubmit}>
+                <form className="flex flex-col gap-y-6" onSubmit={handleFormSubmit}>
                     <div className="animate-slide-in-1">
-                        <label className="form__label" htmlFor="name">Nombre y Apellido</label>
+                        <label className="form__label" htmlFor="name">Nombre y Apellido <span>*</span></label>
                         <input 
                             type="text" 
                             name="name" 
                             value={formData.name}
                             onChange={handleChange}
-                            className="form__input"
+                            className={`form__input ${fieldErrors.name ? 'form__input--empty' : ''}`}
                         />
                     </div>
                     <div className="animate-slide-in-2">
-                        <label className="form__label" htmlFor="company">Compañía</label>
+                        <label className="form__label" htmlFor="company">Compañía <span>*</span></label>
                         <input 
                             type="text" 
                             name="company" 
                             value={formData.company}
                             onChange={handleChange}
-                            className="form__input"
+                            className={`form__input ${fieldErrors.company ? 'form__input--empty' : ''}`}
                         />
                     </div>
                     <div className="animate-slide-in-3">
-                        <label className="form__label" htmlFor="position">Cargo</label>
+                        <label className="form__label" htmlFor="position">Cargo <span>*</span></label>
                         <input 
                             type="text" 
                             name="position" 
                             value={formData.position}
                             onChange={handleChange}
-                            className="form__input"
+                            className={`form__input ${fieldErrors.position ? 'form__input--empty' : ''}`}
                         />
                     </div>
                     <div className="animate-slide-in-4">
-                        <label className="form__label" htmlFor="phone">Teléfono</label>
+                        <label className="form__label" htmlFor="phone">Teléfono <span>*</span></label>
                         <input 
                             type="tel" 
                             name="phone" 
                             value={formData.phone}
                             onChange={handleChange}
-                            className="form__input"
+                            className={`form__input ${fieldErrors.phone ? 'form__input--empty' : ''}`}
                         />
                     </div>
                     <div className="animate-slide-in-5">
@@ -130,9 +158,8 @@ export function Form() {
                             className="form__input"
                         />
                     </div>
-                    {/* TODO: VOLVER BTN */}
                     <ActionButton type="submit" text="Siguiente" disabled={loading} className='mt-6 rounded-xl animate-slide-in-5'/>
-                    <Nav />
+                    <p className='text-yellow-300 text-4xl text-center'>(*) Campos obligatorios</p>
                 </form>
             </div>
 

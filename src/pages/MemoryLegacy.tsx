@@ -154,7 +154,7 @@ export function Memory() {
   return (
     <main className="memory gap-12">
       <div className="flex flex-col gap-6">
-        <h1 className="main__title">Mikia Memory Challenge</h1>
+        <h1 className="main__title">Mikia Memory <br /> Challenge</h1>
 
         <p className="main__subtitle">
           Revela todos los pares de cartas<br />en el menor tiempo posible
@@ -175,7 +175,7 @@ export function Memory() {
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-x-14 w-full mt-4">
+      <div className="flex items-center justify-center gap-x-8 w-full mt-4">
         <ActionButton url="/" text="Volver" className="btn-alternate w-min px-12" />
 
         <ActionButton onClick={handleRestart} text="Reiniciar" className="w-min px-12" />

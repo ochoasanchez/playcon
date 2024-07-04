@@ -53,11 +53,11 @@ export function Raffle() {
       setRaffleWinner(winner);
       setTimeout(() => {
         setIsLoading(false)
-      }, 7000);
+      }, 10000);
     }
   };
 
-  if (true) {
+  if (isLoading) {
     return (
         <Loader roulette={true} />
     );
@@ -69,7 +69,7 @@ export function Raffle() {
         <Confetti
           width={width}
           height={height}
-          gravity={0.03}
+          gravity={0.05}
           numberOfPieces={840}
         />
         <Logo />

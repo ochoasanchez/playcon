@@ -47,7 +47,7 @@ function Loader({ roulette }: { roulette?: boolean }) {
     if (roulette) {
         return (
             <main>
-                <img src={ruletaMikia} className="w-6/12" />
+                <img src={ruletaMikia} className="w-8/12" />
                 <ScrollingNames />
             </main>
         )
