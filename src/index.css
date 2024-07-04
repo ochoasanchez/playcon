@@ -107,7 +107,7 @@
 
 
 .card-face.card-front-face > img {
-  @apply h-32;
+  @apply h-36;
 }
 
 #confetti{
@@ -119,11 +119,11 @@
 	width: 100%;
 	z-index: -1;
 }
-#root > main > div.card-container.animate-slide-in-2.mt-4 > div:nth-child(3) > div.card-face.card-back-face > img
+/* #root > main > div.card-container.animate-slide-in-2.mt-4 > div:nth-child(3) > div.card-face.card-back-face > img
 
 .card-face .card-back-face > img {
   @apply h-28 w-28;
-}
+} */
 
 .card .card-face {
   backface-visibility: hidden;
@@ -258,5 +258,32 @@ header {
     position: sticky; /* Use sticky for fixed positioning */
     top: 0; /* Position at the top of the container */
     background-color: inherit; /* Optional: match background color */
+  }
+ 
+  @keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+  }
+  
+  .scrolling-names-container {
+    overflow: hidden;
+    height: 20rem; /* Each name is 40px tall, so 120px shows 3 names */
+     /* height: 120px;Each name is 40px tall, so 120px shows 3 names */
+    width: 100%;
+  }
+  
+  .scrolling-names {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 30s linear infinite;
+  }
+  
+  .scrolling-name {
+    height: 4rem;
+    /* height: 40px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @apply mt-2;
   }
   

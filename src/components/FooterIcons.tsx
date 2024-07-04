@@ -1,7 +1,5 @@
 import { useState } from "react";
-import icons2 from "../assets/images/icons.png";
 import icons from "../assets/images/icons-white.svg";
-// import icons2 from "../assets/images/icons-white_old.svg";
 import { useNavigate } from "react-router-dom";
 
 
@@ -30,7 +28,7 @@ export default function FooterIcons({clickable = false} : {clickable?: boolean})
     };
 
     if (clickable) {
-        return <img id="clicker" className="opacity-50" src={icons} onClick={handleClick} />;
+        return <img id="clicker" className="opacity-30" src={icons} onClick={handleClick} />;
     }
 
     // if (clickable) {
@@ -43,5 +41,5 @@ export default function FooterIcons({clickable = false} : {clickable?: boolean})
     // }
 
 
-    return <img className="opacity-50" src={icons} />;
+    return <img className="opacity-30" src={icons} />;
 }
