@@ -104,6 +104,8 @@ export function Trivia() {
     );
   }
 
+  const htmlTitle = { __html: triviaQuestion.questions.data[currentQuestionIndex].attributes.title}
+
   return (
     <main className="gap-24 px-12">
       <h1 className="main__title uppercase">¡Descubramos<br /> cuánto sabes!</h1>
@@ -129,9 +131,10 @@ export function Trivia() {
       <div className="px-12">
         <h2
           key={`title-${currentQuestionIndex}`}
-          className="text-7xl font-bold text-center animate-slide-in-1"
+          className="text-7xl text-center animate-slide-in-1"
+          dangerouslySetInnerHTML={htmlTitle}
         >
-          {triviaQuestion.questions.data[currentQuestionIndex].attributes.title}
+          
         </h2>
       </div>
 
