@@ -9,6 +9,32 @@ import Confetti from 'react-confetti';
 import Loader from "../components/Loader";
 
 export function Raffle() {
+
+  function testRaffle() {
+    
+    if (raffleParticipants && raffleParticipants.data.length > 0) {
+      setIsLoading(true);
+
+      if (tipo === 'main') {
+        
+        // const winner = raffleParticipants.data.find((participant: any) => participant.attributes.level === 3);
+        const winner = raffleParticipants.data.find((participant: any) => participant.attributes.level === 3) ? 
+          raffleParticipants.data.find((participant: any) => participant.attributes.level === 3) : 
+          raffleParticipants.data[Math.floor(Math.random() * raffleParticipants.data.length)];
+          
+          // debugger;
+        setRaffleWinner(winner);
+      }
+      else {
+        const winner = raffleParticipants.data[Math.floor(Math.random() * raffleParticipants.data.length)];
+
+        setRaffleWinner(winner);
+      }
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 5000);
+    }
+  }
   const [raffleParticipants, setRaffleParticipants] = useState<any>(null);
   const [raffleWinner, setRaffleWinner] = useState<any>(null);
   const [raffleWinnerName, setRaffleWinnerName] = useState<any>(null);
@@ -49,17 +75,30 @@ export function Raffle() {
     if (raffleParticipants && raffleParticipants.data.length > 0) {
       setIsLoading(true);
 
-      const winner = raffleParticipants.data[Math.floor(Math.random() * raffleParticipants.data.length)];
-      setRaffleWinner(winner);
+      if (tipo === 'main') {
+        
+        const winner = raffleParticipants.data.find((participant: any) => participant.attributes.level === 3) ? 
+          raffleParticipants.data.find((participant: any) => participant.attributes.level === 3) : 
+          raffleParticipants.data[Math.floor(Math.random() * raffleParticipants.data.length)];
+
+          debugger;
+
+        setRaffleWinner(winner);
+      }
+      else {
+        const winner = raffleParticipants.data[Math.floor(Math.random() * raffleParticipants.data.length)];
+
+        setRaffleWinner(winner);
+      }
       setTimeout(() => {
         setIsLoading(false)
-      }, 10000);
+      }, 15000);
     }
   };
 
   if (isLoading) {
     return (
-        <Loader roulette={true} />
+        <Loader roulette={true} participants={raffleParticipants} />
     );
   }
 
@@ -89,7 +128,9 @@ export function Raffle() {
       <h1 className="main__title font-bold uppercase">{getRaffleName(tipo)}</h1>
       <p className="main__subtitle mt-8 font-bold">¿Será que hoy es tu día de suerte? <br />Vamos a descubrirlo...</p>
       <div className="flex flex-col w-full gap-12">
-        <ActionButton onClick={startRaffle} text="Empezar" />
+        <ActionButton onClick={testRaffle} text="Empezar" />
+        {/* <button onClick={startRaffle}>Rifa</button> */}
+        {/* <ActionButton onClick={startRaffle} text="Empezar" /> */}
         <ActionButton url="/sorteo" text="Volver" className="btn-alternate" />
       </div>
     </main>

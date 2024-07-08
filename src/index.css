@@ -26,6 +26,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .font-splash{
@@ -103,6 +108,10 @@
   transform-style: preserve-3d;
   position: relative;
   cursor: pointer;
+}
+
+.bg-green{
+  background-color: #0a452c;
 }
 
 
@@ -202,7 +211,7 @@
 }
 
 main {
-  @apply h-lvh w-full flex flex-col items-center justify-center gap-y-12;
+  @apply h-dvh w-full flex flex-col items-center justify-center gap-y-12;
 }
 
 header {

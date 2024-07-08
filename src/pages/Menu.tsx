@@ -23,7 +23,7 @@ export function Menu() {
                 <ActionButton url="/" text="Volver al Inicio" className="btn-alternate" />
             </div>
 
-            <FooterIcons />
+            <FooterIcons clickable/>
         </main>
     )
 }

@@ -6,7 +6,7 @@ const MemoryScore = ({ timeInMs }: { timeInMs: number }) => {
 
     const timeInSeconds = Math.floor(timeInMs/1000);
 
-    const result = timeInSeconds < 50 ? `¡Demoraste ${timeInSeconds} segundos en completar el reto de memoria!` : '¡Se te agotó el tiempo!';
+    const result = timeInSeconds < 50 ? `¡Demoraste ${timeInSeconds} segundos en completar el reto!` : '¡Se te agotó el tiempo!';
 
     return (        
         <Score result={result} image={image} message={message} game="memory" />

@@ -152,13 +152,27 @@ export function Memory() {
   if (isCompleted) return <MemoryScore timeInMs={elapsedTime} />;
 
   return (
-    <main className="memory gap-12">
+    <main className="memory gap-6">
       <div className="flex flex-col gap-6">
         <h1 className="main__title">Mikia Memory <br /> Challenge</h1>
 
         <p className="main__subtitle">
-          Revela todos los pares de cartas<br />en el menor tiempo posible
+          Revela todos los pares de cartas<br />en menos de <span className="text-yellow-300">50 segundos</span>
         </p>
+      </div>
+
+      <div className="flex items-center justify-center gap-x-8 w-full">
+      <ActionButton url="/menu" text="Volver" className="btn-alternate w-min px-12" />
+
+        <ActionButton onClick={handleRestart} text="Reiniciar" className="w-min px-12" />
+
+        <p className={`text-5xl text-white p-8 rounded-full ${elapsedTime > 40000 ? 'bg-red-500' : elapsedTime > 30000 ? 'bg-yellow-400' : 'bg-green-500'}`}>
+          <span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s
+        </p>
+
+
+        {/* <p className={`text-5xl bg-green p-8 rounded-full ${elapsedTime > 30000 ? 'text-red-500' : 'text-white'}`}><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s</p> */}
+        {/* <p className="text-6xl text-red-500 bg-green p-6 rounded-full"><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s</p> */}
       </div>
 
       <div className="card-container animate-slide-in-2 mt-4">
@@ -173,15 +187,6 @@ export function Memory() {
             onClick={handleCardClick}
           />
         ))}
-      </div>
-
-      <div className="flex items-center justify-center gap-x-8 w-full mt-4">
-        <ActionButton url="/" text="Volver" className="btn-alternate w-min px-12" />
-
-        <ActionButton onClick={handleRestart} text="Reiniciar" className="w-min px-12" />
-
-        <p className="text-6xl"><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s
-        </p>
       </div>
     </main>
   );

@@ -30,7 +30,7 @@ const sendScore = async ({data} : {data: ScoreType }) => {
 function getResultMessage(scoreValue: number, game: string) {
   
   const badMessage = "Hoy como que no es tu día de suerte";
-  const regularMessage = "Parece que estás entrando en granjas desconocidas";
+  const regularMessage = "Vas por buen camino ¡Quizás la próxima!";
   const goodMessage = "Estamos en una academia de genios y tú pareces el líder";
 
   if (game === "trivia") {

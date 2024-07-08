@@ -34,6 +34,34 @@ export function Form() {
         }
     }, [player]);
 
+    async function testSubmit() {
+        // alert('Envio')
+        setShowModal(false);
+        setLoading(true);
+
+        const token = import.meta.env.VITE_STRAPI_TOKEN;
+        const url = import.meta.env.VITE_STRAPI_URL;
+        const data = { data: formData };
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+
+        try {
+            const response = await axios.post(`${url}/api/clients`, data, config);
+            localStorage.setItem('userData', JSON.stringify(response.data));
+            localStorage.setItem('userHasPlayed', "false");
+            localStorage.setItem('userIsRegistered', "false");
+
+            isPlayer ? navigate("/menu") : navigate("/participate");
+        } catch (error) {
+            console.error('Error submitting data:', error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
@@ -64,8 +92,10 @@ export function Form() {
     const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (validateFields()) {
-            setShowModal(true);
+            // setShowModal(true);
+            testSubmit();
         }
+        
     };
 
     const handleSubmit = async () => {
@@ -151,7 +181,7 @@ export function Form() {
                     <div className="animate-slide-in-5">
                         <label className="form__label" htmlFor="email">Correo electrónico</label>
                         <input 
-                            type="tel" 
+                            type="text" 
                             name="email" 
                             value={formData.email}
                             onChange={handleChange}
@@ -169,7 +199,7 @@ export function Form() {
                         <p className="text-6xl text-center text-black">¿Confirmas que deseas enviar<br /> este formulario?</p>
                         <div className="flex justify-around px-12 gap-12">
                             <ActionButton onClick={handleGoBack} text="Volver" size='small' className='btn-alternate border-4 border-orange-500'/>
-                            <ActionButton onClick={handleSubmit} text="Enviar" size='small' />
+                            <ActionButton onClick={testSubmit} text="Enviar" size='small' />
                         </div>
                     </div>
                 </div>

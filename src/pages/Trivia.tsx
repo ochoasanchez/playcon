@@ -69,8 +69,8 @@ export function Trivia() {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
           setSelectedOption("");
         }
-      // }, 5000);
-      }, 1000);
+      }, 5000);
+      // }, 1000);
     }
   };
 
@@ -98,7 +98,7 @@ export function Trivia() {
   if (isCompleted) {
     return (
       <TriviaScore
-        score={4}
+        score={score}
         totalQuestions={triviaQuestion.questions.data.length}
       />
     );
