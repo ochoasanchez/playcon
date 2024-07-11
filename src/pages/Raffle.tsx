@@ -98,7 +98,7 @@ export function Raffle() {
 
   if (isLoading) {
     return (
-        <Loader roulette={true} participants={raffleParticipants} />
+        <Loader roulette={true} participants={raffleParticipants} type={tipo} />
     );
   }
 

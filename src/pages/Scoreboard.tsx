@@ -18,13 +18,12 @@ export function Scoreboard({ scoreboard, game } : { scoreboard: ScoreEntry[], ga
 
     const getFullGameName = () => {
         if (game === 'memory') return "Mikia Memory Challenge";
-        if (game === 'trivia') return "Desafío mental";
+        if (game === 'trivia') return "Desafío Mental";
         return '';
     }
 
     return (
         <main className="animate-slide-in-1 px-12">
-            {/* <div className="flex flex-col w-full text-center py-6"> */}
                 <h1 className="main__title font-bold uppercase">Tabla de Posiciones</h1>
                 <p className="main__subtitle">{getFullGameName()}</p>
                 <div className="mt-12 h-4/6 overflow-y-auto w-full">

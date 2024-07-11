@@ -211,7 +211,8 @@
 }
 
 main {
-  @apply h-dvh w-full flex flex-col items-center justify-center gap-y-12;
+  /* @apply h-dvh w-full flex flex-col items-center justify-center gap-y-12; */
+  @apply h-dvh w-full flex flex-col items-center justify-center gap-y-12 overflow-hidden;
 }
 
 header {

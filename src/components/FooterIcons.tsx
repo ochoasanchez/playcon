@@ -1,45 +1,39 @@
-import { useState } from "react";
-import icons from "../assets/images/icons-white.svg";
+import pollo from "../assets/images/icono-pollo.svg";
+import cerdo from "../assets/images/icono-cerdo.svg";
+import fabrica from "../assets/images/icono-fabrica.svg";
 import { useNavigate } from "react-router-dom";
 
 
 export default function FooterIcons({clickable = false} : {clickable?: boolean}) {
-    const [clickCount, setClickCount] = useState(0);
-    const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
-
     const navigate = useNavigate();
 
-    const handleClick = () => {
-        if (clickCount + 1 === 3) {
-            navigate("/sorteo");
-        }
+    const handleClickTrivia = () => {
+        navigate("/trivia/scoreboard");
+    };
 
-        setClickCount((prevCount) => prevCount + 1);
+    const handleClickMemory = () => {
+        navigate("/memory/scoreboard");
+    };
 
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-
-        const newTimeoutId = setTimeout(() => {
-            setClickCount(0);
-        }, 5000) as NodeJS.Timeout;
-
-        setTimeoutId(newTimeoutId);
+    const handleClickRaffle = () => {
+        navigate("/sorteo");
     };
 
     if (clickable) {
-        return <img id="clicker" className="opacity-30" src={icons} onClick={handleClick} />;
+        return (
+            <div className="flex gap-x-12">
+                <img className="opacity-30 w-72" src={pollo} onClick={handleClickTrivia}/>
+                <img className="opacity-30 w-72" src={cerdo} onClick={handleClickMemory}/>
+                <img className="opacity-30 w-72" src={fabrica} onClick={handleClickRaffle}/>
+            </div>
+        )
     }
 
-    // if (clickable) {
-    //     return (
-    //         <>
-    //         <img id="clicker" className="opacity-50" src={icons} onClick={handleClick} />;
-    //         <img id="clicker"  src={icons2} onClick={handleClick} />;
-    //         </>
-    //     );
-    // }
-
-
-    return <img className="opacity-30" src={icons} />;
+    return (
+        <div className="flex gap-x-12">
+            <img className="opacity-30 w-72" src={pollo} />
+            <img className="opacity-30 w-72" src={cerdo} />
+            <img className="opacity-30 w-72" src={fabrica} />
+        </div>
+    )
 }

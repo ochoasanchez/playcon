@@ -5,6 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Logo from '../components/Logo';
 
 export function Form() {
+    localStorage.clear();
+    
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -189,7 +191,7 @@ export function Form() {
                         />
                     </div>
                     <ActionButton type="submit" text="Siguiente" disabled={loading} className='mt-6 rounded-xl animate-slide-in-5'/>
-                    <p className='text-yellow-300 text-4xl text-center'>(*) Campos obligatorios</p>
+                    {/* <p className='text-yellow-300 text-4xl text-center'>(*) Campos obligatorios</p> */}
                 </form>
             </div>
 
