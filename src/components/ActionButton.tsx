@@ -11,7 +11,7 @@ type ActionButtonProps = {
 }
 
 export function ActionButton({ url, type, text, onClick, className, disabled, size = 'large' }: ActionButtonProps) {
-    const baseClasses = "bg-orange-500 rounded-full font-bold uppercase text-5xl text-center w-full flex items-center justify-center";
+    const baseClasses = "bg-orange-500 rounded-full font-bold uppercase text-3xl text-center w-full flex items-center justify-center";
     const sizeClasses = size === 'large' ? "p-8" : "p-4";
     const combinedClasses = `${baseClasses} ${sizeClasses} ${className ?? ''}`;
 

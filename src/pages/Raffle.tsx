@@ -81,7 +81,7 @@ export function Raffle() {
           raffleParticipants.data.find((participant: any) => participant.attributes.level === 3) : 
           raffleParticipants.data[Math.floor(Math.random() * raffleParticipants.data.length)];
 
-          debugger;
+          // debugger;
 
         setRaffleWinner(winner);
       }
@@ -104,34 +104,34 @@ export function Raffle() {
 
   if (!isLoading && raffleWinner) {
     return (
-      <main className="px-12 animate-fade-in">
+      <main className="px-12 animate-fade-in gap-0">
         <Confetti
           width={width}
           height={height}
           gravity={0.05}
           numberOfPieces={840}
         />
-        <Logo />
-        <p className="main__subtitle uppercase mt-8">El ganador es</p>
+        {/* <Logo /> */}
+        <p className="main__title uppercase mt-8">El ganador es</p>
         <div className="bg-orange-500 text-white p-4 mt-8 rounded-xl">
-          <p className="text-9xl font-bold uppercase text-center">{raffleWinnerName}</p>
+          <p className="text-6xl font-bold uppercase text-center">{raffleWinnerName}</p>
         </div>
-        <img src={escudoGanador} className="w-10/12 ml-24" alt="Result" />
-        <ActionButton url="/sorteo" text="Volver al menu" className="btn-alternate" />
+        <img src={escudoGanador} className="w-5/12 ml-16" alt="Result" />
+        <ActionButton url="/sorteo" text="Volver al menu" size='small' className="btn-alternate w-max px-6" />
       </main>
     );
   }
 
   return (
-    <main className="px-12 gap-20 animate-fade-in">
+    <main className="px-12 gap-12 animate-fade-in">
       <Logo />
       <h1 className="main__title font-bold uppercase">{getRaffleName(tipo)}</h1>
-      <p className="main__subtitle mt-8 font-bold">¿Será que hoy es tu día de suerte? <br />Vamos a descubrirlo...</p>
-      <div className="flex flex-col w-full gap-12">
+      <p className="main__subtitle font-bold">¿Será que hoy es tu día de suerte? <br />Vamos a descubrirlo...</p>
+      <div className="flex gap-12">
+        <ActionButton url="/sorteo" text="Volver" className="btn-alternate" />
         <ActionButton onClick={testRaffle} text="Empezar" />
         {/* <button onClick={startRaffle}>Rifa</button> */}
         {/* <ActionButton onClick={startRaffle} text="Empezar" /> */}
-        <ActionButton url="/sorteo" text="Volver" className="btn-alternate" />
       </div>
     </main>
   );

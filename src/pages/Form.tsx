@@ -37,7 +37,6 @@ export function Form() {
     }, [player]);
 
     async function testSubmit() {
-        // alert('Envio')
         setShowModal(false);
         setLoading(true);
 
@@ -131,7 +130,7 @@ export function Form() {
     };
 
     return (
-        <main className='gap-16'>
+        <main className='gap-4'>
             <div className="flex justify-center px-12 w-full">
                 <Logo />
             </div>
@@ -139,46 +138,51 @@ export function Form() {
                 { isPlayer ? <h1 className="main__title">¡Completa este formulario y empieza <br />el desafío!</h1> : <h1 className="main__title">¡Completa este formulario!</h1> }
             </div>
             <div className="flex flex-col w-full md:w-8/12 lg:w-8/12">
-                <form className="flex flex-col gap-y-6" onSubmit={handleFormSubmit}>
-                    <div className="animate-slide-in-1">
-                        <label className="form__label" htmlFor="name">Nombre y Apellido <span>*</span></label>
-                        <input 
-                            type="text" 
-                            name="name" 
-                            value={formData.name}
-                            onChange={handleChange}
-                            className={`form__input ${fieldErrors.name ? 'form__input--empty' : ''}`}
-                        />
-                    </div>
-                    <div className="animate-slide-in-2">
-                        <label className="form__label" htmlFor="company">Compañía <span>*</span></label>
-                        <input 
-                            type="text" 
-                            name="company" 
-                            value={formData.company}
-                            onChange={handleChange}
-                            className={`form__input ${fieldErrors.company ? 'form__input--empty' : ''}`}
-                        />
-                    </div>
-                    <div className="animate-slide-in-3">
-                        <label className="form__label" htmlFor="position">Cargo <span>*</span></label>
-                        <input 
-                            type="text" 
-                            name="position" 
-                            value={formData.position}
-                            onChange={handleChange}
-                            className={`form__input ${fieldErrors.position ? 'form__input--empty' : ''}`}
-                        />
-                    </div>
-                    <div className="animate-slide-in-4">
-                        <label className="form__label" htmlFor="phone">Teléfono <span>*</span></label>
-                        <input 
-                            type="tel" 
-                            name="phone" 
-                            value={formData.phone}
-                            onChange={handleChange}
-                            className={`form__input ${fieldErrors.phone ? 'form__input--empty' : ''}`}
-                        />
+                <form className="flex flex-col gap-y-2" onSubmit={handleFormSubmit}>
+                    <div className="flex gap-x-6 animate-slide-in-3">
+                        <div className="w-full">
+                            <label className="form__label" htmlFor="name">Nombre y Apellido <span>*</span></label>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                value={formData.name}
+                                onChange={handleChange}
+                                className={`form__input ${fieldErrors.name ? 'form__input--empty' : ''}`}
+                            />
+                        </div>
+                        <div className="w-full">
+                            <label className="form__label" htmlFor="company">Compañía <span>*</span></label>
+                            <input 
+                                type="text" 
+                                name="company" 
+                                value={formData.company}
+                                onChange={handleChange}
+                                className={`form__input ${fieldErrors.company ? 'form__input--empty' : ''}`}
+                            />
+                        </div>
+                    </div>  
+                    <div className="flex gap-x-6 animate-slide-in-4">
+                        <div className="w-full">
+                            <label className="form__label" htmlFor="position">Cargo <span>*</span></label>
+                            <input 
+                                type="text" 
+                                name="position" 
+                                value={formData.position}
+                                onChange={handleChange}
+                                className={`form__input ${fieldErrors.position ? 'form__input--empty' : ''}`}
+                            />
+                        </div>
+                        <div className="w-full">
+                            <label className="form__label" htmlFor="phone">Teléfono <span>*</span></label>
+                            <input 
+                                type="tel" 
+                                name="phone" 
+                                value={formData.phone}
+                                onChange={handleChange}
+                                className={`form__input ${fieldErrors.phone ? 'form__input--empty' : ''}`}
+                            />
+                        </div>
+
                     </div>
                     <div className="animate-slide-in-5">
                         <label className="form__label" htmlFor="email">Correo electrónico</label>
@@ -190,7 +194,7 @@ export function Form() {
                             className="form__input"
                         />
                     </div>
-                    <ActionButton type="submit" text="Siguiente" disabled={loading} className='mt-6 rounded-xl animate-slide-in-5'/>
+                    <ActionButton type="submit" text="Siguiente" disabled={loading} className='mt-2 rounded-xl animate-slide-in-5'  size='small'/>
                     {/* <p className='text-yellow-300 text-4xl text-center'>(*) Campos obligatorios</p> */}
                 </form>
             </div>

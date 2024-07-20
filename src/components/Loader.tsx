@@ -4,15 +4,15 @@ function Loader({ roulette, participants, type }: { roulette?: boolean, particip
 
     if (roulette && type === 'main') {
       const names = participants.data.map((participant: any) => participant.attributes.name);
-      // debugger;
-        return (
+        
+      return (
             <main>
-                <img src={ruletaMikia} className="w-8/12" />
+                <img src={ruletaMikia} className="w-3/12" />
                 
                 <div className="scrolling-names-container">
                   <div className="scrolling-names">
                     {names.concat(names).concat(names).concat(names).concat(names).concat(names).concat(names).concat(names).concat(names).concat(names).concat(names).map((name: any, index: any) => (
-                      <div key={index} className="scrolling-name text-7xl">
+                      <div key={index} className="scrolling-name text-4xl">
                         {name}
                       </div>
                     ))}
@@ -23,8 +23,8 @@ function Loader({ roulette, participants, type }: { roulette?: boolean, particip
     } 
     if (roulette && type === 'memory' || type === 'trivia') {
       const names = participants.data.map((participant: any) => participant.attributes.playerName);
-      // debugger;
-        return (
+        
+      return (
             <main>
                 <img src={ruletaMikia} className="w-8/12" />
                 

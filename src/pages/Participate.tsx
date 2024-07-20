@@ -22,11 +22,11 @@ export function Participate() {
         // debugger
         return (
                    
-            <main className="px-12 animate-slide-in-1">
-                <img src={escudoFeliz} className="w-10/12" alt="Result" />
+            <main className="px-12 animate-slide-in-1 gap-0">
+                <img src={escudoFeliz} className="w-6/12" alt="Result" />
                 <p className="main__title mt-4 font-bold">¡Gracias por registrarte!</p>
                     {/* <p className="score-message font-bold text-4xl">{message}</p> */}
-                <ActionButton url="/" text="Volver" className="mt-8"/>
+                <ActionButton url="/" text="Volver" className="mt-8 w-6/12"/>
             </main>
         )
     }

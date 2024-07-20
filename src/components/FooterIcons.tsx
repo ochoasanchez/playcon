@@ -22,18 +22,20 @@ export default function FooterIcons({clickable = false} : {clickable?: boolean})
     if (clickable) {
         return (
             <div className="flex gap-x-12">
-                <img className="opacity-30 w-72" src={pollo} onClick={handleClickTrivia}/>
-                <img className="opacity-30 w-72" src={cerdo} onClick={handleClickMemory}/>
-                <img className="opacity-30 w-72" src={fabrica} onClick={handleClickRaffle}/>
+                {/* <img className="opacity-30 w-36" src={pollo} onClick={handleClickTrivia}/>
+                <img className="opacity-30 w-36" src={cerdo} onClick={handleClickMemory}/> */}
+                <img className="opacity-30 w-36" src={pollo} onClick={handleClickRaffle}/>
+                <img className="opacity-30 w-36" src={cerdo} onClick={handleClickRaffle}/>
+                <img className="opacity-30 w-36" src={fabrica} onClick={handleClickRaffle}/>
             </div>
         )
     }
 
     return (
         <div className="flex gap-x-12">
-            <img className="opacity-30 w-72" src={pollo} />
-            <img className="opacity-30 w-72" src={cerdo} />
-            <img className="opacity-30 w-72" src={fabrica} />
+            <img className="opacity-30 w-36" src={pollo} />
+            <img className="opacity-30 w-36" src={cerdo} />
+            <img className="opacity-30 w-36" src={fabrica} />
         </div>
     )
 }
