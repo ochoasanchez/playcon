@@ -19,15 +19,21 @@ function shuffleCards<T>(array: T[]): T[] {
 export function Memory() {
   const [cards, setCards] = useState<MemoryCard[]>([]);
   const [openCards, setOpenCards] = useState<number[]>([]);
-  const [clearedCards, setClearedCards] = useState<{ [key: string]: boolean }>({});
-  const [shouldDisableAllCards, setShouldDisableAllCards] = useState<boolean>(false);
+  const [clearedCards, setClearedCards] = useState<{ [key: string]: boolean }>(
+    {},
+  );
+  const [shouldDisableAllCards, setShouldDisableAllCards] =
+    useState<boolean>(false);
   const [moves, setMoves] = useState<number>(0);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   const localStorageBestScore = localStorage.getItem("bestScore");
-  const initialBestScore = localStorageBestScore !== null ? JSON.parse(localStorageBestScore) : Number.POSITIVE_INFINITY;
+  const initialBestScore =
+    localStorageBestScore !== null
+      ? JSON.parse(localStorageBestScore)
+      : Number.POSITIVE_INFINITY;
   const [bestScore, setBestScore] = useState<number>(initialBestScore);
 
   const timeout = useRef<NodeJS.Timeout | null>(null);
@@ -37,11 +43,11 @@ export function Memory() {
       try {
         const memoryCards = await getMemoryCards();
         setCards(shuffleCards([...memoryCards, ...memoryCards]));
-        console.log('Fetched data:', memoryCards); // Debugging statement
+        console.log("Fetched data:", memoryCards); // Debugging statement
         // debugger;
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching memory cards:', error);
+        console.error("Error fetching memory cards:", error);
         setError("Error fetching memory cards.");
         setLoading(false);
       }
@@ -88,7 +94,10 @@ export function Memory() {
     const [first, second] = openCards;
     enable();
     if (cards[first].attributes.name === cards[second].attributes.name) {
-      setClearedCards((prev) => ({ ...prev, [cards[first].attributes.name]: true }));
+      setClearedCards((prev) => ({
+        ...prev,
+        [cards[first].attributes.name]: true,
+      }));
       setOpenCards([]);
       return;
     }
@@ -125,7 +134,12 @@ export function Memory() {
     setShowModal(false);
     setMoves(0);
     setShouldDisableAllCards(false);
-    setCards(shuffleCards([...cards.slice(0, cards.length / 2), ...cards.slice(0, cards.length / 2)]));
+    setCards(
+      shuffleCards([
+        ...cards.slice(0, cards.length / 2),
+        ...cards.slice(0, cards.length / 2),
+      ]),
+    );
   };
 
   if (loading) {
@@ -138,8 +152,10 @@ export function Memory() {
 
   return (
     <div className="memory flex flex-col items-center justify-center">
-      <header className="text-center animate-slide-in-1">
-        <h1 className="text-6xl font-bold text-white mt-4 text-left md:text-center">Mikia Memory Challenge</h1>
+      <header className="animate-slide-in-1 text-center">
+        <h1 className="mt-4 text-left text-6xl font-bold text-white md:text-center">
+          Mikia Memory Challenge
+        </h1>
         <p className="mt-4 text-lg">
           Selecciona dos cartas iguales para hacerlas desaparecer
         </p>
@@ -157,7 +173,7 @@ export function Memory() {
           />
         ))}
       </div>
-      <footer className="mt-4 animate-slide-in-3">
+      <footer className="animate-slide-in-3 mt-4">
         <div className="flex justify-center gap-x-8 uppercase">
           <div>
             <span className="font-bold">Jugadas:</span> {moves}
@@ -169,16 +185,23 @@ export function Memory() {
           )}
         </div>
         <div className="flex justify-center">
-          <button onClick={handleRestart} className="bg-orange-500 rounded-md mt-4 p-4 font-bold uppercase animate-slide-in-4">Reiniciar</button>
+          <button
+            onClick={handleRestart}
+            className="animate-slide-in-4 mt-4 rounded-md bg-orange-500 p-4 font-bold uppercase"
+          >
+            Reiniciar
+          </button>
         </div>
         <Nav />
       </footer>
-      {showModal &&
+      {showModal && (
         <>
-          <p>You completed the challenge! Moves: {moves} | Score: {bestScore}</p>
+          <p>
+            You completed the challenge! Moves: {moves} | Score: {bestScore}
+          </p>
           <button onClick={handleRestart}>RESTART</button>
         </>
-      }
+      )}
     </div>
   );
 }

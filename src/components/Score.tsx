@@ -3,27 +3,49 @@ import { ActionButton } from "./ActionButton";
 // import $ from 'jquery';
 // import '../utils/confetti.js';
 
-const Score = ({ result, message, image, game }: { result: string, message: string, image: string, game: 'memory' | 'trivia' }) => {
+const Score = ({
+  result,
+  message,
+  image,
+  game,
+}: {
+  result: string;
+  message: string;
+  image: string;
+  game: "memory" | "trivia";
+}) => {
+  // const { image, message } = getResultMessage(score, "trivia");
 
-    // const { image, message } = getResultMessage(score, "trivia");
-
-    return (        
-        <div id="confetti" className="trivia-score h-lvh w-full flex flex-col items-center px-4 md:px-0 text-center relative">
-            <div className="flex flex-col items-center justify-center h-3/5">
-                <img src={image} className="w-8/12" alt="Result" />
-                <p className="text-7xl w-10/12">{result}</p>
-            </div>
-            <div className="orange-circle flex h-2/5 gap-y-8">
-                <div className="w-8/12 pt-16">
-                    <p className="score-message font-splash text-9xl animate-bounce">{message}</p>
-                </div>
-                <div className="flex">
-                    <ActionButton url={`/${game}/scoreboard`} text="Tabla de posiciones" className="w-fit bg-white text-orange-500"/>
-                    <ActionButton url="/menu" text="Volver" className="w-fit bg-white text-orange-500 ml-4" />
-                </div>
-            </div>
+  return (
+    <div
+      id="confetti"
+      className="trivia-score relative flex h-lvh w-full flex-col items-center px-4 text-center md:px-0"
+    >
+      <div className="flex h-3/5 flex-col items-center justify-center">
+        <img src={image} className="w-8/12" alt="Result" />
+        <p className="w-10/12 text-7xl">{result}</p>
+      </div>
+      <div className="orange-circle flex h-2/5 gap-y-8">
+        <div className="w-8/12 pt-16">
+          <p className="score-message font-splash animate-bounce text-9xl">
+            {message}
+          </p>
         </div>
-    );
+        <div className="flex">
+          <ActionButton
+            url={`/${game}/scoreboard`}
+            text="Tabla de posiciones"
+            className="w-fit bg-white text-orange-500"
+          />
+          <ActionButton
+            url="/menu"
+            text="Volver"
+            className="ml-4 w-fit bg-white text-orange-500"
+          />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Score;
