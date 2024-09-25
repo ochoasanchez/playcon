@@ -3,37 +3,52 @@ import cerdo from "../assets/images/icono-cerdo.svg";
 import fabrica from "../assets/images/icono-fabrica.svg";
 import { useNavigate } from "react-router-dom";
 
+export default function FooterIcons({
+  clickable = false,
+}: {
+  clickable?: boolean;
+}) {
+  const navigate = useNavigate();
 
-export default function FooterIcons({clickable = false} : {clickable?: boolean}) {
-    const navigate = useNavigate();
+  const handleClickTrivia = () => {
+    navigate("/trivia/scoreboard");
+  };
 
-    const handleClickTrivia = () => {
-        navigate("/trivia/scoreboard");
-    };
+  const handleClickMemory = () => {
+    navigate("/memory/scoreboard");
+  };
 
-    const handleClickMemory = () => {
-        navigate("/memory/scoreboard");
-    };
+  const handleClickRaffle = () => {
+    navigate("/sorteo");
+  };
 
-    const handleClickRaffle = () => {
-        navigate("/sorteo");
-    };
-
-    if (clickable) {
-        return (
-            <div className="flex gap-x-12">
-                <img className="opacity-30 w-72" src={pollo} onClick={handleClickTrivia}/>
-                <img className="opacity-30 w-72" src={cerdo} onClick={handleClickMemory}/>
-                <img className="opacity-30 w-72" src={fabrica} onClick={handleClickRaffle}/>
-            </div>
-        )
-    }
-
+  if (clickable) {
     return (
-        <div className="flex gap-x-12">
-            <img className="opacity-30 w-72" src={pollo} />
-            <img className="opacity-30 w-72" src={cerdo} />
-            <img className="opacity-30 w-72" src={fabrica} />
-        </div>
-    )
+      <div className="flex gap-x-12">
+        <img
+          className="w-72 opacity-30"
+          src={pollo}
+          onClick={handleClickTrivia}
+        />
+        <img
+          className="w-72 opacity-30"
+          src={cerdo}
+          onClick={handleClickMemory}
+        />
+        <img
+          className="w-72 opacity-30"
+          src={fabrica}
+          onClick={handleClickRaffle}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex gap-x-12">
+      <img className="w-72 opacity-30" src={pollo} />
+      <img className="w-72 opacity-30" src={cerdo} />
+      <img className="w-72 opacity-30" src={fabrica} />
+    </div>
+  );
 }

@@ -43,42 +43,41 @@ export const cardsArray: CardType[] = [
     type: "Secuvax",
     image: SecuvaxImage,
   },
-]
-
+];
 
 export const pokemons: Pokemon[] = [
-    {
-      id: 1,
-      name: "Bulbasaur",
-      image: BulbasaurImage,
-    },
-    {
-      id: 2,
-      name: "Charmander",
-      image: CharmanderImage,
-    },
-    {
-      id: 3,
-      name: "Squirtle",
-      image: SquirtleImage,
-    },
-    {
-      id: 4,
-      name: "Pikachu",
-      image: PikachuImage,
-    },
-    {
-      id: 5,
-      name: "Jigglypuff",
-      image: JigglypuffImage,
-    },
-    {
-      id: 6,
-      name: "Snorlax",
-      image: SnorlaxImage,
-    },
-]
-  
+  {
+    id: 1,
+    name: "Bulbasaur",
+    image: BulbasaurImage,
+  },
+  {
+    id: 2,
+    name: "Charmander",
+    image: CharmanderImage,
+  },
+  {
+    id: 3,
+    name: "Squirtle",
+    image: SquirtleImage,
+  },
+  {
+    id: 4,
+    name: "Pikachu",
+    image: PikachuImage,
+  },
+  {
+    id: 5,
+    name: "Jigglypuff",
+    image: JigglypuffImage,
+  },
+  {
+    id: 6,
+    name: "Snorlax",
+    image: SnorlaxImage,
+  },
+];
+
 export const cardsArrayOld: CardType[] = [
   {
     id: 1,
@@ -110,4 +109,4 @@ export const cardsArrayOld: CardType[] = [
     type: "Snorlax",
     image: SnorlaxImage,
   },
-]
+];

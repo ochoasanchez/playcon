@@ -1,14 +1,14 @@
-import { Route, Routes } from "react-router-dom"
-import { Home } from './pages/Home'
-import { Menu } from './pages/Menu'
-import { Form } from './pages/Form'
-import { Trivia } from './pages/Trivia'
-import { Memory } from './pages/MemoryLegacy'
-import { Participate } from './pages/Participate'
-import { RaffleMenu } from './pages/RaffleMenu'
-import { Raffle } from './pages/Raffle'
-import { MemoryScoreboard } from './pages/MemoryScoreboard'
-import { TriviaScoreboard } from './pages/TriviaScoreboard'
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Menu } from "./pages/Menu";
+import { Form } from "./pages/Form";
+import { Trivia } from "./pages/Trivia";
+import { Memory } from "./pages/MemoryLegacy";
+import { Participate } from "./pages/Participate";
+import { RaffleMenu } from "./pages/RaffleMenu";
+import { Raffle } from "./pages/Raffle";
+import { MemoryScoreboard } from "./pages/MemoryScoreboard";
+import { TriviaScoreboard } from "./pages/TriviaScoreboard";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       <Route path="/memory/scoreboard" element={<MemoryScoreboard />} />
       <Route path="/trivia/scoreboard" element={<TriviaScoreboard />} />
     </Routes>
-  )
+  );
 }
 
 export default App;

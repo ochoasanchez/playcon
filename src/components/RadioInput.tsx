@@ -36,7 +36,7 @@ const RadioInput = ({
     <div
       className={`${backgroundColor} border-4 ${
         isSelected ? "border-orange-500" : "border-white"
-      } flex text-lg rounded-xl px-6 py-6 transition duration-300 hover:border-orange-500 focus-within:border-orange-500 cursor-pointer animate-slide-in-${
+      } flex cursor-pointer rounded-xl px-6 py-6 text-lg transition duration-300 focus-within:border-orange-500 hover:border-orange-500 animate-slide-in-${
         index + 1
       }`}
       onClick={handleClick}
@@ -49,7 +49,7 @@ const RadioInput = ({
         onChange={() => {}}
         disabled={showFeedback}
       />
-      <label htmlFor={id} className="text-5xl ml-6">
+      <label htmlFor={id} className="ml-6 text-5xl">
         {label}
       </label>
     </div>

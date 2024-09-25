@@ -24,7 +24,9 @@ export function Trivia() {
         if (questionData) {
           setTriviaQuestion(questionData);
         } else {
-          setError("¡Ya llegaste al límite de intentos! <br> Gracias por Participar");
+          setError(
+            "¡Ya llegaste al límite de intentos! <br> Gracias por Participar",
+          );
         }
       } catch (error) {
         console.error("Error fetching trivia questions:", error);
@@ -59,7 +61,8 @@ export function Trivia() {
 
   const handleNextQuestion = () => {
     if (triviaQuestion && triviaQuestion.questions.data.length > 0) {
-      const correctAnswer = triviaQuestion.questions.data[currentQuestionIndex].attributes.answer;
+      const correctAnswer =
+        triviaQuestion.questions.data[currentQuestionIndex].attributes.answer;
       if (selectedOption === correctAnswer) {
         setScore(score + 1);
       }
@@ -86,17 +89,21 @@ export function Trivia() {
 
   if (isLoading) return <Loader />;
 
-  const htmlError = { __html: error }
+  const htmlError = { __html: error };
   // const htmlError = { __html: "Ya llegaste al límite de intentos <br> ¡Gracias por participar!" }
 
-  if (error) return (
-    <main className="px-12 gap-24">
-      <p className="text-7xl text-center" dangerouslySetInnerHTML={htmlError}></p>
-      {/* <p className="text-7xl text-center" dangerouslySetInnerHTML={htmlError}></p> */}
-      {/* <p className="text-7xl text-center">Error fetching trivia questions:</p> */}
-      <ActionButton url="/menu" text="Volver al menú de juegos" />
-    </main>
-  )
+  if (error)
+    return (
+      <main className="gap-24 px-12">
+        <p
+          className="text-center text-7xl"
+          dangerouslySetInnerHTML={htmlError}
+        ></p>
+        {/* <p className="text-7xl text-center" dangerouslySetInnerHTML={htmlError}></p> */}
+        {/* <p className="text-7xl text-center">Error fetching trivia questions:</p> */}
+        <ActionButton url="/menu" text="Volver al menú de juegos" />
+      </main>
+    );
 
   if (
     !triviaQuestion ||
@@ -116,12 +123,17 @@ export function Trivia() {
     );
   }
 
-  const htmlTitle = { __html: triviaQuestion.questions.data[currentQuestionIndex].attributes.title }
-
+  const htmlTitle = {
+    __html:
+      triviaQuestion.questions.data[currentQuestionIndex].attributes.title,
+  };
 
   return (
     <main className="gap-24 px-12">
-      <h1 className="main__title uppercase">¡Descubramos<br /> cuánto sabes!</h1>
+      <h1 className="main__title uppercase">
+        ¡Descubramos
+        <br /> cuánto sabes!
+      </h1>
 
       <div className="flex flex-col items-center gap-12">
         <div id="progressBar" className="flex w-lvw gap-6 md:gap-12 md:px-12">
@@ -133,7 +145,7 @@ export function Trivia() {
           ))}
         </div>
 
-        <p className="text-yellow-300 text-5xl uppercase">
+        <p className="text-5xl uppercase text-yellow-300">
           Pregunta {currentQuestionIndex + 1} de{" "}
           {triviaQuestion.questions.data.length}
         </p>
@@ -142,13 +154,15 @@ export function Trivia() {
       <div className="px-12">
         <h2
           key={`title-${currentQuestionIndex}`}
-          className="text-7xl text-center animate-slide-in-1"
+          className="animate-slide-in-1 text-center text-7xl"
           dangerouslySetInnerHTML={htmlTitle}
         />
       </div>
 
-      <form className="flex flex-col gap-y-6 min-w-full">
-        {triviaQuestion.questions.data[currentQuestionIndex].attributes.options.options.map((option, index) => (
+      <form className="flex min-w-full flex-col gap-y-6">
+        {triviaQuestion.questions.data[
+          currentQuestionIndex
+        ].attributes.options.options.map((option, index) => (
           <RadioInput
             key={`${currentQuestionIndex}-${index}`}
             id={option}
@@ -157,10 +171,19 @@ export function Trivia() {
             selectedOption={selectedOption}
             onChange={handleOptionChange}
             showFeedback={showFeedback}
-            isCorrect={option === triviaQuestion.questions.data[currentQuestionIndex].attributes.answer}
+            isCorrect={
+              option ===
+              triviaQuestion.questions.data[currentQuestionIndex].attributes
+                .answer
+            }
           />
         ))}
-        <ActionButton onClick={handleNextQuestion} disabled={!selectedOption || showFeedback} text={"Siguiente"} className="rounded-md animate-slide-in-5" />
+        <ActionButton
+          onClick={handleNextQuestion}
+          disabled={!selectedOption || showFeedback}
+          text={"Siguiente"}
+          className="animate-slide-in-5 rounded-md"
+        />
       </form>
       <Nav />
     </main>

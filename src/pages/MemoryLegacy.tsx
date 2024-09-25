@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
-import { cardsArray as uniqueCardsArray } from '../utils/pokemons.constants';
+import { cardsArray as uniqueCardsArray } from "../utils/pokemons.constants";
 import { sendMemoryData } from "../helpers/memory.helper";
 import { ActionButton } from "../components/ActionButton";
 import MemoryScore from "../components/MemoryScore";
@@ -25,11 +25,14 @@ function shuffleCards<T>(array: T[]): T[] {
 
 export function Memory() {
   const [cards, setCards] = useState<CardType[]>(() =>
-    shuffleCards([...uniqueCardsArray, ...uniqueCardsArray])
+    shuffleCards([...uniqueCardsArray, ...uniqueCardsArray]),
   );
   const [openCards, setOpenCards] = useState<number[]>([]);
-  const [clearedCards, setClearedCards] = useState<{ [key: string]: boolean }>({});
-  const [shouldDisableAllCards, setShouldDisableAllCards] = useState<boolean>(false);
+  const [clearedCards, setClearedCards] = useState<{ [key: string]: boolean }>(
+    {},
+  );
+  const [shouldDisableAllCards, setShouldDisableAllCards] =
+    useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
@@ -132,9 +135,9 @@ export function Memory() {
 
   useEffect(() => {
     if (isCompleted && elapsedTime < 50000) {
-      const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+      const userData = JSON.parse(localStorage.getItem("userData") || "{}");
 
-      localStorage.setItem('userHasPlayed', "true");
+      localStorage.setItem("userHasPlayed", "true");
 
       const scoreData: ScoreType = {
         playerId: userData.data.id,
@@ -142,7 +145,7 @@ export function Memory() {
         playerCompany: userData.data.attributes.company,
         scoreValue: elapsedTime,
         scoreType: "time",
-        game: "memory"
+        game: "memory",
       };
 
       sendMemoryData(scoreData);
@@ -154,22 +157,36 @@ export function Memory() {
   return (
     <main className="memory gap-6">
       <div className="flex flex-col gap-6">
-        <h1 className="main__title">Mikia Memory <br /> Challenge</h1>
+        <h1 className="main__title">
+          Mikia Memory <br /> Challenge
+        </h1>
 
         <p className="main__subtitle">
-          Revela todos los pares de cartas<br />en menos de <span className="text-yellow-300">50 segundos</span>
+          Revela todos los pares de cartas
+          <br />
+          en menos de <span className="text-yellow-300">50 segundos</span>
         </p>
       </div>
 
-      <div className="flex items-center justify-center gap-x-8 w-full">
-      <ActionButton url="/menu" text="Volver" className="btn-alternate w-min px-12" />
+      <div className="flex w-full items-center justify-center gap-x-8">
+        <ActionButton
+          url="/menu"
+          text="Volver"
+          className="btn-alternate w-min px-12"
+        />
 
-        <ActionButton onClick={handleRestart} text="Reiniciar" className="w-min px-12" />
+        <ActionButton
+          onClick={handleRestart}
+          text="Reiniciar"
+          className="w-min px-12"
+        />
 
-        <p className={`text-5xl text-white p-8 rounded-full ${elapsedTime > 40000 ? 'bg-red-500' : elapsedTime > 30000 ? 'bg-yellow-400' : 'bg-green-500'}`}>
-          <span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s
+        <p
+          className={`rounded-full p-8 text-5xl text-white ${elapsedTime > 40000 ? "bg-red-500" : elapsedTime > 30000 ? "bg-yellow-400" : "bg-green-500"}`}
+        >
+          <span className="font-bold uppercase">Tiempo:</span>{" "}
+          {(elapsedTime / 1000).toFixed(0)} s
         </p>
-
 
         {/* <p className={`text-5xl bg-green p-8 rounded-full ${elapsedTime > 30000 ? 'text-red-500' : 'text-white'}`}><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s</p> */}
         {/* <p className="text-6xl text-red-500 bg-green p-6 rounded-full"><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s</p> */}
