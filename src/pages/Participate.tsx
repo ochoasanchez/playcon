@@ -13,19 +13,15 @@ export function Participate() {
   const userHasPlayed = JSON.parse(
     localStorage.getItem("userHasPlayed") || "{}",
   );
-  // const userIsRegistered = JSON.parse(localStorage.getItem('userIsRegistered') || '{}');
   const userIsRegistered = true;
 
-  // debugger
   if (isLoading) return <Loader />;
 
   if (userIsRegistered === true) {
-    // debugger
     return (
       <main className="animate-slide-in-1 px-12">
         <img src={escudoFeliz} className="w-10/12" alt="Result" />
         <p className="main__title mt-4 font-bold">¡Gracias por registrarte!</p>
-        {/* <p className="score-message font-bold text-4xl">{message}</p> */}
         <ActionButton url="/" text="Volver" className="mt-8" />
       </main>
     );
@@ -45,13 +41,11 @@ export function Participate() {
       hasPlayed: userHasPlayed === "true",
     };
     try {
-      // await signUpParticipant(participantData);
       const response = await signUpParticipant(participantData);
       setIsloading(false);
       console.log("Raffle response:", response);
 
       localStorage.setItem("userIsRegistered", "true");
-      // debugger;
     } catch (error) {
       console.error("Error submitting data:", error);
     }
@@ -59,8 +53,6 @@ export function Participate() {
 
   return (
     <main className="animate-slide-in-1 px-12">
-      {/* <img src={logo} className="w-64"/> */}
-      {/* <p className="mt-4">Producción y Comercialización de productos químicos 🧪</p> */}
       <div className="flex w-full flex-col py-6 text-center md:w-10/12 lg:w-8/12">
         <h1 className="mt-2 text-6xl font-bold uppercase">
           ¡Participa y gana!

@@ -1,74 +1,38 @@
-import axios from "axios";
-import { sendScore } from "../helpers/game.helper";
+import { sendScore, saveScore } from "../helpers/game.helper";
+import { trivias } from "../utils/questions.constants";
 
-const strapiUrl = import.meta.env.VITE_STRAPI_URL;
-
-const getTriviaQuestions = async () => {
-  let config = {
-    headers: {
-      Authorization: "Bearer " + import.meta.env.VITE_STRAPI_TOKEN,
-    },
-  };
-
-  try {
-    const response = await axios.get(
-      `${strapiUrl}/api/trivia-games?populate=questions`,
-      config,
-    );
-    const triviaList = response.data.data;
-
-    // Get played trivia IDs from localStorage
-    let playedTriviaIds = JSON.parse(
-      localStorage.getItem("playedTriviaIds") || "[]",
-    );
-    if (!Array.isArray(playedTriviaIds)) {
-      playedTriviaIds = [];
-    }
-
-    // debugger;
-
-    // Find an unplayed trivia
-    const unplayedTrivia = triviaList.find(
-      (trivia: any) => !playedTriviaIds.includes(trivia.id),
-    );
-    // debugger;
-
-    if (unplayedTrivia) {
-      // Save the unplayed trivia ID to localStorage
-      playedTriviaIds.push(unplayedTrivia.id);
-      localStorage.setItem("playedTriviaIds", JSON.stringify(playedTriviaIds));
-
-      // debugger;
-      return unplayedTrivia.attributes;
-    } else {
-      // If all trivia questions have been played
-
-      // debugger;
-      return null;
-    }
-  } catch (error) {
-    console.log(error);
-    throw error;
+const getTriviaQuestionsNew = () => {
+  const triviaList = trivias;
+  
+  // Get played trivia IDs from localStorage
+  let playedTriviaIds = JSON.parse(
+    localStorage.getItem("playedTriviaIds") || "[]",
+  );
+  if (!Array.isArray(playedTriviaIds)) {
+    playedTriviaIds = [];
   }
-};
 
-const getTriviaScoreboard = async () => {
-  let config = {
-    headers: {
-      Authorization: "Bearer " + import.meta.env.VITE_STRAPI_TOKEN,
-    },
-  };
+  // Find an unplayed trivia
+  const unplayedTrivia = triviaList.find(
+    (trivia: any) => !playedTriviaIds.includes(trivia.id),
+  );
 
-  try {
-    const response = await axios.get(
-      `${strapiUrl}/api/scores?filters[game][$eq]=trivia`,
-      config,
-    );
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    throw error;
+  if (unplayedTrivia) {
+    // Save the unplayed trivia ID to localStorage
+    playedTriviaIds.push(unplayedTrivia.id);
+    localStorage.setItem("playedTriviaIds", JSON.stringify(playedTriviaIds));
+    return unplayedTrivia;
+  } else {
+    // If all trivia questions have been played
+    return null;
   }
+  
+}
+
+const getTriviaScoreboard = () => {
+  const triviaScoreboard = JSON.parse(localStorage.getItem("triviaScoreboard") || "[]");
+
+  return triviaScoreboard.data;
 };
 
 const sendTriviaData = async (scoreData: ScoreType) => {
@@ -81,4 +45,15 @@ const sendTriviaData = async (scoreData: ScoreType) => {
   }
 };
 
-export { getTriviaQuestions, sendTriviaData, getTriviaScoreboard };
+const saveTriviaScore = (scoreData: ScoreType) => {
+
+  const score: { data: ScoreType; game: "trivia" | "memory" } = {
+    data: scoreData,
+    game: "trivia"
+  }
+
+  saveScore(score);
+
+}
+
+export { getTriviaQuestionsNew, sendTriviaData, saveTriviaScore, getTriviaScoreboard };

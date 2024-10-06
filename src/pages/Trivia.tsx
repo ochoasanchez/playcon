@@ -1,13 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import RadioInput from "../components/RadioInput";
 import Nav from "../components/Nav";
-import { getTriviaQuestions, sendTriviaData } from "../helpers/trivia.helper";
+import { getTriviaQuestionsNew, saveTriviaScore } from "../helpers/trivia.helper";
 import TriviaScore from "../components/TriviaScore";
 import { ActionButton } from "../components/ActionButton";
 import Loader from "../components/Loader";
 
 export function Trivia() {
-  const [triviaQuestion, setTriviaQuestion] = useState<TriviaData | null>(null);
+  const [triviaQuestion, setTriviaQuestion] = useState<any>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
   const [score, setScore] = useState(0);
@@ -18,9 +18,9 @@ export function Trivia() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const questionData: TriviaData | null = await getTriviaQuestions();
+    const fetchData = () => {
+      // try {
+        const questionData = getTriviaQuestionsNew();
         if (questionData) {
           setTriviaQuestion(questionData);
         } else {
@@ -28,10 +28,10 @@ export function Trivia() {
             "¡Ya llegaste al límite de intentos! <br> Gracias por Participar",
           );
         }
-      } catch (error) {
-        console.error("Error fetching trivia questions:", error);
-        setError("Error fetching trivia questions.");
-      }
+      // } catch (error) {
+      //   console.error("Error fetching trivia questions:", error);
+      //   setError("Error fetching trivia questions.");
+      // }
       setIsLoading(false);
     };
     fetchData();
@@ -40,18 +40,18 @@ export function Trivia() {
   useEffect(() => {
     if (isCompleted) {
       localStorage.setItem("userHasPlayed", "true");
-      const userData = JSON.parse(localStorage.getItem("userData") || "{}");
+      const userData = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
       const scoreData: ScoreType = {
-        playerId: userData.data.id,
-        playerName: userData.data.attributes.name,
-        playerCompany: userData.data.attributes.company,
+        // playerId: userData.data.id,
+        playerName: userData.name,
+        playerCompany: userData.company,
         scoreValue: score,
         scoreType: "points",
         game: "trivia",
       };
 
-      sendTriviaData(scoreData);
+      saveTriviaScore(scoreData);
     }
   }, [isCompleted, score]);
 
@@ -60,22 +60,22 @@ export function Trivia() {
   };
 
   const handleNextQuestion = () => {
-    if (triviaQuestion && triviaQuestion.questions.data.length > 0) {
+    if (triviaQuestion && triviaQuestion.attributes.length > 0) {
       const correctAnswer =
-        triviaQuestion.questions.data[currentQuestionIndex].attributes.answer;
+        triviaQuestion.attributes[currentQuestionIndex].answer;
       if (selectedOption === correctAnswer) {
         setScore(score + 1);
       }
       setShowFeedback(true);
       timeoutRef.current = setTimeout(() => {
         setShowFeedback(false);
-        if (currentQuestionIndex + 1 >= triviaQuestion.questions.data.length) {
+        if (currentQuestionIndex + 1 >= triviaQuestion.attributes.length) {
           setIsCompleted(true);
         } else {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
           setSelectedOption("");
         }
-      }, 5000);
+      }, 1000);
     }
   };
 
@@ -107,8 +107,8 @@ export function Trivia() {
 
   if (
     !triviaQuestion ||
-    !Array.isArray(triviaQuestion.questions.data) ||
-    triviaQuestion.questions.data.length === 0
+    !Array.isArray(triviaQuestion.attributes) ||
+    triviaQuestion.attributes.length === 0
   ) {
     console.log("triviaQuestion:", triviaQuestion);
     return <p>No trivia questions available.</p>;
@@ -118,18 +118,18 @@ export function Trivia() {
     return (
       <TriviaScore
         score={score}
-        totalQuestions={triviaQuestion.questions.data.length}
+        totalQuestions={triviaQuestion.attributes.length}
       />
     );
   }
 
   const htmlTitle = {
     __html:
-      triviaQuestion.questions.data[currentQuestionIndex].attributes.title,
+      triviaQuestion.attributes[currentQuestionIndex].title,
   };
 
   return (
-    <main className="gap-24 px-12">
+    <main className="gap-16 px-12">
       <h1 className="main__title uppercase">
         ¡Descubramos
         <br /> cuánto sabes!
@@ -137,7 +137,7 @@ export function Trivia() {
 
       <div className="flex flex-col items-center gap-12">
         <div id="progressBar" className="flex w-lvw gap-6 md:gap-12 md:px-12">
-          {triviaQuestion.questions.data.map((_, i) => (
+          {triviaQuestion.attributes.map((_: any, i: any) => (
             <div
               key={i}
               className={`w-full bg-${i <= currentQuestionIndex ? "yellow-300" : "white"} h-4 rounded-lg`}
@@ -145,9 +145,9 @@ export function Trivia() {
           ))}
         </div>
 
-        <p className="text-5xl uppercase text-yellow-300">
+        <p id="currentQuestionIndicator" className="text-5xl uppercase text-yellow-300">
           Pregunta {currentQuestionIndex + 1} de{" "}
-          {triviaQuestion.questions.data.length}
+          {triviaQuestion.attributes.length}
         </p>
       </div>
 
@@ -160,9 +160,7 @@ export function Trivia() {
       </div>
 
       <form className="flex min-w-full flex-col gap-y-6">
-        {triviaQuestion.questions.data[
-          currentQuestionIndex
-        ].attributes.options.options.map((option, index) => (
+        {triviaQuestion.attributes[currentQuestionIndex].options.map((option: any, index: any) => (
           <RadioInput
             key={`${currentQuestionIndex}-${index}`}
             id={option}
@@ -173,8 +171,7 @@ export function Trivia() {
             showFeedback={showFeedback}
             isCorrect={
               option ===
-              triviaQuestion.questions.data[currentQuestionIndex].attributes
-                .answer
+              triviaQuestion.attributes[currentQuestionIndex].answer
             }
           />
         ))}

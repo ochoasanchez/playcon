@@ -1,11 +1,11 @@
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { ActionButton } from "../components/ActionButton";
 import { useNavigate, useParams } from "react-router-dom";
 import Logo from "../components/Logo";
 
 export function Form() {
-  localStorage.clear();
+  // localStorage.clear();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -36,32 +36,21 @@ export function Form() {
     }
   }, [player]);
 
-  async function testSubmit() {
-    // alert('Envio')
+  async function handleFormSubmit() {
     setShowModal(false);
     setLoading(true);
 
-    const token = import.meta.env.VITE_STRAPI_TOKEN;
-    const url = import.meta.env.VITE_STRAPI_URL;
-    const data = { data: formData };
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+    let userlist = JSON.parse(localStorage.getItem("users") || "[]");
 
-    try {
-      const response = await axios.post(`${url}/api/clients`, data, config);
-      localStorage.setItem("userData", JSON.stringify(response.data));
-      localStorage.setItem("userHasPlayed", "false");
-      localStorage.setItem("userIsRegistered", "false");
+    const newUserList = [...userlist, formData];
 
-      isPlayer ? navigate("/menu") : navigate("/participate");
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    } finally {
-      setLoading(false);
-    }
+    localStorage.setItem("users", JSON.stringify(newUserList));
+    localStorage.setItem("currentUser", JSON.stringify(formData));
+    localStorage.setItem("userHasPlayed", "false");
+    localStorage.setItem("userIsRegistered", "false");
+
+    setLoading(false);
+    isPlayer ? navigate("/menu") : navigate("/participate");
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -91,41 +80,11 @@ export function Form() {
     return !Object.values(errors).includes(true);
   };
 
-  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const confirmFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateFields()) {
-      // setShowModal(true);
-      testSubmit();
-    }
-  };
-
-  const handleSubmit = async () => {
-    setShowModal(false);
-    setLoading(true);
-
-    const token = import.meta.env.VITE_STRAPI_TOKEN;
-    const data = { data: formData };
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    try {
-      const response = await axios.post(
-        "http://localhost:1337/api/clients",
-        data,
-        config,
-      );
-      localStorage.setItem("userData", JSON.stringify(response.data));
-      localStorage.setItem("userHasPlayed", "false");
-      localStorage.setItem("userIsRegistered", "false");
-
-      isPlayer ? navigate("/menu") : navigate("/participate");
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    } finally {
-      setLoading(false);
+      setShowModal(true);
+      // handleFormSubmit();
     }
   };
 
@@ -149,7 +108,7 @@ export function Form() {
         )}
       </div>
       <div className="flex w-full flex-col md:w-8/12 lg:w-8/12">
-        <form className="flex flex-col gap-y-6" onSubmit={handleFormSubmit}>
+        <form className="flex flex-col gap-y-6" onSubmit={confirmFormSubmit}>
           <div className="animate-slide-in-1">
             <label className="form__label" htmlFor="name">
               Nombre y Apellido <span>*</span>
@@ -234,7 +193,7 @@ export function Form() {
                 size="small"
                 className="btn-alternate border-4 border-orange-500"
               />
-              <ActionButton onClick={testSubmit} text="Enviar" size="small" />
+              <ActionButton onClick={handleFormSubmit} text="Enviar" size="small" />
             </div>
           </div>
         </div>

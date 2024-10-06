@@ -8,7 +8,6 @@ const TriviaScore = ({
   score: number;
   totalQuestions: number;
 }) => {
-  // debugger;
   const { image, message } = getResultMessage(score, "trivia");
 
   const result = `Respondiste ${score} de ${totalQuestions} preguntas correctamente`;

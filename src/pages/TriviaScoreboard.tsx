@@ -5,12 +5,12 @@ import { Scoreboard } from "./Scoreboard";
 
 export function TriviaScoreboard() {
   const [isLoading, setIsloading] = useState(true);
-  const [scoreboard, setScoreboard] = useState<ScoreEntry[] | null>(null);
+  const [scoreboard, setScoreboard] = useState<ScoreAttributes[] | null>(null);
 
-  const getScoreboard = async () => {
+  const getScoreboard = () => {
     try {
-      const scoreboardData = await getTriviaScoreboard();
-      setScoreboard(scoreboardData.data);
+      const scoreboardData = getTriviaScoreboard();
+      setScoreboard(scoreboardData);
       setIsloading(false);
     } catch (error) {
       console.error("Error fetching scoreboard:", error);

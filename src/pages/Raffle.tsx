@@ -9,12 +9,11 @@ import Confetti from "react-confetti";
 import Loader from "../components/Loader";
 
 export function Raffle() {
-  function testRaffle() {
+  function startRaffle() {
     if (raffleParticipants && raffleParticipants.data.length > 0) {
       setIsLoading(true);
 
       if (tipo === "main") {
-        // const winner = raffleParticipants.data.find((participant: any) => participant.attributes.level === 3);
         const winner = raffleParticipants.data.find(
           (participant: any) => participant.attributes.level === 3,
         )
@@ -25,7 +24,6 @@ export function Raffle() {
               Math.floor(Math.random() * raffleParticipants.data.length)
             ];
 
-        // debugger;
         setRaffleWinner(winner);
       } else {
         const winner =
@@ -80,38 +78,6 @@ export function Raffle() {
     getRaffleWinnerName();
   }, [raffleWinner]);
 
-  const startRaffle = () => {
-    if (raffleParticipants && raffleParticipants.data.length > 0) {
-      setIsLoading(true);
-
-      if (tipo === "main") {
-        const winner = raffleParticipants.data.find(
-          (participant: any) => participant.attributes.level === 3,
-        )
-          ? raffleParticipants.data.find(
-              (participant: any) => participant.attributes.level === 3,
-            )
-          : raffleParticipants.data[
-              Math.floor(Math.random() * raffleParticipants.data.length)
-            ];
-
-        debugger;
-
-        setRaffleWinner(winner);
-      } else {
-        const winner =
-          raffleParticipants.data[
-            Math.floor(Math.random() * raffleParticipants.data.length)
-          ];
-
-        setRaffleWinner(winner);
-      }
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 15000);
-    }
-  };
-
   if (isLoading) {
     return (
       <Loader roulette={true} participants={raffleParticipants} type={tipo} />
@@ -153,9 +119,7 @@ export function Raffle() {
         Vamos a descubrirlo...
       </p>
       <div className="flex w-full flex-col gap-12">
-        <ActionButton onClick={testRaffle} text="Empezar" />
-        {/* <button onClick={startRaffle}>Rifa</button> */}
-        {/* <ActionButton onClick={startRaffle} text="Empezar" /> */}
+        <ActionButton onClick={startRaffle} text="Empezar" />
       </div>
     </main>
   );

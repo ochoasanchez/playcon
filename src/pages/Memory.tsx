@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
 import Nav from "../components/Nav";
-import getMemoryCards from "../helpers/memory.helper";
+import {getMemoryCards} from "../helpers/memory.helper";
 import Loader from "../components/Loader";
 
 function shuffleCards<T>(array: T[]): T[] {
@@ -43,8 +43,6 @@ export function Memory() {
       try {
         const memoryCards = await getMemoryCards();
         setCards(shuffleCards([...memoryCards, ...memoryCards]));
-        console.log("Fetched data:", memoryCards); // Debugging statement
-        // debugger;
         setLoading(false);
       } catch (error) {
         console.error("Error fetching memory cards:", error);

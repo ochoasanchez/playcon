@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
 import { cardsArray as uniqueCardsArray } from "../utils/pokemons.constants";
-import { sendMemoryData } from "../helpers/memory.helper";
+import { saveMemoryScore } from "../helpers/memory.helper";
 import { ActionButton } from "../components/ActionButton";
 import MemoryScore from "../components/MemoryScore";
 
@@ -135,20 +135,20 @@ export function Memory() {
 
   useEffect(() => {
     if (isCompleted && elapsedTime < 50000) {
-      const userData = JSON.parse(localStorage.getItem("userData") || "{}");
+      const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
       localStorage.setItem("userHasPlayed", "true");
 
       const scoreData: ScoreType = {
-        playerId: userData.data.id,
-        playerName: userData.data.attributes.name,
-        playerCompany: userData.data.attributes.company,
+        // playerId: currentUser.data.id,
+        playerName: currentUser.name,
+        playerCompany: currentUser.company,
         scoreValue: elapsedTime,
         scoreType: "time",
         game: "memory",
       };
 
-      sendMemoryData(scoreData);
+      saveMemoryScore(scoreData);
     }
   }, [isCompleted]);
 

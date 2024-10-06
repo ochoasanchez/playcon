@@ -7,7 +7,6 @@ const strapiUrl = import.meta.env.VITE_STRAPI_URL;
 const bearerToken = "Bearer " + import.meta.env.VITE_STRAPI_TOKEN;
 
 const sendScore = async ({ data }: { data: ScoreType }) => {
-  // const scoreData = { data: data };
   const scoreData = { data };
 
   try {
@@ -23,6 +22,15 @@ const sendScore = async ({ data }: { data: ScoreType }) => {
 
     return error;
   }
+};
+
+const saveScore =  ({ data, game }: { data: ScoreType, game: "trivia" | "memory" }) => {
+  const scoreData = data;
+  let scoreboard = JSON.parse(localStorage.getItem(`${game}Scoreboard`) || "[]");
+
+  const newScoreboard =  [...scoreboard, scoreData];
+  localStorage.setItem(`${game}Scoreboard`, JSON.stringify(newScoreboard));
+
 };
 
 function getResultMessage(scoreValue: number, game: string) {
@@ -51,19 +59,16 @@ function getResultMessage(scoreValue: number, game: string) {
 
   // Memory
   if (scoreValue / 1000 <= 30) {
-    // debugger;
     return {
       image: escudoFeliz,
       message: goodMessage,
     };
   } else if (scoreValue / 1000 < 50) {
-    // debugger;
     return {
       image: escudoBurla,
       message: regularMessage,
     };
   } else {
-    // debugger;
     return {
       image: escudoTriste,
       message: badMessage,
@@ -71,4 +76,4 @@ function getResultMessage(scoreValue: number, game: string) {
   }
 }
 
-export { sendScore, getResultMessage };
+export { sendScore, getResultMessage, saveScore };

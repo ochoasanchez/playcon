@@ -13,7 +13,6 @@ function Loader({
     const names = participants.data.map(
       (participant: any) => participant.attributes.name,
     );
-    // debugger;
     return (
       <main>
         <img src={ruletaMikia} className="w-8/12" />
@@ -45,7 +44,6 @@ function Loader({
     const names = participants.data.map(
       (participant: any) => participant.attributes.playerName,
     );
-    // debugger;
     return (
       <main>
         <img src={ruletaMikia} className="w-8/12" />

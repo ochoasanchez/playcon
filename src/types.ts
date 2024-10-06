@@ -2,7 +2,7 @@ type Question = {
   id: number;
   category: string;
   difficulty: "Easy" | "Medium" | "Hard";
-  question: string;
+  title: string;
   options: string[];
   answer: string;
 };
@@ -65,7 +65,7 @@ interface TriviaData {
 }
 
 type ScoreType = {
-  playerId: number;
+  playerId?: number;
   playerName: string;
   playerCompany: string;
   scoreValue: number;
@@ -83,7 +83,7 @@ type ParticipantType = {
 };
 
 interface ScoreAttributes {
-  playerId: number;
+  playerId?: number;
   playerName: string;
   playerCompany: string;
   scoreValue: number;

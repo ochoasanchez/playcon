@@ -4,16 +4,16 @@ export function Scoreboard({
   scoreboard,
   game,
 }: {
-  scoreboard: ScoreEntry[];
+  scoreboard: ScoreAttributes[];
   game: "memory" | "trivia";
 }) {
   const sortedScores =
     game === "memory"
       ? scoreboard.sort(
-          (a, b) => a.attributes.scoreValue - b.attributes.scoreValue,
+          (a, b) => a.scoreValue - b.scoreValue,
         )
       : scoreboard.sort(
-          (a, b) => b.attributes.scoreValue - a.attributes.scoreValue,
+          (a, b) => b.scoreValue - a.scoreValue,
         );
   const scoreType = game === "memory" ? "Tiempo (s)" : "Puntos";
 
@@ -51,16 +51,16 @@ export function Scoreboard({
           <tbody className="text-center text-5xl">
             {sortedScores.map((score, index) => (
               <tr
-                key={score.id}
-                className={`${getRowClassName(score.attributes.scoreValue)} border-b-2 border-white last:border-none`}
+                key={`key-${index + 1}`}
+                className={`${getRowClassName(score.scoreValue)} border-b-2 border-white last:border-none`}
               >
                 <td className="py-4">{index + 1}</td>
-                <td className="py-4">{score.attributes.playerName}</td>
-                <td className="py-4">{score.attributes.playerCompany}</td>
+                <td className="py-4">{score.playerName}</td>
+                <td className="py-4">{score.playerCompany}</td>
                 <td className="py-4">
                   {game === "memory"
-                    ? (score.attributes.scoreValue / 1000).toFixed(0)
-                    : score.attributes.scoreValue}
+                    ? (score.scoreValue / 1000).toFixed(0)
+                    : score.scoreValue}
                 </td>
               </tr>
             ))}

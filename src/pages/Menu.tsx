@@ -1,4 +1,4 @@
-import icons from "../assets/images/icons.png";
+// import icons from "../assets/images/icons.png";
 import { ActionButton } from "../components/ActionButton";
 import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
@@ -6,9 +6,9 @@ import Logo from "../components/Logo";
 // TODO: Video or image background
 
 export function Menu() {
-  const user = localStorage.userData ? JSON.parse(localStorage.userData) : "";
-  const userName = localStorage.userData
-    ? user.data.attributes.name.replace(/ .*/, "")
+  const user = localStorage.currentUser ? JSON.parse(localStorage.currentUser) : "";
+  const userName = localStorage.currentUser
+    ? user.name.replace(/ .*/, "")
     : "";
 
   return (
