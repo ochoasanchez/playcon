@@ -22,10 +22,10 @@ export function Home() {
         <div className="flex w-full flex-col gap-12">
           <ActionButton
             url="/form/player"
-            text="Registrarme y jugar"
+            text="Empezar"
             className=""
           />
-          <ActionButton url="/form" text="Solo registrarme" />
+          {/* <ActionButton url="/form" text="Solo registrarme" /> */}
         </div>
 
         <FooterIcons clickable />
