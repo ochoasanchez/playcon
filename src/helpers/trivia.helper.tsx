@@ -31,8 +31,8 @@ const getTriviaQuestionsNew = () => {
 
 const getTriviaScoreboard = () => {
   const triviaScoreboard = JSON.parse(localStorage.getItem("triviaScoreboard") || "[]");
-
-  return triviaScoreboard.data;
+  
+  return triviaScoreboard;
 };
 
 const sendTriviaData = async (scoreData: ScoreType) => {

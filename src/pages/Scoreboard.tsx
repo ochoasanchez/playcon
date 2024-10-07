@@ -7,6 +7,9 @@ export function Scoreboard({
   scoreboard: ScoreAttributes[];
   game: "memory" | "trivia";
 }) {
+  console.log(scoreboard, game);
+  debugger;
+
   const sortedScores =
     game === "memory"
       ? scoreboard.sort(
@@ -42,7 +45,7 @@ export function Scoreboard({
         <table className="w-full">
           <thead className="table__head">
             <tr className="rounded-md bg-orange-500 text-5xl">
-              <th className="py-2">Lugar</th>
+              <th className="p-2">#</th>
               <th className="py-2">Nombre</th>
               <th className="py-2">Compañía</th>
               <th className="py-2">{scoreType}</th>

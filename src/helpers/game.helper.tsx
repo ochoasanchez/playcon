@@ -30,7 +30,6 @@ const saveScore =  ({ data, game }: { data: ScoreType, game: "trivia" | "memory"
 
   const newScoreboard =  [...scoreboard, scoreData];
   localStorage.setItem(`${game}Scoreboard`, JSON.stringify(newScoreboard));
-
 };
 
 function getResultMessage(scoreValue: number, game: string) {
