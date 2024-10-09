@@ -19,7 +19,6 @@ export function Trivia() {
 
   useEffect(() => {
     const fetchData = () => {
-      // try {
         const questionData = getTriviaQuestionsNew();
         if (questionData) {
           setTriviaQuestion(questionData);
@@ -28,10 +27,6 @@ export function Trivia() {
             "¡Ya llegaste al límite de intentos! <br> Gracias por Participar",
           );
         }
-      // } catch (error) {
-      //   console.error("Error fetching trivia questions:", error);
-      //   setError("Error fetching trivia questions.");
-      // }
       setIsLoading(false);
     };
     fetchData();
@@ -90,7 +85,6 @@ export function Trivia() {
   if (isLoading) return <Loader />;
 
   const htmlError = { __html: error };
-  // const htmlError = { __html: "Ya llegaste al límite de intentos <br> ¡Gracias por participar!" }
 
   if (error)
     return (
@@ -99,9 +93,10 @@ export function Trivia() {
           className="text-center text-7xl"
           dangerouslySetInnerHTML={htmlError}
         ></p>
-        {/* <p className="text-7xl text-center" dangerouslySetInnerHTML={htmlError}></p> */}
-        {/* <p className="text-7xl text-center">Error fetching trivia questions:</p> */}
-        <ActionButton url="/menu" text="Volver al menú de juegos" />
+        <div className="flex flex-col w-full gap-12">
+          <ActionButton url="/menu" text="Volver al menú de juegos" />
+          <ActionButton url="/trivia/scoreboard" text="Ver tabla de posiciones" className="btn-alternate"/>
+        </div>
       </main>
     );
 

@@ -10,29 +10,16 @@ import Loader from "../components/Loader";
 
 export function Raffle() {
   function startRaffle() {
-    if (raffleParticipants && raffleParticipants.data.length > 0) {
+    if (raffleParticipants && raffleParticipants.length > 0) {
       setIsLoading(true);
 
-      if (tipo === "main") {
-        const winner = raffleParticipants.data.find(
-          (participant: any) => participant.attributes.level === 3,
-        )
-          ? raffleParticipants.data.find(
-              (participant: any) => participant.attributes.level === 3,
-            )
-          : raffleParticipants.data[
-              Math.floor(Math.random() * raffleParticipants.data.length)
-            ];
+      const winner =
+        raffleParticipants[
+          Math.floor(Math.random() * raffleParticipants.length)
+        ];
 
-        setRaffleWinner(winner);
-      } else {
-        const winner =
-          raffleParticipants.data[
-            Math.floor(Math.random() * raffleParticipants.data.length)
-          ];
+      setRaffleWinner(winner);
 
-        setRaffleWinner(winner);
-      }
       setTimeout(() => {
         setIsLoading(false);
       }, 5000);
@@ -52,21 +39,17 @@ export function Raffle() {
     return "Sorteo Desafío Mental";
   };
 
-  const getParticipants = async () => {
-    try {
-      const participantsData = await getRaffleParticipants(tipo);
+  const getParticipants = () => {
+      const participantsData = getRaffleParticipants(tipo);
       setRaffleParticipants(participantsData);
-    } catch (error) {
-      console.error("Error fetching participants:", error);
-    }
   };
 
   const getRaffleWinnerName = () => {
     if (raffleWinner !== null) {
       if (tipo === "main") {
-        return setRaffleWinnerName(raffleWinner.attributes.name);
+        return setRaffleWinnerName(raffleWinner.name);
       }
-      return setRaffleWinnerName(raffleWinner.attributes.playerName);
+      return setRaffleWinnerName(raffleWinner.playerName);
     }
   };
 

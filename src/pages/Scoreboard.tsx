@@ -7,8 +7,6 @@ export function Scoreboard({
   scoreboard: ScoreAttributes[];
   game: "memory" | "trivia";
 }) {
-  console.log(scoreboard, game);
-  debugger;
 
   const sortedScores =
     game === "memory"
@@ -21,14 +19,23 @@ export function Scoreboard({
   const scoreType = game === "memory" ? "Tiempo (s)" : "Puntos";
 
   const getRowClassName = (scoreValue: number) => {
-    if (game === "memory" && scoreValue / 1000 <= 15) return "bg-teal-500";
-    if (game === "memory" && scoreValue / 1000 <= 25) return "bg-teal-600";
-    if (game === "memory" && scoreValue / 1000 < 50) return "bg-teal-700";
-    if (game === "trivia" && scoreValue === 0) return "bg-teal-800";
-    if (game === "trivia" && scoreValue < 3) return "bg-teal-700";
-    if (game === "trivia" && scoreValue < 5) return "bg-teal-600";
-    if (game === "trivia" && scoreValue === 5) return "bg-teal-500";
-    return "bg-teal-900";
+    if (game === "memory") {
+      const scoreValueInSeconds = scoreValue / 1000;
+      if (scoreValueInSeconds <= 15) return "bg-teal-500";
+      if (scoreValueInSeconds <= 25) return "bg-teal-600";
+      if (scoreValueInSeconds < 50) return "bg-teal-700";
+      return "bg-teal-900";
+    }
+  
+    if (game === "trivia") {
+      if (scoreValue === 0) return "bg-teal-800";
+      if (scoreValue < 3) return "bg-teal-700";
+      if (scoreValue < 5) return "bg-teal-600";
+      if (scoreValue === 5) return "bg-teal-500";
+      return "bg-teal-900"; 
+    }
+  
+    return "bg-teal-900"; 
   };
 
   const getFullGameName = () => {
@@ -39,8 +46,8 @@ export function Scoreboard({
 
   return (
     <main className="animate-slide-in-1 px-12">
-      <h1 className="main__title font-bold uppercase">Tabla de Posiciones</h1>
-      <p className="main__subtitle">{getFullGameName()}</p>
+      <h1 className="main__title font-bold uppercase">{getFullGameName()}</h1>
+      <p className="main__subtitle">Tabla de posiciones</p>
       <div className="mt-12 h-4/6 w-full overflow-y-auto">
         <table className="w-full">
           <thead className="table__head">

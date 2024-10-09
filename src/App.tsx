@@ -4,7 +4,6 @@ import { Menu } from "./pages/Menu";
 import { Form } from "./pages/Form";
 import { Trivia } from "./pages/Trivia";
 import { Memory } from "./pages/MemoryLegacy";
-import { Participate } from "./pages/Participate";
 import { RaffleMenu } from "./pages/RaffleMenu";
 import { Raffle } from "./pages/Raffle";
 import { MemoryScoreboard } from "./pages/MemoryScoreboard";
@@ -20,7 +19,6 @@ function App() {
       <Route path="/menu" element={<Menu />} />
       <Route path="/trivia" element={<Trivia />} />
       <Route path="/memory" element={<Memory />} />
-      <Route path="/participate" element={<Participate />} />
       <Route path="/sorteo" element={<RaffleMenu />} />
       <Route path="/sorteo/:tipo" element={<Raffle />} />
       <Route path="/memory/scoreboard" element={<MemoryScoreboard />} />
