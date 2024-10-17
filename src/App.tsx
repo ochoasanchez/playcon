@@ -9,6 +9,8 @@ import { Raffle } from "./pages/Raffle";
 import { MemoryScoreboard } from "./pages/MemoryScoreboard";
 import { TriviaScoreboard } from "./pages/TriviaScoreboard";
 import { Clear } from "./pages/Clear";
+import { Dashboard } from "./pages/Dashboard";
+import { Sync } from "./pages/Sync";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route path="/sorteo/:tipo" element={<Raffle />} />
       <Route path="/memory/scoreboard" element={<MemoryScoreboard />} />
       <Route path="/trivia/scoreboard" element={<TriviaScoreboard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/sync" element={<Sync />} />
       <Route path="/clear" element={<Clear />} />
     </Routes>
   );

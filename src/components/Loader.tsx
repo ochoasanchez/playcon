@@ -9,12 +9,10 @@ function Loader({
   participants?: any;
   type?: "main" | "memory" | "trivia";
 }) {
-  debugger;
   if (roulette && type === "main") {
     const names = participants.map(
       (participant: any) => participant.name,
     );
-    debugger;
     return (
       <main>
         <img src={ruletaMikia} className="w-8/12" />
@@ -46,7 +44,6 @@ function Loader({
     const names = participants.map(
       (participant: any) => participant.playerName,
     );
-    debugger;
     return (
       <main>
         <img src={ruletaMikia} className="w-8/12" />

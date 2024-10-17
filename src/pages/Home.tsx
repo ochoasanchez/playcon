@@ -25,7 +25,7 @@ export function Home() {
             text="Empezar"
             className=""
           />
-          {/* <ActionButton url="/form" text="Solo registrarme" /> */}
+          <ActionButton url="/dashboard" text="panel de administrador" className="btn-alternate"/>
         </div>
 
         <FooterIcons clickable />
