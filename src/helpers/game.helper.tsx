@@ -4,10 +4,43 @@ import escudoTriste from "../assets/images/escudo-triste.gif";
 import escudoBurla from "../assets/images/escudo-burla.gif";
 
 const strapiUrl = import.meta.env.VITE_STRAPI_URL;
-const bearerToken = "Bearer " + import.meta.env.VITE_STRAPI_TOKEN;
+const bearerToken = `Bearer ${import.meta.env.VITE_STRAPI_TOKEN}`;
+
+const updateUsers = async () => {
+  
+  const users = JSON.parse(localStorage.getItem('users') || '[]');
+  debugger;
+
+  const config = {
+      headers: {
+          Authorization: bearerToken,
+      },
+  }
+
+  let counter = 0;
+
+  try {
+    for (const user of users) {
+      const data = { data: user };  
+      const response = await axios.post(`${strapiUrl}/api/clients`, data, config);
+
+      console.log("User successfully sync: ", response);
+
+      counter++;
+      debugger;
+    }
+  } catch (error) {
+    console.error('Error submitting data:', error);
+  } finally {
+    console.log(`Looped through ${counter} users`);
+  }
+};
+
 
 const sendScore = async ({ data }: { data: ScoreType }) => {
   const scoreData = { data };
+
+  debugger;
 
   try {
     const response = await axios.post(`${strapiUrl}/api/scores`, scoreData, {
@@ -75,4 +108,4 @@ function getResultMessage(scoreValue: number, game: string) {
   }
 }
 
-export { sendScore, getResultMessage, saveScore };
+export { sendScore, getResultMessage, saveScore, updateUsers };
