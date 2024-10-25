@@ -1,5 +1,5 @@
 import axios from "axios";
-import { saveScore, sendScore } from "./game.helper";
+import { saveScore } from "./game.helper";
 
 const strapiUrl = import.meta.env.VITE_STRAPI_URL;
 

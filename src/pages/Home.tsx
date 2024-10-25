@@ -1,6 +1,8 @@
 import { ActionButton } from "../components/ActionButton";
 import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
+import { MainSubtitle } from "../components/MainSubitle";
+import { MainTitle } from "../components/MainTitle";
 
 export function Home() {
   return (
@@ -9,14 +11,8 @@ export function Home() {
         <Logo />
 
         <div className="flex flex-col gap-12">
-          <h1 className="main__title uppercase">
-            ¡Desafía tus <br />
-            conocimientos!
-          </h1>
-          <p className="main__subtitle">
-            Descubre el lado divertido de la Limpieza, Sanitización y
-            Desinfección{" "}
-          </p>
+          <MainTitle text="¡Desafía tus conocimientos!" uppercase/>
+          <MainSubtitle text="Descubre el lado divertido de la Limpieza, Sanitización y Desinfección" />
         </div>
 
         <div className="flex w-full flex-col gap-12">

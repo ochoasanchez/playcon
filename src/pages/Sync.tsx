@@ -1,6 +1,8 @@
 import { ActionButton } from "../components/ActionButton";
 import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
+import { MainSubtitle } from "../components/MainSubitle";
+import { MainTitle } from "../components/MainTitle";
 import { updateUsers } from "../helpers/game.helper";
 
 
@@ -16,9 +18,8 @@ export function Sync() {
   
       <Logo />
 
-      <h1 className="main__title w-full font-bold uppercase">
-        Sync
-      </h1>
+      <MainTitle text="Respaldo de datos" uppercase/>
+      <MainSubtitle text="Presiona el botón para enviar los datos a Strapi" />
 
       <div className="flex flex-col gap-12">
       <ActionButton url="/sync" text="Sincronizar datos" onClick={updateUsers}/>

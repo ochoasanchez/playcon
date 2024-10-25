@@ -2,6 +2,10 @@ import { ActionButton } from "../components/ActionButton";
 import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
 
+const clearUserData = () => {
+  alert("clear data")
+}
+
 export function Dashboard() {
   return (
     <main className="animate-fade-in gap-24 px-12">
@@ -13,9 +17,9 @@ export function Dashboard() {
       </h1>
 
       <div className="flex flex-col gap-12">
-      <ActionButton url="/sync" text="Sincronizar datos" />
-      {/* <ActionButton url="/sorteo/trivia" text="Lista de usuarios" />
-      <ActionButton url="/sorteo/trivia" text="Datos de uso" /> */}
+      <ActionButton url="/sync" text="Respaldar datos" />
+      <ActionButton url="/users" text="Lista de usuarios" />
+      <ActionButton onClick={clearUserData} text="Borrar datos" />
       </div>
 
       <FooterIcons />

@@ -11,6 +11,8 @@ import { TriviaScoreboard } from "./pages/TriviaScoreboard";
 import { Clear } from "./pages/Clear";
 import { Dashboard } from "./pages/Dashboard";
 import { Sync } from "./pages/Sync";
+import { Users } from "./pages/Users";
+
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
       <Route path="/trivia/scoreboard" element={<TriviaScoreboard />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/sync" element={<Sync />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/users" element={<Users />} />
       <Route path="/clear" element={<Clear />} />
     </Routes>
   );
