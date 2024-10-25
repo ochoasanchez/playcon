@@ -26,12 +26,14 @@ export default function UserModal({ user, onClose }: UserModalProps) {
 
   const handleSave = () => {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
+    
     const updatedUsers = users.map((u: User) =>
       u.email === user.email ? userData : u
     );
+    
     localStorage.setItem("users", JSON.stringify(updatedUsers));
+    
     onClose();
-    debugger;
   };
 
   return (

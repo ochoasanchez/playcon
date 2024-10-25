@@ -9,7 +9,6 @@ const bearerToken = `Bearer ${import.meta.env.VITE_STRAPI_TOKEN}`;
 const updateUsers = async () => {
   
   const users = JSON.parse(localStorage.getItem('users') || '[]');
-  // debugger;
 
   const config = {
       headers: {
@@ -27,7 +26,6 @@ const updateUsers = async () => {
       console.log("User successfully sync: ", response);
 
       counter++;
-      // debugger;
     }
   } catch (error) {
     console.error('Error submitting data:', error);
@@ -39,8 +37,6 @@ const updateUsers = async () => {
 
 const sendScore = async ({ data }: { data: ScoreType }) => {
   const scoreData = { data };
-
-  // debugger;
 
   try {
     const response = await axios.post(`${strapiUrl}/api/scores`, scoreData, {
