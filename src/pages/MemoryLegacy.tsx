@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
-import { cardsArray as uniqueCardsArray } from "../utils/pokemons.constants";
+import { cardsArray as uniqueCardsArray } from "../utils/memory-cards.constants";
 import { saveMemoryScore } from "../helpers/memory.helper";
 import { ActionButton } from "../components/ActionButton";
 import MemoryScore from "../components/MemoryScore";

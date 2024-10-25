@@ -7,12 +7,6 @@ type Question = {
   answer: string;
 };
 
-type Pokemon = {
-  id: number;
-  name: string;
-  image: string;
-};
-
 type CardType = {
   id: number;
   type: string;
@@ -81,6 +75,16 @@ type ParticipantType = {
   level: number;
   hasPlayed: boolean;
 };
+
+interface User {
+  name: string,
+  phone: string,
+  company: string,
+  position: string,
+  email?: string,
+  level?: string,
+  isActive?: boolean,
+}
 
 interface ScoreAttributes {
   playerId?: number;

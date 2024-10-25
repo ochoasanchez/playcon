@@ -13,6 +13,7 @@ export function Form() {
     company: "",
     position: "",
     email: "",
+    isActive: true,
   });
 
   const [fieldErrors, setFieldErrors] = useState({
