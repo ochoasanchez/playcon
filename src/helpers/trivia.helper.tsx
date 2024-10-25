@@ -17,16 +17,7 @@ const getTriviaQuestionsNew = () => {
     (trivia: any) => !playedTriviaIds.includes(trivia.id),
   );
 
-  if (unplayedTrivia) {
-    // Save the unplayed trivia ID to localStorage
-    playedTriviaIds.push(unplayedTrivia.id);
-    localStorage.setItem("playedTriviaIds", JSON.stringify(playedTriviaIds));
-    return unplayedTrivia;
-  } else {
-    // If all trivia questions have been played
-    return null;
-  }
-  
+  return unplayedTrivia || null;  
 }
 
 const getTriviaScoreboard = () => {

@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import RadioInput from "../components/RadioInput";
-import Nav from "../components/Nav";
 import { getTriviaQuestionsNew, saveTriviaScore } from "../helpers/trivia.helper";
 import TriviaScore from "../components/TriviaScore";
 import { ActionButton } from "../components/ActionButton";
@@ -62,6 +61,15 @@ export function Trivia() {
         setScore(score + 1);
       }
       setShowFeedback(true);
+
+      // Check if it's the user's first question
+      if (currentQuestionIndex === 0) {
+        // Get played trivia IDs from localStorage and add the current trivia ID
+        let playedTriviaIds = JSON.parse(localStorage.getItem("playedTriviaIds") || "[]");
+        playedTriviaIds.push(triviaQuestion.id);
+        localStorage.setItem("playedTriviaIds", JSON.stringify(playedTriviaIds));
+      }
+
       timeoutRef.current = setTimeout(() => {
         setShowFeedback(false);
         if (currentQuestionIndex + 1 >= triviaQuestion.attributes.length) {
@@ -177,7 +185,11 @@ export function Trivia() {
           className="animate-slide-in-5 rounded-md"
         />
       </form>
-      <Nav />
+        <ActionButton
+          url="/menu"
+          text="Volver"
+          className="btn-alternate w-min px-12"
+        />
     </main>
   );
 }
