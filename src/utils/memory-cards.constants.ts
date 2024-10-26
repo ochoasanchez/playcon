@@ -1,20 +1,20 @@
-import BexitolImage from "../assets/images/bexitol.png";
-import OxiferImage from "../assets/images/oxifer.png";
-import DbgImage from "../assets/images/dbg.png";
-import PoltrakImage from "../assets/images/poltrak.png";
-import LafocitImage from "../assets/images/lafocit.png";
-import SecuvaxImage from "../assets/images/secuvax.png";
+import AiprotImage from "../assets/images/aiprot.png";
+import CipAlImage from "../assets/images/cip-al.png";
+import DbgImage from "../assets/images/dbg.png"; 
+import KerprotImage from "../assets/images/kerprot.png"; 
+import PeroxiKImage from "../assets/images/peroxi-k.png";
+import PoltrakImage from "../assets/images/poltrak.png"; 
 
 export const cardsArray: CardType[] = [
   {
     id: 1,
     type: "Bexitol",
-    image: BexitolImage,
+    image: AiprotImage,
   },
   {
     id: 2,
     type: "Oxifer",
-    image: OxiferImage,
+    image: CipAlImage,
   },
   {
     id: 3,
@@ -24,16 +24,16 @@ export const cardsArray: CardType[] = [
   {
     id: 4,
     type: "Poltrak",
-    image: PoltrakImage,
+    image: KerprotImage,
   },
   {
     id: 5,
     type: "Lafocit",
-    image: LafocitImage,
+    image: PeroxiKImage,
   },
   {
     id: 6,
     type: "Secuvax",
-    image: SecuvaxImage,
+    image: PoltrakImage,
   },
 ];

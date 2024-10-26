@@ -5,60 +5,60 @@ const mikiaQuestions: Question[] = [
     difficulty: "Easy",
     title: "¿Cuál es la actividad productiva de Químicos Mikia?",
     options: [
-      "Comercialización de materias primas para productos de limpieza",
-      "Comercialización de medicinas",
-      "Por definir la correcta"
+      "Comercialización de materias primas para productos de limpieza", 
+      "Comercialización de medicinas", 
+      "Ofrecer productos y asesoría técnica para incrementar los niveles de Bioseguridad en diferentes sectores productivos"
     ],
-    answer: "Por definir la correcta",
+    answer: "Ofrecer productos y asesoría técnica para incrementar los niveles de Bioseguridad en diferentes sectores productivos",
   },
   {
     id: 2,
     category: "Mikia",
     difficulty: "Easy",
-    title: "¿Por qué y cuándo necesito un producto espumante?",
+    title: "El <b>LSAL MIKIA</b> es un producto dirigido a:",
     options: [
-      "Para que se adhiera a las superficies de difícil acceso",
-      "Al tener sucio muy adherido/ difícil de remover",
-      "Cuando tengo un reto sanitario alto",
-      "Todas las anteriores"
+      "Remover materia orgánica y reducir carga microbiana de diferentes sectores", 
+      "Acidificar el agua", 
+      "Eliminar incrustaciones"
     ],
-    answer: "Todas las anteriores",
+    answer: "Remover materia orgánica y reducir carga microbiana de diferentes sectores",
   },
   {
     id: 3,
     category: "Mikia",
     difficulty: "Easy",
-    title: "El <b>LAFOCIT MIKIA</b> es un producto dirigido a:",
+    title: "¿Por qué y cuándo necesito un producto espumante?",
     options: [
-      "Destapar cañerías",
-      "Higienización de los animales de producción",
-      "Acidificación de agua de bebida y calidad intestinal"
+      "Para que se adhiera a las superficies de difícil acceso", 
+      "Al tener sucio muy adherido/ difícil de remover", 
+      "Cuando tengo un reto sanitario alto", 
+      "Todas las anteriores"
     ],
-    answer: "Acidificación de agua de bebida y calidad intestinal",
+    answer: "Todas las anteriores",
   },
   {
     id: 4,
     category: "Mikia",
     difficulty: "Medium",
-    title: "El <b>SECUVAX MIKIA</b> es un:",
+    title: "El <b>LAFOCIT MIKIA</b> es un producto dirigido a:",
     options: [
-      "Estabilizador de agua para vacunas vivas",
-      "Limpiador Desengrasante de Alta Alcalinidad",
-      "Limpiador Ácido"
+      "Destapar cañerías", 
+      "Higienización de los animales de producción", 
+      "Acidificación de agua de bebida y calidad intestinal"
     ],
-    answer: "Estabilizador de agua para vacunas vivas",
+    answer: "Acidificación de agua de bebida y calidad intestinal",
   },
   {
     id: 5,
     category: "Mikia",
     difficulty: "Medium",
-    title: "¿Qué producto utilizo si tengo problemas de amoníaco en cama de animales de producción?",
+    title: "¿A qué sectores estamos dirigidos?",
     options: [
-      "DBG MIKIA",
-      "POLTRAK MIKIA",
-      "LAFOCIT MIKIA"
+      "Producción Animal, Alimentos, Tratamientos de aguas, Transporte terrestre y aéreo, entre otros", 
+      "Petroquímico ", 
+      "Fertilizantes, insecticidas y abonos"
     ],
-    answer: "POLTRAK MIKIA",
+    answer: "Producción Animal, Alimentos, Tratamientos de aguas, Transporte terrestre y aéreo, entre otros",
   },
 ];
 
@@ -67,51 +67,50 @@ const mikiaQuestions2: Question[] = [
     id: 1,
     category: "Mikia",
     difficulty: "Easy",
-    title: "¿A qué sectores estamos dirigidos?",
+    title: "¿Qué productos ofrecemos para los sectores productivos?",
     options: [
-      "Producción Animal, Alimentos, Tratamientos de aguas, Transporte terrestre y aéreo, entre otros",
-      "Petroquímico ",
-      "Fertilizantes, insecticidas y abonos"
+      "Higiene del personal", 
+      "Limpieza, Sanitización y Desinfección", 
+      "Todas las anteriores"
     ],
-    answer: "Producción Animal, Alimentos, Tratamientos de aguas, Transporte terrestre y aéreo, entre otros",
+    answer: "Todas las anteriores",
   },
   {
     id: 2,
     category: "Mikia",
     difficulty: "Easy",
-    title: "¿Qué productos ofrecemos para los sectores productivos? ",
+    title: "¿Qué producto utilizo si tengo problemas de amoníaco en cama de animales de producción?",
     options: [
-      "Salud Animal",
-      "Higiene del personal",
-      "Limpieza, Sanitización y Desinfección",
-      "Todas las anteriores"
+      "DBG MIKIA", 
+      "POLTRAK MIKIA", 
+      "LAFOCIT MIKIA"
     ],
-    answer: "Todas las anteriores",
+    answer: "POLTRAK MIKIA",
   },
   {
     id: 3,
     category: "Mikia",
     difficulty: "Easy",
-    title: "¿Cuál es el nombre correcto de nuestro desinfectante a base Dialdehídos y  Amonios Cuaternarios?",
+    title: "¿Qué debes hacer en un proceso de limpieza?",
     options: [
-      "BDG MIKIA",
-      "BKM MIKIA",
-      "DBG MIKIA"
+      "Limpiar en seco, pre enjuagar, aplicar el producto", 
+      "Dejar el producto en contacto con la superficie", 
+      "Realizar trabajo mecánico y enjuagar", 
+      "Todas las anteriores"
     ],
-    answer: "DBG MIKIA",
+    answer: "Todas las anteriores",
   },
   {
     id: 4,
     category: "Mikia",
     difficulty: "Medium",
-    title: "¿Qué debes hacer en un proceso de limpieza?",
+    title: "¿Cuál es el nombre correcto de nuestro desinfectante a base Dialdehídos y Amonios Cuaternarios?",
     options: [
-      "Limpiar en seco, preenjuagar y aplicar el producto",
-      "Dejar el producto en contacto con la superficie",
-      "Realizar trabajo mecánico y enjuagar",
-      "Todas las anteriores"
+      "BDG MIKIA",
+      "BKM MIKIA", 
+      "DBG MIKIA"
     ],
-    answer: "Todas las anteriores",
+    answer: "DBG MIKIA",
   },
   {
     id: 5,
@@ -119,9 +118,9 @@ const mikiaQuestions2: Question[] = [
     difficulty: "Medium",
     title: "¿Qué problema ayuda a solucionar el <br /><b>OXI – FER MIKIA</b>?",
     options: [
-      "Contaminación del agua de bebida",
-      "Incrustaciones minerales",
-      "Formación de óxido"
+      "Contaminación del agua de bebida", 
+      "Incrustaciones minerales", 
+      "Formación de óxido "
     ],
     answer: "Contaminación del agua de bebida",
   },
