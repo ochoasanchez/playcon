@@ -10,27 +10,28 @@ export default defineConfig({
     mkcert(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['public/vite.svg', 'src/assets/images/*.png'],
+      includeAssets: ['vite.svg', 'logo-192.png',  'logo-512.png'],
       manifest: {
         name: 'My Awesome App',
         short_name: 'MyApp',
         description: 'My Awesome App description',
-        theme_color: '#ffffff',
+        theme_color: '#046636',
         icons: [
           {
-            src: 'logo-192.png',
+            src: '/logo-192.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'logo-512.png',
+            src: '/logo-512.png',
             sizes: '512x512',
             type: 'image/png'
           }
         ]
       },
+      manifestFilename: 'manifest.json',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,svg}'], 
+        globPatterns: ['**/*.{js,css,html,png,svg,gif}'], 
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === 'document',
