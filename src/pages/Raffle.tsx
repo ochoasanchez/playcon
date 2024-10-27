@@ -77,9 +77,9 @@ export function Raffle() {
           numberOfPieces={840}
         />
         <Logo />
-        <p className="main__subtitle mt-8 uppercase">El ganador es</p>
+        <p className="text-center text-5xl lg:text-8xl font-bold uppercase">El ganador es</p>
         <div className="mt-8 rounded-xl bg-orange-500 p-4 text-white">
-          <p className="text-center text-9xl font-bold uppercase">
+          <p className="text-center text-6xl lg:text-9xl font-bold uppercase">
             {raffleWinnerName}
           </p>
         </div>
@@ -94,10 +94,10 @@ export function Raffle() {
   }
 
   return (
-    <main className="animate-fade-in gap-20 px-12">
+    <main className="animate-fade-in gap-4 lg:gap-20 px-4 lg:x-12">
       <Logo />
-      <h1 className="main__title font-bold uppercase">{getRaffleName(tipo)}</h1>
-      <p className="main__subtitle mt-8 font-bold">
+      <h1 className="text-center text-5xl lg:text-8xl font-bold uppercase">{getRaffleName(tipo)}</h1>
+      <p className="text-center text-3xl lg:text-6xl font-bold mt-4 lg:mt-8">
         ¿Será que hoy es tu día de suerte? <br />
         Vamos a descubrirlo...
       </p>

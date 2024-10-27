@@ -26,17 +26,17 @@ export default function FooterIcons({
     return (
       <div className="flex gap-x-12">
         <img
-          className="w-72 opacity-30"
+          className="w-16 lg:w-72 opacity-30"
           src={pollo}
           onClick={handleClickTrivia}
         />
         <img
-          className="w-72 opacity-30"
+          className="w-16 lg:w-72 opacity-30"
           src={cerdo}
           onClick={handleClickMemory}
         />
         <img
-          className="w-72 opacity-30"
+          className="w-16 lg:w-72 opacity-30"
           src={fabrica}
           onClick={handleClickRaffle}
         />
@@ -46,9 +46,9 @@ export default function FooterIcons({
 
   return (
     <div className="flex gap-x-12">
-      <img className="w-72 opacity-30" src={pollo} />
-      <img className="w-72 opacity-30" src={cerdo} />
-      <img className="w-72 opacity-30" src={fabrica} />
+      <img className="w-16 lg:w-72 opacity-30" src={pollo} />
+      <img className="w-16 lg:w-72 opacity-30" src={cerdo} />
+      <img className="w-16 lg:w-72 opacity-30" src={fabrica} />
     </div>
   );
 }

@@ -2,6 +2,8 @@
 import { ActionButton } from "../components/ActionButton";
 import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
+import { MainSubtitle } from "../components/MainSubitle";
+import { MainTitle } from "../components/MainTitle";
 
 // TODO: Video or image background
 
@@ -11,16 +13,16 @@ export function Menu() {
     ? user.name.replace(/ .*/, "")
     : "";
 
+  const title = `¡Es hora de la verdad${user !== "" ? `, ${userName}` : ""}!`  
+  
   return (
-    <main className="animate-fade-in gap-24 px-12">
+    <main className="animate-fade-in gap-8 lg:gap-24 px-4 lg:px-12">
       <Logo />
 
-      <h1 className="main__title uppercase">
-        ¡Es hora de la verdad{user !== "" ? `, ${userName}` : ""}!
-      </h1>
-      <p className="main__subtitle uppercase">¿A qué quieres enfrentarte?</p>
+      <MainTitle text={title} uppercase/>
+      <MainSubtitle text="¿A qué quieres enfrentarte?" />
 
-      <div className="flex w-full flex-col gap-12">
+      <div className="flex w-full flex-col gap-4 lg:gap-12">
         <ActionButton url="/trivia" text="Desafío mental" />
         <ActionButton url="/memory" text="Mikia memory challenge" />
         <ActionButton

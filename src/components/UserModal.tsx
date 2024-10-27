@@ -38,9 +38,9 @@ export default function UserModal({ user, onClose }: UserModalProps) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
-      <div className="flex w-10/12 flex-col gap-16 rounded-md bg-white p-6 py-16">
+      <div className="flex w-10/12 flex-col gap-4 lg:gap-16 rounded-md bg-white px-2 lg:px-6 py-4 lg:py-16">
         <h2 className="text-6xl text-center  text-black">Editar usuario</h2>
-        <form className="flex flex-col gap-4 text-5xl text-black px-12">
+        <form className="flex flex-col gap-1 lg:gap-4 text-2xl lg:text-5xl text-black px-12 lg:px-12">
           <label>
             <span className="text-gray-500">Nombre:</span>
             <input
@@ -115,7 +115,7 @@ export default function UserModal({ user, onClose }: UserModalProps) {
           </label>
 
         </form>
-        <div className="flex justify-around gap-12 px-12">
+        <div className="flex justify-around gap-4 lg:gap-12 px-4 lg:px-12">
           <ActionButton onClick={onClose} text="Cancelar" size="small" className="btn-alternate border-4 border-orange-500" />
           <ActionButton onClick={handleSave} text="Guardar" size="small" />
         </div>

@@ -155,34 +155,34 @@ export function Memory() {
   if (isCompleted) return <MemoryScore timeInMs={elapsedTime} />;
 
   return (
-    <main className="memory gap-6">
+    <main className="memory gap-2 lg:gap-6">
       <div className="flex flex-col gap-6">
-        <h1 className="main__title">
+        <h1 className="text-center text-5xl lg:text-8xl font-bold">
           Mikia Memory <br /> Challenge
         </h1>
 
-        <p className="main__subtitle">
+        <p className="text-center text-3xl lg:text-6xl font-bold">
           Revela todos los pares de cartas
           <br />
           en menos de <span className="text-yellow-300">50 segundos</span>
         </p>
       </div>
 
-      <div className="flex w-full items-center justify-center gap-x-8">
+      <div className="flex w-full items-center justify-center gap-x-2 lg:gap-x-8">
         <ActionButton
           url="/menu"
           text="Volver"
-          className="btn-alternate w-min px-12"
+          className="btn-alternate w-min px-4 lg:px-12"
         />
 
         <ActionButton
           onClick={handleRestart}
           text="Reiniciar"
-          className="w-min px-12"
+          className="w-min px-4 lg:px-12"
         />
 
         <p
-          className={`rounded-full p-8 text-5xl text-white ${elapsedTime > 40000 ? "bg-red-500" : elapsedTime > 30000 ? "bg-yellow-400" : "bg-green-500"}`}
+          className={`rounded-full p-4 lg:p-8 text-2xl lg:text-5xl text-white ${elapsedTime > 40000 ? "bg-red-500" : elapsedTime > 30000 ? "bg-yellow-400" : "bg-green-500"}`}
         >
           <span className="font-bold uppercase">Tiempo:</span>{" "}
           {(elapsedTime / 1000).toFixed(0)} s

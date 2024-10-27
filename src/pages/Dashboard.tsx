@@ -1,6 +1,7 @@
 import { ActionButton } from "../components/ActionButton";
 import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
+import { MainTitle } from "../components/MainTitle";
 
 const clearUserData = () => {
   alert("clear data")
@@ -12,11 +13,9 @@ export function Dashboard() {
   
       <Logo />
 
-      <h1 className="main__title w-full font-bold uppercase">
-        Panel de Administrador
-      </h1>
+      <MainTitle text="Panel de Administrador" uppercase/>
 
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-4 lg:gap-12">
       <ActionButton url="/sync" text="Respaldar datos" />
       <ActionButton url="/users" text="Lista de usuarios" />
       <ActionButton onClick={clearUserData} text="Borrar datos" />

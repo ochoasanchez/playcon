@@ -31,7 +31,7 @@ export default defineConfig({
       },
       manifestFilename: 'manifest.json',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,svg,gif}'], 
+        globPatterns: ['**/*.{js,css,html,png,svg,gif,ttf}'], 
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === 'document',

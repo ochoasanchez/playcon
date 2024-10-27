@@ -132,14 +132,14 @@ export function Trivia() {
   };
 
   return (
-    <main className="gap-16 px-12">
-      <h1 className="main__title uppercase">
+    <main className="gap-4 lg:gap-16 px-2 lg:px-12">
+      <h1 className="text-center text-5xl lg:text-8xl font-bold uppercase">
         ¡Descubramos
         <br /> cuánto sabes!
       </h1>
 
-      <div className="flex flex-col items-center gap-12">
-        <div id="progressBar" className="flex w-lvw gap-6 md:gap-12 md:px-12">
+      <div className="flex flex-col items-center gap-4 lg:gap-12">
+        <div id="progressBar" className="flex w-lvw gap-6 md:gap-12 md:px-12 px-2 lg:px-0">
           {triviaQuestion.attributes.map((_: any, i: any) => (
             <div
               key={i}
@@ -148,21 +148,21 @@ export function Trivia() {
           ))}
         </div>
 
-        <p id="currentQuestionIndicator" className="text-5xl uppercase text-yellow-300">
+        <p id="currentQuestionIndicator" className="text-2xl lg:text-5xl uppercase text-yellow-300">
           Pregunta {currentQuestionIndex + 1} de{" "}
           {triviaQuestion.attributes.length}
         </p>
       </div>
 
-      <div className="px-12">
+      <div className="px-2 lg:px-12">
         <h2
           key={`title-${currentQuestionIndex}`}
-          className="animate-slide-in-1 text-center text-7xl"
+          className="animate-slide-in-1 text-center text-3xl lg:text-7xl"
           dangerouslySetInnerHTML={htmlTitle}
         />
       </div>
 
-      <form className="flex min-w-full flex-col gap-y-6">
+      <form className="flex min-w-full flex-col gap-y-2 lg:gap-y-6">
         {triviaQuestion.attributes[currentQuestionIndex].options.map((option: any, index: any) => (
           <RadioInput
             key={`${currentQuestionIndex}-${index}`}
@@ -178,18 +178,21 @@ export function Trivia() {
             }
           />
         ))}
-        <ActionButton
-          onClick={handleNextQuestion}
-          disabled={!selectedOption || showFeedback}
-          text={"Siguiente"}
-          className="animate-slide-in-5 rounded-md"
-        />
+        <div className="flex flex-col gap-y-4">
+          <ActionButton
+            onClick={handleNextQuestion}
+            disabled={!selectedOption || showFeedback}
+            text={"Siguiente"}
+            className="animate-slide-in-5 rounded-md"
+          />
+        
+          <ActionButton
+              text={"Volver al menú"}
+              className="animate-slide-in-5 rounded-md btn-alternate"
+            />
+
+        </div>
       </form>
-        <ActionButton
-          url="/menu"
-          text="Volver"
-          className="btn-alternate w-min px-12"
-        />
     </main>
   );
 }
