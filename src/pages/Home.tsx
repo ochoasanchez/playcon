@@ -18,9 +18,10 @@ export function Home() {
         <div className="flex w-full flex-col gap-12">
           <ActionButton
             url="/form/player"
-            text="Empezar"
+            text="Registrarme y jugar"
             className=""
           />
+          <ActionButton url="/form" text="Solo registrarme" />
           <ActionButton url="/dashboard" text="panel de administrador" className="btn-alternate"/>
         </div>
 

@@ -187,6 +187,7 @@ export function Trivia() {
           />
         
           <ActionButton
+              url="/menu"
               text={"Volver al menú"}
               className="animate-slide-in-5 rounded-md btn-alternate"
             />

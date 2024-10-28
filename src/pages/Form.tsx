@@ -50,6 +50,7 @@ export function Form() {
     localStorage.setItem("currentUser", JSON.stringify(formData));
     localStorage.setItem("userHasPlayed", "false");
     localStorage.setItem("userIsRegistered", "false");
+    localStorage.removeItem("playedTriviaIds");
 
     setLoading(false);
     isPlayer ? navigate("/menu") : navigate("/participate");
