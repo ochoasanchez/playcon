@@ -15,7 +15,7 @@ export default defineConfig({
         name: 'Mikia App',
         short_name: 'Mikia',
         description: 'App de interactiva de trivia y memoria',
-        theme_color: '#046636',
+        theme_color: '#33d9b2',
         icons: [
           {
             src: './logo-192.png',  // Updated path
