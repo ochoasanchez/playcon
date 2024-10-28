@@ -23,11 +23,11 @@ const Score = ({
     >
       <div className="flex h-3/5 flex-col items-center justify-center">
         <img src={image} className="w-8/12" alt="Result" />
-        <p className="w-10/12 text-5xl lg:text-7xl">{result}</p>
+        <p className="w-10/12 text-5xl sm:text-7xl">{result}</p>
       </div>
       <div className="orange-circle flex h-2/5 gap-y-8">
         <div className="w-8/12 pt-16">
-          <p className="score-message font-splash animate-bounce text-5xl lg:text-9xl">
+          <p className="score-message font-splash animate-bounce text-5xl sm:text-9xl">
             {message}
           </p>
         </div>

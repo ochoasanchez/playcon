@@ -132,14 +132,14 @@ export function Trivia() {
   };
 
   return (
-    <main className="gap-4 lg:gap-16 px-2 lg:px-12">
-      <h1 className="text-center text-5xl lg:text-8xl font-bold uppercase">
+    <main className="gap-4 sm:gap-16 px-2 sm:px-12">
+      <h1 className="text-center text-5xl sm:text-8xl font-bold uppercase">
         ¡Descubramos
         <br /> cuánto sabes!
       </h1>
 
-      <div className="flex flex-col items-center gap-4 lg:gap-12">
-        <div id="progressBar" className="flex w-lvw gap-6 md:gap-12 md:px-12 px-2 lg:px-0">
+      <div className="flex flex-col items-center gap-4 sm:gap-12">
+        <div id="progressBar" className="flex w-lvw gap-6 md:gap-12 md:px-12 px-2 sm:px-0">
           {triviaQuestion.attributes.map((_: any, i: any) => (
             <div
               key={i}
@@ -148,21 +148,21 @@ export function Trivia() {
           ))}
         </div>
 
-        <p id="currentQuestionIndicator" className="text-2xl lg:text-5xl uppercase text-yellow-300">
+        <p id="currentQuestionIndicator" className="text-2xl sm:text-5xl uppercase text-yellow-300">
           Pregunta {currentQuestionIndex + 1} de{" "}
           {triviaQuestion.attributes.length}
         </p>
       </div>
 
-      <div className="px-2 lg:px-12">
+      <div className="px-2 sm:px-12">
         <h2
           key={`title-${currentQuestionIndex}`}
-          className="animate-slide-in-1 text-center text-3xl lg:text-7xl"
+          className="animate-slide-in-1 text-center text-3xl sm:text-7xl"
           dangerouslySetInnerHTML={htmlTitle}
         />
       </div>
 
-      <form className="flex min-w-full flex-col gap-y-2 lg:gap-y-6">
+      <form className="flex min-w-full flex-col gap-y-2 sm:gap-y-6">
         {triviaQuestion.attributes[currentQuestionIndex].options.map((option: any, index: any) => (
           <RadioInput
             key={`${currentQuestionIndex}-${index}`}
@@ -178,7 +178,7 @@ export function Trivia() {
             }
           />
         ))}
-        <div className="flex flex-col gap-y-12 lg:gap-y-32">
+        <div className="flex flex-col gap-y-12 sm:gap-y-32">
           <ActionButton
             onClick={handleNextQuestion}
             disabled={!selectedOption || showFeedback}

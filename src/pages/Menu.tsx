@@ -16,13 +16,13 @@ export function Menu() {
   const title = `¡Es hora de la verdad${user !== "" ? `, ${userName}` : ""}!`  
   
   return (
-    <main className="animate-fade-in gap-8 lg:gap-24 px-4 lg:px-12">
+    <main className="animate-fade-in gap-8 sm:gap-24 px-4 sm:px-12">
       <Logo />
 
       <MainTitle text={title} uppercase/>
       <MainSubtitle text="¿A qué quieres enfrentarte?" />
 
-      <div className="flex w-full flex-col gap-4 lg:gap-12">
+      <div className="flex w-full flex-col gap-4 sm:gap-12">
         <ActionButton url="/trivia" text="Desafío mental" />
         <ActionButton url="/memory" text="Mikia memory challenge" />
         <ActionButton

@@ -30,7 +30,7 @@ export function StrapiSettingsModal({
 // debugger;
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
-      <div className="w-10/12 lg:w-8/12 flex flex-col gap-4 lg:gap-8 rounded-md bg-white p-6">
+      <div className="w-10/12 sm:w-8/12 flex flex-col gap-4 sm:gap-8 rounded-md bg-white p-6">
         <h2 className="text-3xl text-center text-black">Editar configuración de Strapi</h2>
         <form className="flex flex-col gap-4">
           <label className="text-lg">

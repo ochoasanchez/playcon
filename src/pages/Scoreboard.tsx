@@ -47,20 +47,20 @@ export function Scoreboard({
   };
 
   return (
-    <main className="animate-slide-in-1 px-4 lg:px-12">
+    <main className="animate-slide-in-1 px-4 sm:px-12">
       <MainTitle text={getFullGameName()} />
       <MainSubtitle text="Tabla de posiciones" />
-      <div className="mt-2 lg:mt-12 h-3/6 w-full overflow-y-auto">
+      <div className="mt-2 sm:mt-12 h-3/6 w-full overflow-y-auto">
         <table className="w-full">
           <thead className="table__head">
-            <tr className="rounded-md bg-orange-500 text-2xl lg:text-5xl">
+            <tr className="rounded-md bg-orange-500 text-2xl sm:text-5xl">
               <th className="p-2">#</th>
               <th className="py-2">Nombre</th>
               <th className="py-2">Compañía</th>
               <th className="py-2">{scoreType}</th>
             </tr>
           </thead>
-          <tbody className="text-center text-2xl lg:text-5xl">
+          <tbody className="text-center text-2xl sm:text-5xl">
             {sortedScores.map((score, index) => (
               <tr
                 key={`key-${index + 1}`}

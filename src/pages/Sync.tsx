@@ -47,22 +47,22 @@ export function Sync() {
   };
 
   return (
-    <main className="animate-fade-in gap-4 lg:gap-16 px-2 lg:px-12">
+    <main className="animate-fade-in gap-4 sm:gap-16 px-2 sm:px-12">
       <Logo />
       <MainTitle text="Respaldo de datos" uppercase />
       <MainSubtitle text="Presiona el botón para enviar los datos a Strapi" />
 
       <div className="flex flex-col w-full truncate bg-white text-orange-500 px-1">
-        <p className="text-2xl lg:text-5xl">
+        <p className="text-2xl sm:text-5xl">
           <span className="uppercase underline">Strapi URL:</span> {strapiUrl}
         </p>
         <br />
-        <p className="text-2xl lg:text-5xl text-ellipsis">
+        <p className="text-2xl sm:text-5xl text-ellipsis">
           <span className="uppercase underline">Token:</span> {bearerToken}
         </p>
       </div>
 
-      <div className="flex flex-col gap-4 lg:gap-12">
+      <div className="flex flex-col gap-4 sm:gap-12">
         <ActionButton text="Sincronizar datos" onClick={updateUsers} />
         <ActionButton text="Editar datos Strapi" onClick={updateStrapiHeaders} />
         <ActionButton url="/dashboard" text="Volver" className="btn-alternate" />
