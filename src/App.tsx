@@ -12,6 +12,7 @@ import { Clear } from "./pages/Clear";
 import { Dashboard } from "./pages/Dashboard";
 import { Sync } from "./pages/Sync";
 import { Users } from "./pages/Users";
+import { Participate } from "./pages/Participate";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Route path="/memory/scoreboard" element={<MemoryScoreboard />} />
       <Route path="/trivia/scoreboard" element={<TriviaScoreboard />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/participate" element={<Participate />} />
       <Route path="/sync" element={<Sync />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/users" element={<Users />} />
