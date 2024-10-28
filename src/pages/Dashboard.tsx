@@ -14,6 +14,7 @@ export function Dashboard() {
 
   const deleteData = () => {
     localStorage.clear();
+    setShowModal(false);
   }
 
   const handleGoBack = () => {

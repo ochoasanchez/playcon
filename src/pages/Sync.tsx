@@ -23,6 +23,8 @@ export function Sync() {
 
       <div className="flex flex-col gap-12">
       <ActionButton url="/sync" text="Sincronizar datos" onClick={updateUsers}/>
+
+      <ActionButton url="/dashboard" text="Volver" className="btn-alternate"/>
       {/* <ActionButton url="/sorteo/trivia" text="Lista de usuarios" />
       <ActionButton url="/sorteo/trivia" text="Datos de uso" /> */}
       </div>

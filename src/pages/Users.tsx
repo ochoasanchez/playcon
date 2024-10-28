@@ -56,7 +56,7 @@ export function Users() {
         </table>
       </div>
 
-      <ActionButton url="/menu" text="Volver" />
+      <ActionButton url="/dashboard" text="Volver"  className="btn-alternate"/>
 
       {/* Render the modal */}
       {isModalOpen && selectedUser && (

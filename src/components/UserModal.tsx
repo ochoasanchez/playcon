@@ -28,10 +28,12 @@ export default function UserModal({ user, onClose }: UserModalProps) {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     
     const updatedUsers = users.map((u: User) =>
-      u.email === user.email ? userData : u
+      u.name === user.name && u.company === user.company && u.phone === user.phone ? userData : u
     );
     
     localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+    debugger;
     
     onClose();
   };

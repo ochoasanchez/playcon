@@ -10,18 +10,26 @@ import Loader from "../components/Loader";
 
 export function Raffle() {
   function startRaffle() {
+
     if (raffleParticipants && raffleParticipants.length > 0) {
       setIsLoading(true);
 
-      const winner =
-        raffleParticipants[
-          Math.floor(Math.random() * raffleParticipants.length)
-        ];
+      if (tipo === 'main') {
+        
+        const winner = raffleParticipants.find((participant: any) => participant.level === "3") ? 
+          raffleParticipants.find((participant: any) => participant.level === "3") : 
+          raffleParticipants[Math.floor(Math.random() * raffleParticipants.length)];
+          
+          debugger;
+        setRaffleWinner(winner);
+      }
+      else {
+        const winner = raffleParticipants[Math.floor(Math.random() * raffleParticipants.length)];
 
-      setRaffleWinner(winner);
-
+        setRaffleWinner(winner);
+      }
       setTimeout(() => {
-        setIsLoading(false);
+        setIsLoading(false)
       }, 5000);
     }
   }
@@ -86,7 +94,7 @@ export function Raffle() {
         <img src={escudoGanador} className="ml-24 w-10/12" alt="Result" />
         <ActionButton
           url="/sorteo"
-          text="Volver al menu"
+          text="Volver al menú"
           className="btn-alternate"
         />
       </main>

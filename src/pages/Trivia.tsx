@@ -178,7 +178,7 @@ export function Trivia() {
             }
           />
         ))}
-        <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-12 lg:gap-y-32">
           <ActionButton
             onClick={handleNextQuestion}
             disabled={!selectedOption || showFeedback}
