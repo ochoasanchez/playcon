@@ -3,6 +3,7 @@ import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { ActionButton } from "../components/ActionButton";
 import { useNavigate, useParams } from "react-router-dom";
 import Logo from "../components/Logo";
+import { MainTitle } from "../components/MainTitle";
 
 export function Form() {
   // localStorage.clear();
@@ -105,7 +106,7 @@ export function Form() {
             el desafío!
           </h1>
         ) : (
-          <h1 className="text-center text-4xl lg:text-8xl font-bold">¡Completa este formulario!</h1>
+          <MainTitle text="¡Completa este formulario!" />
         )}
       </div>
       <div className="flex w-full flex-col md:w-8/12 lg:w-8/12">
