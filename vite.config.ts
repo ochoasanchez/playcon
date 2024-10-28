@@ -12,9 +12,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['vite.svg', 'logo-192.png', 'logo-512.png'],
       manifest: {
-        name: 'My Awesome App',
-        short_name: 'MyApp',
-        description: 'My Awesome App description',
+        name: 'Mikia App',
+        short_name: 'Mikia',
+        description: 'App de interactiva de trivia y memoria',
         theme_color: '#046636',
         icons: [
           {
