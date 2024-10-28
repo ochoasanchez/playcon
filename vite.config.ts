@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
-import mkcert from'vite-plugin-mkcert'
+import mkcert from 'vite-plugin-mkcert';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +10,7 @@ export default defineConfig({
     mkcert(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['vite.svg', 'logo-192.png',  'logo-512.png'],
+      includeAssets: ['vite.svg', 'logo-192.png', 'logo-512.png'],
       manifest: {
         name: 'My Awesome App',
         short_name: 'MyApp',
@@ -18,12 +18,12 @@ export default defineConfig({
         theme_color: '#046636',
         icons: [
           {
-            src: '/logo-192.png',
+            src: './logo-192.png',  // Updated path
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/logo-512.png',
+            src: './logo-512.png',  // Updated path
             sizes: '512x512',
             type: 'image/png'
           }
@@ -62,5 +62,5 @@ export default defineConfig({
       },
     })
   ],
-  base: '/mikiapwa/',
+  base: '/mikiapwa/',  // Ensure this matches your GitHub Pages project name
 });
