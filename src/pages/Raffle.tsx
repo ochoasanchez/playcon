@@ -77,7 +77,7 @@ export function Raffle() {
 
   if (!isLoading && raffleWinner) {
     return (
-      <main className="animate-fade-in px-12">
+      <main className="animate-fade-in px-6 gap-8">
         <Confetti
           width={width}
           height={height}
@@ -85,13 +85,13 @@ export function Raffle() {
           numberOfPieces={840}
         />
         <Logo />
-        <p className="text-center text-5xl sm:text-8xl font-bold uppercase">El ganador es</p>
-        <div className="mt-8 rounded-xl bg-orange-500 p-4 text-white">
-          <p className="text-center text-6xl sm:text-9xl font-bold uppercase">
+        <p className="text-center text-5xl sm:text-5xl font-bold uppercase">El ganador es</p>
+        <div className="rounded-xl bg-orange-500 p-4 text-white">
+          <p className="text-center text-6xl sm:text-7xl font-bold uppercase">
             {raffleWinnerName}
           </p>
         </div>
-        <img src={escudoGanador} className="ml-24 w-10/12" alt="Result" />
+        <img src={escudoGanador} className="ml-20 w-8/12 -mt-12" alt="Result" />
         <ActionButton
           url="/sorteo"
           text="Volver al menú"
@@ -102,14 +102,14 @@ export function Raffle() {
   }
 
   return (
-    <main className="animate-fade-in gap-4 sm:gap-20 px-4 sm:x-12">
+    <main className="animate-fade-in gap-12 px-4">
       <Logo />
-      <h1 className="text-center text-5xl sm:text-8xl font-bold uppercase">{getRaffleName(tipo)}</h1>
-      <p className="text-center text-3xl sm:text-6xl font-bold mt-4 sm:mt-8">
+      <h1 className="text-center text-5xl sm:text-6xl font-bold uppercase">{getRaffleName(tipo)}</h1>
+      <p className="text-center text-3xl sm:text-5xl font-bold mt-4">
         ¿Será que hoy es tu día de suerte? <br />
         Vamos a descubrirlo...
       </p>
-      <div className="flex w-full flex-col gap-12">
+      <div className="flex w-full flex-col gap-6">
         <ActionButton onClick={startRaffle} text="Empezar" />
       </div>
     </main>

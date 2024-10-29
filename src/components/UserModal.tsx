@@ -40,9 +40,9 @@ export default function UserModal({ user, onClose }: UserModalProps) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
-      <div className="flex w-10/12 flex-col gap-4 sm:gap-16 rounded-md bg-white px-2 sm:px-6 py-4 sm:py-16">
-        <h2 className="text-6xl text-center  text-black">Editar usuario</h2>
-        <form className="flex flex-col gap-1 sm:gap-4 text-2xl sm:text-5xl text-black px-12 sm:px-12">
+      <div className="flex w-10/12 flex-col gap-4 rounded-md bg-white px-2 sm:px-6 py-4">
+        <h2 className="text-3xl text-center  text-black">Editar usuario</h2>
+        <form className="flex flex-col gap-1 sm:gap-4 text-2xl sm:text-3xl text-black px-12 sm:px-12">
           <label>
             <span className="text-gray-500">Nombre:</span>
             <input
@@ -94,7 +94,7 @@ export default function UserModal({ user, onClose }: UserModalProps) {
           </label>
 
           <label className="mt-4">
-            <span className="text-gray-500">Level:</span>
+            <span className="text-gray-500">Nivel:</span>
             <input
               name="level"
               value={userData.level || ""}
@@ -103,7 +103,7 @@ export default function UserModal({ user, onClose }: UserModalProps) {
             />
           </label>
 
-          <label className="inline-flex items-center cursor-pointer mt-4">
+          <label className="inline-flex items-center cursor-pointer mt-2">
             <input
               type="checkbox"
               checked={userData.isActive || false} 
@@ -113,7 +113,7 @@ export default function UserModal({ user, onClose }: UserModalProps) {
               className="sr-only peer"
             />
             <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-            <span className="ml-4 font-medium text-5xl">{ userData.isActive ? "Activo" : "Inactivo"}</span>
+            <span className="ml-4 font-medium text-3xl">{ userData.isActive ? "Activo" : "Inactivo"}</span>
           </label>
 
         </form>

@@ -157,11 +157,11 @@ export function Memory() {
   return (
     <main className="memory gap-2 sm:gap-6">
       <div className="flex flex-col gap-6">
-        <h1 className="text-center text-5xl sm:text-8xl font-bold">
-          Mikia Memory <br /> Challenge
+        <h1 className="text-center text-5xl sm:text-6xl font-bold">
+          Mikia Memory Challenge
         </h1>
 
-        <p className="text-center text-3xl sm:text-6xl font-bold">
+        <p className="text-center text-3xl sm:text-4xl font-bold">
           Revela todos los pares de cartas
           <br />
           en menos de <span className="text-yellow-300">50 segundos</span>
@@ -172,17 +172,17 @@ export function Memory() {
         <ActionButton
           url="/menu"
           text="Volver"
-          className="btn-alternate w-min px-4 sm:px-12"
+          className="btn-alternate w-min px-4"
         />
 
         <ActionButton
           onClick={handleRestart}
           text="Reiniciar"
-          className="w-min px-4 sm:px-12"
+          className="w-min px-4"
         />
 
         <p
-          className={`rounded-full p-4 sm:p-8 text-2xl sm:text-5xl text-white ${elapsedTime > 40000 ? "bg-red-500" : elapsedTime > 30000 ? "bg-yellow-400" : "bg-green-500"}`}
+          className={`rounded-full px-4 py-6 text-4xl text-white ${elapsedTime > 40000 ? "bg-red-500" : elapsedTime > 30000 ? "bg-yellow-400" : "bg-green-500"}`}
         >
           <span className="font-bold uppercase">Tiempo:</span>{" "}
           {(elapsedTime / 1000).toFixed(0)} s

@@ -96,22 +96,21 @@ export function Form() {
   };
 
   return (
-    <main className="gap-4 sm:gap-16">
-      <div className="flex w-full justify-center px-12">
+    <main className="gap-4 sm:gap-6">
+      <div className="flex w-full justify-center px-4">
         <Logo />
       </div>
-      <div className="animate-slide-in-1 px-4 sm:px-12 text-center">
+      <div className="animate-slide-in-1 px-4 text-center">
         {isPlayer ? (
-          <h1 className="text-center text-4xl sm:text-8xl font-bold">
-            ¡Completa este formulario y empieza <br />
-            el desafío!
+          <h1 className="text-center text-5xl sm:text-6xl font-bold">
+            ¡Completa este formulario <br /> y empieza el desafío!
           </h1>
         ) : (
           <MainTitle text="¡Completa este formulario!" />
         )}
       </div>
-      <div className="flex w-full flex-col md:w-8/12 sm:w-8/12">
-        <form className="flex flex-col gap-y-2 sm:gap-y-6 px-4 sm:px-0" onSubmit={confirmFormSubmit}>
+      <div className="flex w-full flex-col sm:w-10/12">
+        <form className="flex flex-col gap-y-2 px-4 sm:px-0" onSubmit={confirmFormSubmit}>
           <div className="animate-slide-in-1">
             <label className="form__label" htmlFor="name">
               Nombre y Apellido <span>*</span>
@@ -176,7 +175,7 @@ export function Form() {
             type="submit"
             text="Siguiente"
             disabled={loading}
-            className="animate-slide-in-5 mt-6 rounded-xl"
+            className="animate-slide-in-5 mt-2 rounded-xl"
           />
           {/* <p className='text-yellow-300 text-4xl text-center'>(*) Campos obligatorios</p> */}
         </form>
@@ -184,12 +183,11 @@ export function Form() {
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50">
-          <div className="flex w-10/12 flex-col gap-4 sm:gap-16 rounded-md bg-white px-2 sm:px-6 py-4 sm:py-16">
-            <p className="text-center text-2xl sm:text-6xl text-black">
-              ¿Confirmas que deseas enviar
-              <br /> este formulario?
+          <div className="flex w-10/12 flex-col gap-4 sm:gap-8 rounded-md bg-white px-2 sm:px-6 py-4 sm:py-16">
+            <p className="text-center text-2xl sm:text-5xl text-black">
+              ¿Confirmas que deseas enviar este formulario?
             </p>
-            <div className="flex justify-around gap-4 sm:gap-12 px-4 sm:px-12">
+            <div className="flex justify-around gap-4 sm:gap-12 px-4 sm:px-8">
               <ActionButton
                 onClick={handleGoBack}
                 text="Volver"

@@ -22,13 +22,13 @@ export function Dashboard() {
   };
   
   return (
-    <main className="animate-fade-in gap-24 px-12">
+    <main className="animate-fade-in gap-4 sm:gap-8 px-8">
   
       <Logo />
 
       <MainTitle text="Panel de Administrador" uppercase/>
 
-      <div className="flex flex-col gap-4 sm:gap-12">
+      <div className="flex flex-col gap-4">
       <ActionButton url="/sync" text="Respaldar datos" />
       <ActionButton url="/users" text="Lista de usuarios" />
       <ActionButton onClick={handleDeleteData} text="Borrar datos" />
@@ -36,8 +36,8 @@ export function Dashboard() {
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50">
-          <div className="flex w-10/12 flex-col gap-4 sm:gap-16 rounded-md bg-white px-2 sm:px-6 py-4 sm:py-16">
-            <p className="text-center text-2xl sm:text-6xl text-black">
+          <div className="flex w-10/12 flex-col gap-4 sm:gap-6 rounded-md bg-white px-2 sm:px-6 py-4 sm:py-16">
+            <p className="text-center text-2xl sm:text-4xl text-black">
               ¿Confirmas que deseas borrar
               <br /> todos los datos de la app?
             </p>

@@ -22,12 +22,12 @@ export function Users() {
   };
 
   return (
-    <main className="animate-slide-in-1 px-4 sm:px-12">
+    <main className="animate-slide-in-1 px-4 sm:px-12 gap-6">
       <MainTitle text="Lista de Usuarios" />
-      <div className="mt-12 h-4/6 w-full overflow-y-auto">
+      <div className="h-4/6 w-full overflow-y-auto">
         <table className="w-full">
           <thead className="table__head">
-            <tr className="rounded-md bg-orange-500 text-2xl sm:text-5xl">
+            <tr className="rounded-md bg-orange-500 text-2xl sm:text-3xl">
               <th className="p-2">#</th>
               <th className="py-2">Nombre</th>
               <th className="py-2">Compañía</th>
@@ -35,7 +35,7 @@ export function Users() {
               <th className="py-2"></th>
             </tr>
           </thead>
-          <tbody className="text-center text-2xl sm:text-5xl">
+          <tbody className="text-center text-2xl sm:text-3xl">
             {users.map((user, index) => (
               <tr
                 key={`key-${index + 1}`}

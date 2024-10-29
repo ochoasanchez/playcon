@@ -15,7 +15,7 @@ function Loader({
     );
     return (
       <main>
-        <img src={ruletaMikia} className="w-8/12" />
+        <img src={ruletaMikia} className="w-6/12" />
 
         <div className="scrolling-names-container">
           <div className="scrolling-names">
