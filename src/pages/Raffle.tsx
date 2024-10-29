@@ -9,30 +9,30 @@ import Confetti from "react-confetti";
 import Loader from "../components/Loader";
 
 export function Raffle() {
-  function startRaffle() {
 
+  function shuffleArray(array: any) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+  
+  function startRaffle() {
     if (raffleParticipants && raffleParticipants.length > 0) {
       setIsLoading(true);
-
-      if (tipo === 'main') {
-        
-        const winner = raffleParticipants.find((participant: any) => participant.level === "3") ? 
-          raffleParticipants.find((participant: any) => participant.level === "3") : 
-          raffleParticipants[Math.floor(Math.random() * raffleParticipants.length)];
-          
-          debugger;
-        setRaffleWinner(winner);
-      }
-      else {
-        const winner = raffleParticipants[Math.floor(Math.random() * raffleParticipants.length)];
-
-        setRaffleWinner(winner);
-      }
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 5000);
+      
+      const shuffledParticipants = shuffleArray([...raffleParticipants]);
+      
+      const winner = tipo === 'main' 
+        ? shuffledParticipants.find((participant: any) => participant.level === "3") || shuffledParticipants[0]
+        : shuffledParticipants[0];
+      
+      setRaffleWinner(winner);
+      setTimeout(() => setIsLoading(false), 5000);
     }
   }
+  
   const [raffleParticipants, setRaffleParticipants] = useState<any>(null);
   const [raffleWinner, setRaffleWinner] = useState<any>(null);
   const [raffleWinnerName, setRaffleWinnerName] = useState<any>(null);
