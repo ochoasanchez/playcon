@@ -46,6 +46,17 @@ export function Sync() {
     setBearerToken(token);
   };
 
+  const handleShareData = () => {
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const jsonString = JSON.stringify(users, null, 2); // Format JSON for readability
+  
+    // Use encodeURIComponent to handle special characters in JSON
+    const mailToLink = `mailto:?subject=Data Backup&body=${encodeURIComponent(jsonString)}`;
+  
+    // Open native mail app with prefilled email
+    window.location.href = mailToLink;
+  };
+
   return (
     <main className="animate-fade-in gap-4 sm:gap-16 px-2 sm:px-12">
       <Logo />
@@ -65,6 +76,7 @@ export function Sync() {
       <div className="flex flex-col gap-4 sm:gap-12">
         <ActionButton text="Sincronizar datos" onClick={updateUsers} />
         <ActionButton text="Editar datos Strapi" onClick={updateStrapiHeaders} />
+        <ActionButton text="Enviar datos por correo" onClick={handleShareData} />
         <ActionButton url="/dashboard" text="Volver" className="btn-alternate" />
       </div>
 
