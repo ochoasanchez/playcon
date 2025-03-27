@@ -1,4 +1,4 @@
-import { sendScore, saveScore } from "../helpers/game.helper";
+import { saveScore } from "../utils/db";
 import { trivias } from "../utils/questions.constants";
 
 const getTriviaQuestionsNew = () => {
@@ -26,15 +26,15 @@ const getTriviaScoreboard = () => {
   return triviaScoreboard;
 };
 
-const sendTriviaData = async (scoreData: ScoreType) => {
-  try {
-    const response = await sendScore({ data: scoreData });
-    console.log("Data submitted successfully:", response.data);
-  } catch (error) {
-    console.error("Error submitting data:", error);
-    throw error;
-  }
-};
+// const sendTriviaData = async (scoreData: ScoreType) => {
+//   try {
+//     const response = await sendScore({ data: scoreData });
+//     console.log("Data submitted successfully:", response.data);
+//   } catch (error) {
+//     console.error("Error submitting data:", error);
+//     throw error;
+//   }
+// };
 
 const saveTriviaScore = (scoreData: ScoreType) => {
 
@@ -47,4 +47,4 @@ const saveTriviaScore = (scoreData: ScoreType) => {
 
 }
 
-export { getTriviaQuestionsNew, sendTriviaData, saveTriviaScore, getTriviaScoreboard };
+export { getTriviaQuestionsNew, saveTriviaScore, getTriviaScoreboard };

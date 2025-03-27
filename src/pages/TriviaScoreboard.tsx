@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { getTriviaScoreboard } from "../helpers/trivia.helper";
+// import { getTriviaScoreboard } from "../helpers/trivia.helper";
 import Loader from "../components/Loader";
 import { Scoreboard } from "./Scoreboard";
+import { getTriviaScores } from "../utils/db";
 
 export function TriviaScoreboard() {
   const [isLoading, setIsloading] = useState(true);
-  const [scoreboard, setScoreboard] = useState<ScoreAttributes[] | null>(null);
+  const [scoreboard, setScoreboard] = useState<ScoreType[] | null>(null);
 
-  const getScoreboard = () => {
+  const getScoreboard = async () => {
     try {
-      const scoreboardData = getTriviaScoreboard();
+      const scoreboardData = await getTriviaScores();
       setScoreboard(scoreboardData);
       setIsloading(false);
     } catch (error) {

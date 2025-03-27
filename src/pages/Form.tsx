@@ -4,6 +4,7 @@ import { ActionButton } from "../components/ActionButton";
 import { useNavigate, useParams } from "react-router-dom";
 import Logo from "../components/Logo";
 import { MainTitle } from "../components/MainTitle";
+import { addUser } from '../utils/db'; // Import the IndexedDB helper functions
 
 export function Form() {
   // localStorage.clear();
@@ -38,15 +39,35 @@ export function Form() {
     }
   }, [player]);
 
-  async function handleFormSubmit() {
-    setShowModal(false);
-    setLoading(true);
+  // async function handleFormSubmit() {
+  //   setShowModal(false);
+  //   setLoading(true);
 
-    let userlist = JSON.parse(localStorage.getItem("users") || "[]");
+  //   const userlist = JSON.parse(localStorage.getItem("users") || "[]");
 
-    const newUserList = [...userlist, formData];
+  //   const newUserList = [...userlist, formData];
 
-    localStorage.setItem("users", JSON.stringify(newUserList));
+  //   localStorage.setItem("users", JSON.stringify(newUserList));
+  //   localStorage.setItem("currentUser", JSON.stringify(formData));
+  //   localStorage.setItem("userHasPlayed", "false");
+  //   localStorage.setItem("userIsRegistered", "false");
+  //   localStorage.removeItem("playedTriviaIds");
+
+  //   setLoading(false);
+  //   isPlayer ? navigate("/menu") : navigate("/participate");
+  // }
+
+
+
+async function handleFormSubmitIDB() {
+  setShowModal(false);
+  setLoading(true);
+
+  try {
+    // Add the new user to IndexedDB
+    await addUser(formData);
+
+    // Store current user and other flags in localStorage (or you can move these to IndexedDB as well)
     localStorage.setItem("currentUser", JSON.stringify(formData));
     localStorage.setItem("userHasPlayed", "false");
     localStorage.setItem("userIsRegistered", "false");
@@ -54,7 +75,12 @@ export function Form() {
 
     setLoading(false);
     isPlayer ? navigate("/menu") : navigate("/participate");
+  } catch (error) {
+    console.error("Error saving user data:", error);
+    setLoading(false);
+    // Handle the error (e.g., show a message to the user)
   }
+}
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -192,9 +218,9 @@ export function Form() {
                 onClick={handleGoBack}
                 text="Volver"
                 size="small"
-                className="btn-alternate border-4 border-orange-500"
+                className="btn-alternate border-4 border-green-500"
               />
-              <ActionButton onClick={handleFormSubmit} text="Enviar" size="small" />
+              <ActionButton onClick={handleFormSubmitIDB} text="Enviar" size="small" />
             </div>
           </div>
         </div>

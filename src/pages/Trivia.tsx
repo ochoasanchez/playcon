@@ -65,7 +65,7 @@ export function Trivia() {
       // Check if it's the user's first question
       if (currentQuestionIndex === 0) {
         // Get played trivia IDs from localStorage and add the current trivia ID
-        let playedTriviaIds = JSON.parse(localStorage.getItem("playedTriviaIds") || "[]");
+        const playedTriviaIds = JSON.parse(localStorage.getItem("playedTriviaIds") || "[]");
         playedTriviaIds.push(triviaQuestion.id);
         localStorage.setItem("playedTriviaIds", JSON.stringify(playedTriviaIds));
       }
@@ -132,10 +132,9 @@ export function Trivia() {
   };
 
   return (
-    <main className="gap-4 px-2 sm:px-4">
+    <main className="gap-8 px-2 sm:px-4">
       <h1 className="text-center text-5xl sm:text-6xl font-bold uppercase">
-        ¡Descubramos
-        <br /> cuánto sabes!
+        Trivia
       </h1>
 
       <div className="flex flex-col w-full items-center gap-4 px-4">
@@ -143,18 +142,18 @@ export function Trivia() {
           {triviaQuestion.attributes.map((_: any, i: any) => (
             <div
               key={i}
-              className={`w-full bg-${i <= currentQuestionIndex ? "yellow-300" : "white"} h-4 rounded-lg`}
+              className={`w-full bg-${i <= currentQuestionIndex ? "green-600" : "white"} h-4 rounded-lg`}
             ></div>
           ))}
         </div>
 
-        <p id="currentQuestionIndicator" className="text-2xl sm:text-4xl uppercase text-yellow-300">
+        <p id="currentQuestionIndicator" className="text-2xl sm:text-4xl font-bold uppercase text-green-600">
           Pregunta {currentQuestionIndex + 1} de{" "}
           {triviaQuestion.attributes.length}
         </p>
       </div>
 
-      <div className="px-2 sm:px-12">
+      <div className="px-2">
         <h2
           key={`title-${currentQuestionIndex}`}
           className="animate-slide-in-1 text-center text-3xl sm:text-5xl"
@@ -183,13 +182,12 @@ export function Trivia() {
             onClick={handleNextQuestion}
             disabled={!selectedOption || showFeedback}
             text={"Siguiente"}
-            className="animate-slide-in-5 rounded-md"
           />
         
           <ActionButton
               url="/menu"
               text={"Volver al menú"}
-              className="animate-slide-in-5 rounded-md btn-alternate"
+              className="btn-alternate"
             />
 
         </div>

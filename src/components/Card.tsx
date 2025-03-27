@@ -1,5 +1,5 @@
 // import classnames from "classnames";
-import logo from "../assets/images/logo-white.svg";
+import logo from "../assets/images/logo-fc.png";
 // import "./card.scss";
 
 type CardProps = {
@@ -35,7 +35,7 @@ const Card = ({
       onClick={handleClick}
     >
       <div className="card-face card-front-face">
-        <img src={logo} alt="Mikia" />
+        <img src={logo} alt="Logo de la app" className="opacity-75"/>
       </div>
       <div className="card-face card-back-face">
         <img src={card.image} alt={card.type} className="rounded-3xl" />

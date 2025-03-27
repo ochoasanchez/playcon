@@ -86,17 +86,17 @@ interface User {
   isActive?: boolean,
 }
 
-interface ScoreAttributes {
-  playerId?: number;
-  playerName: string;
-  playerCompany: string;
-  scoreValue: number;
-  scoreType: string;
-  game: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-}
+// interface ScoreAttributes {
+//   playerId?: number;
+//   playerName: string;
+//   playerCompany: string;
+//   scoreValue: number;
+//   scoreType: string;
+//   game: string;
+//   createdAt: string;
+//   updatedAt: string;
+//   publishedAt: string;
+// }
 
 interface ScoreEntry {
   id: number;

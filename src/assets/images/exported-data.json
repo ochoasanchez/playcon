@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Luis",
+    "phone": "0123231",
+    "company": "aroa",
+    "position": "presidente",
+    "email": "luis@aroa.com",
+    "isActive": true,
+    "id": 1
+  },
+  {
+    "name": "Vanessa Mazzola",
+    "phone": "123123",
+    "company": "MDE",
+    "position": "Reina",
+    "email": "",
+    "isActive": true,
+    "id": 2
+  },
+  {
+    "name": "Miguel Chang",
+    "phone": "123456",
+    "company": "msfc",
+    "position": "CEO",
+    "email": "mchang@msfc.net",
+    "isActive": true,
+    "id": 3
+  },
+  {
+    "name": "Maru Ochoa",
+    "phone": "321456",
+    "company": "Maru Maruja",
+    "position": "Director/a",
+    "email": "",
+    "isActive": true,
+    "id": 4
+  },
+  {
+    "name": "Salomon Rondon",
+    "phone": "123",
+    "company": "FVF",
+    "position": "Delantero",
+    "email": "",
+    "isActive": true,
+    "id": 5
+  },
+  {
+    "name": "Juan Ochoa",
+    "phone": "321",
+    "company": "KIRI, INC.",
+    "position": "CTO",
+    "email": "",
+    "isActive": true,
+    "id": 6
+  },
+  {
+    "name": "Juan Sanchez",
+    "phone": "5555555",
+    "company": "ABC",
+    "position": "Director",
+    "email": "juan@abc.com",
+    "isActive": true,
+    "id": 7
+  },
+  {
+    "name": "Juan Sanchez",
+    "phone": "04123333333",
+    "company": "EDC",
+    "position": "Director",
+    "email": "juan@edc.com",
+    "isActive": true,
+    "id": 8
+  },
+  {
+    "name": "Francis Deverteuil",
+    "phone": "123456",
+    "company": "X ",
+    "position": "Accountant",
+    "email": "francis@x.com",
+    "isActive": true,
+    "id": 9
+  }
+]

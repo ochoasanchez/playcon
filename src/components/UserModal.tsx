@@ -124,7 +124,7 @@ export default function UserModal({ user, onClose }: UserModalProps) {
           </label>
         </form>
         <div className="flex justify-around gap-4 sm:gap-12 px-4 sm:px-12">
-          <ActionButton onClick={onClose} text="Cancelar" size="small" className="btn-alternate border-4 border-orange-500" />
+          <ActionButton onClick={onClose} text="Cancelar" size="small" className="btn-alternate border-4 border-green-500" />
           <ActionButton onClick={handleSave} text="Guardar" size="small" />
         </div>
       </div>

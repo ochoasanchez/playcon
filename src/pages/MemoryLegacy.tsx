@@ -158,7 +158,7 @@ export function Memory() {
     <main className="memory gap-2 sm:gap-6">
       <div className="flex flex-col gap-6">
         <h1 className="text-center text-5xl sm:text-6xl font-bold">
-          Mikia Memory Challenge
+          Reto de Memoria
         </h1>
 
         <p className="text-center text-3xl sm:text-4xl font-bold">

@@ -1,7 +1,7 @@
 import axios from "axios";
-import escudoFeliz from "../assets/images/escudo-feliz.gif";
-import escudoTriste from "../assets/images/escudo-triste.gif";
-import escudoBurla from "../assets/images/escudo-burla.gif";
+import escudoFeliz from "../assets/images/happy.png";
+import escudoTriste from "../assets/images/sad.png";
+import escudoBurla from "../assets/images/laugh.png";
 
 const strapiUrl = import.meta.env.VITE_STRAPI_URL;
 const bearerToken = `Bearer ${import.meta.env.VITE_STRAPI_TOKEN}`;
@@ -55,7 +55,7 @@ const sendScore = async ({ data }: { data: ScoreType }) => {
 
 const saveScore =  ({ data, game }: { data: ScoreType, game: "trivia" | "memory" }) => {
   const scoreData = data;
-  let scoreboard = JSON.parse(localStorage.getItem(`${game}Scoreboard`) || "[]");
+  const scoreboard = JSON.parse(localStorage.getItem(`${game}Scoreboard`) || "[]");
 
   const newScoreboard =  [...scoreboard, scoreData];
   localStorage.setItem(`${game}Scoreboard`, JSON.stringify(newScoreboard));

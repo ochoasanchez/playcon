@@ -7,7 +7,7 @@ export function Scoreboard({
   scoreboard,
   game,
 }: {
-  scoreboard: ScoreAttributes[];
+  scoreboard: ScoreType[];
   game: "memory" | "trivia";
 }) {
 
@@ -24,21 +24,21 @@ export function Scoreboard({
   const getRowClassName = (scoreValue: number) => {
     if (game === "memory") {
       const scoreValueInSeconds = scoreValue / 1000;
-      if (scoreValueInSeconds <= 15) return "bg-teal-500";
-      if (scoreValueInSeconds <= 25) return "bg-teal-600";
-      if (scoreValueInSeconds < 50) return "bg-teal-700";
-      return "bg-teal-900";
+      if (scoreValueInSeconds <= 15) return "bg-green-500";
+      if (scoreValueInSeconds <= 25) return "bg-green-600";
+      if (scoreValueInSeconds < 50) return "bg-green-700";
+      return "bg-green-900";
     }
   
     if (game === "trivia") {
-      if (scoreValue === 0) return "bg-teal-800";
-      if (scoreValue < 3) return "bg-teal-700";
-      if (scoreValue < 5) return "bg-teal-600";
-      if (scoreValue === 5) return "bg-teal-500";
-      return "bg-teal-900"; 
+      if (scoreValue === 0) return "bg-green-800";
+      if (scoreValue < 3) return "bg-green-700";
+      if (scoreValue < 5) return "bg-green-600";
+      if (scoreValue === 5) return "bg-green-500";
+      return "bg-green-900"; 
     }
   
-    return "bg-teal-900"; 
+    return "bg-green-900"; 
   };
 
   const getFullGameName = () => {

@@ -1,5 +1,5 @@
 import { ActionButton } from "../components/ActionButton";
-import escudoFeliz from "../assets/images/escudo-feliz.gif";
+import escudoFeliz from "../assets/images/happy.png";
 
 export function Participate() {
 

@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: "Intensa Fuente";
   src: url("assets/fonts/Intensafuente.ttf") format("truetype");
-}
+} */
 
 :root {
-  font-family: "Tw Cen MT", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: "Tw Cen MT", system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,9 +17,10 @@
 
   /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
   /* background: linear-gradient(-45deg, #8fc333, #007b9a); */
-  background: linear-gradient(-45deg, #706fd3, #33d9b2, #34ace0);
-  background-size: 180% 180%;
-  animation: gradient 6s ease infinite;
+  /* background: linear-gradient(-45deg, #706fd3, #33d9b2, #34ace0); */
+  background: linear-gradient(-45deg, #76950c, #c8e457, #809c23);
+  /* background-size: 180% 180%; */
+  /* animation: gradient 6s ease infinite; */
   height: 100vh;
 
   font-synthesis: none;
@@ -33,7 +34,7 @@
 }
 
 .font-splash {
-  font-family: "Intensa Fuente";
+  /* font-family: "Intensa Fuente"; */
 }
 
 @keyframes slideInRight {
@@ -91,7 +92,7 @@
 }
 
 .btn-alternate {
-  @apply bg-white text-orange-500;
+  @apply bg-white text-green-600;
 }
 
 .card-container {
@@ -229,7 +230,7 @@ header {
 }
 
 .form__label span {
-  @apply text-yellow-300;
+  @apply text-green-500;
 }
 .form__input {
   @apply mt-2 flex w-full rounded-xl sm:px-2 sm:py-2 text-4xl text-black shadow-sm outline-none ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-600;

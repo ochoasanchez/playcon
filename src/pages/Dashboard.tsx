@@ -31,7 +31,8 @@ export function Dashboard() {
       <div className="flex flex-col gap-4">
       <ActionButton url="/sync" text="Respaldar datos" />
       <ActionButton url="/users" text="Lista de usuarios" />
-      <ActionButton onClick={handleDeleteData} text="Borrar datos" />
+      {/* <ActionButton onClick={handleDeleteData} text="Borrar datos" /> */}
+      <ActionButton url="/sorteo/main" text="Sorteo" className="btn-alternate" />
       </div>
 
       {showModal && (
@@ -54,7 +55,7 @@ export function Dashboard() {
         </div>
       )}
 
-      <FooterIcons />
+      {/* <FooterIcons /> */}
     </main>
   );
 }

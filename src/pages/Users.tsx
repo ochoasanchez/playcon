@@ -1,20 +1,24 @@
 import { useState } from "react";
 import { ActionButton } from "../components/ActionButton";
 import { MainTitle } from "../components/MainTitle";
-import ViewIcon from "../components/ViewIcon";
+// import ViewIcon from "../components/ViewIcon";
 import UserModal  from "../components/UserModal";
+import { getAllUsers } from "../utils/db";
+
+
+const users: User[] = await getAllUsers(); // Uses your IndexedDB helper function
+
 
 export function Users() {
-  const users: User[] = JSON.parse(localStorage.getItem("users") || "[]");
-
+  // const users: User[] = JSON.parse(localStorage.getItem("users") || "[]");
   // State to control modal visibility and selected user
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
-  const handleViewClick = (user: User) => {
-    setSelectedUser(user);
-    setIsModalOpen(true);
-  };
+  // const handleViewClick = (user: User) => {
+  //   setSelectedUser(user);
+  //   setIsModalOpen(true);
+  // };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -27,12 +31,12 @@ export function Users() {
       <div className="h-4/6 w-full overflow-y-auto">
         <table className="w-full">
           <thead className="table__head">
-            <tr className="rounded-md bg-orange-500 text-2xl sm:text-3xl">
+            <tr className="rounded-md bg-green-500 text-2xl sm:text-3xl">
               <th className="p-2">#</th>
               <th className="py-2">Nombre</th>
               <th className="py-2">Compañía</th>
-              <th className="py-2">Nivel</th>
-              <th className="py-2"></th>
+              {/* <th className="py-2">Nivel</th> */}
+              {/* <th className="py-2"></th> */}
             </tr>
           </thead>
           <tbody className="text-center text-2xl sm:text-3xl">
@@ -44,12 +48,12 @@ export function Users() {
                 <td className="py-4">{index + 1}</td>
                 <td className="py-4">{user.name}</td>
                 <td className="py-4">{user.company}</td>
-                <td className="py-4">{user.level ? user.level : "-"}</td>
-                <td className="py-4">
+                {/* <td className="py-4">{user.level ? user.level : "-"}</td> */}
+                {/* <td className="py-4">
                   <button onClick={() => handleViewClick(user)}>
                     <ViewIcon />
                   </button>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>

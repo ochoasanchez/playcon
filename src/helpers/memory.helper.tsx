@@ -1,10 +1,10 @@
 import axios from "axios";
-import { saveScore } from "./game.helper";
+import { saveScore } from "../utils/db";
 
 const strapiUrl = import.meta.env.VITE_STRAPI_URL;
 
 const getMemoryCards = async () => {
-  let config = {
+  const config = {
     headers: {
       Authorization: "Bearer " + import.meta.env.VITE_STRAPI_TOKEN,
     },

@@ -1,6 +1,6 @@
 // import icons from "../assets/images/icons.png";
 import { ActionButton } from "../components/ActionButton";
-import FooterIcons from "../components/FooterIcons";
+// import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
 import { MainSubtitle } from "../components/MainSubitle";
 import { MainTitle } from "../components/MainTitle";
@@ -23,8 +23,8 @@ export function Menu() {
       <MainSubtitle text="¿A qué quieres enfrentarte?" />
 
       <div className="flex w-full flex-col gap-4">
-        <ActionButton url="/trivia" text="Desafío mental" />
-        <ActionButton url="/memory" text="Mikia memory challenge" />
+        <ActionButton url="/trivia" text="Juego de trivia" />
+        <ActionButton url="/memory" text="Juego de memoria" />
         <ActionButton
           url="/"
           text="Volver al Inicio"
@@ -32,7 +32,7 @@ export function Menu() {
         />
       </div>
 
-      <FooterIcons clickable />
+      {/* <FooterIcons clickable /> */}
     </main>
   );
 }
