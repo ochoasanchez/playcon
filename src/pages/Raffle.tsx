@@ -88,7 +88,8 @@ export function Raffle() {
         <p className="text-center text-5xl sm:text-5xl font-bold uppercase">El ganador es</p>
         <div className="rounded-xl bg-orange-500 p-4 text-white">
           <p className="text-center text-6xl sm:text-7xl font-bold uppercase">
-            {tipo === "main" ? raffleWinner.name : raffleWinner.playerName}
+            {/* {tipo === "main" ? raffleWinner.name : raffleWinner.playerName} */}
+            {raffleWinner.name}
           </p>
         </div>
         <img src={escudoGanador} className="w-4/12 py-4" alt="Result" />

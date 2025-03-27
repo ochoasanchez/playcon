@@ -100,5 +100,5 @@ interface User {
 
 interface ScoreEntry {
   id: number;
-  attributes: ScoreAttributes;
+  attributes: ScoreType;
 }
