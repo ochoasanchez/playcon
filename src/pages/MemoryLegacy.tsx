@@ -192,7 +192,7 @@ export function Memory() {
         {/* <p className="text-6xl text-red-500 bg-green p-6 rounded-full"><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s</p> */}
       </div>
 
-      <div className="card-container animate-slide-in-2 mt-4">
+      <div className="card-container mt-4">
         {cards.map((card, index) => (
           <Card
             key={index}

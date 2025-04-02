@@ -126,7 +126,7 @@ async function handleFormSubmitIDB() {
       <div className="flex w-full justify-center px-4">
         <Logo />
       </div>
-      <div className="animate-slide-in-1 px-4 text-center">
+      <div className="px-4 text-center">
         {isPlayer ? (
           <h1 className="text-center text-5xl sm:text-6xl font-bold">
             ¡Completa este formulario <br /> y empieza el desafío!
@@ -137,7 +137,7 @@ async function handleFormSubmitIDB() {
       </div>
       <div className="flex w-full flex-col sm:w-10/12">
         <form className="flex flex-col gap-y-2 px-4 sm:px-0" onSubmit={confirmFormSubmit}>
-          <div className="animate-slide-in-1">
+          <div>
             <label className="form__label" htmlFor="name">
               Nombre y Apellido <span>*</span>
             </label>
@@ -149,7 +149,7 @@ async function handleFormSubmitIDB() {
               className={`form__input ${fieldErrors.name ? "form__input--empty" : ""}`}
             />
           </div>
-          <div className="animate-slide-in-2">
+          <div>
             <label className="form__label" htmlFor="company">
               Compañía <span>*</span>
             </label>
@@ -161,7 +161,7 @@ async function handleFormSubmitIDB() {
               className={`form__input ${fieldErrors.company ? "form__input--empty" : ""}`}
             />
           </div>
-          <div className="animate-slide-in-3">
+          <div>
             <label className="form__label" htmlFor="position">
               Cargo <span>*</span>
             </label>
@@ -173,7 +173,7 @@ async function handleFormSubmitIDB() {
               className={`form__input ${fieldErrors.position ? "form__input--empty" : ""}`}
             />
           </div>
-          <div className="animate-slide-in-4">
+          <div>
             <label className="form__label" htmlFor="phone">
               Teléfono <span>*</span>
             </label>
@@ -185,7 +185,7 @@ async function handleFormSubmitIDB() {
               className={`form__input ${fieldErrors.phone ? "form__input--empty" : ""}`}
             />
           </div>
-          <div className="animate-slide-in-5">
+          <div>
             <label className="form__label" htmlFor="email">
               Correo electrónico
             </label>
@@ -201,7 +201,7 @@ async function handleFormSubmitIDB() {
             type="submit"
             text="Siguiente"
             disabled={loading}
-            className="animate-slide-in-5 mt-2 rounded-xl"
+            className="mt-2 rounded-xl"
           />
           {/* <p className='text-yellow-300 text-4xl text-center'>(*) Campos obligatorios</p> */}
         </form>

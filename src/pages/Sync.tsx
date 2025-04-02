@@ -61,7 +61,7 @@ export function Sync() {
 
   if (isLoading) {
     return (
-      <main className="animate-fade-in gap-4 sm:gap-8 px-2 sm:px-12">
+      <main className="gap-4 sm:gap-8 px-2 sm:px-12">
         <Logo />
         <MainTitle text="Respaldo de datos" uppercase />
         <p>Loading data...</p>
@@ -70,7 +70,7 @@ export function Sync() {
   }
 
   return (
-    <main className="animate-fade-in gap-4 sm:gap-8 px-2 sm:px-12">
+    <main className="gap-4 sm:gap-8 px-2 sm:px-12">
       <Logo />
       <MainTitle text="Respaldo de datos" uppercase />
 

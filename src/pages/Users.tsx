@@ -32,7 +32,7 @@ export function Users() {
 
   if (isLoading) {
     return (
-      <main className="animate-slide-in-1 px-4 sm:px-12 gap-6">
+      <main className="px-4 sm:px-12 gap-6">
         <MainTitle text="Lista de Usuarios" />
         <p>Loading users...</p>
       </main>
@@ -40,7 +40,7 @@ export function Users() {
   }
 
   return (
-    <main className="animate-slide-in-1 px-4 sm:px-12 gap-6">
+    <main className="px-4 sm:px-12 gap-6">
       <MainTitle text="Lista de Usuarios" />
       <div className="h-4/6 w-full overflow-y-auto">
         <table className="w-full">

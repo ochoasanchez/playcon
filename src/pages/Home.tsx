@@ -7,7 +7,7 @@ import { MainTitle } from "../components/MainTitle";
 export function Home() {
   return (
     <>
-      <main className="animate-fade-in gap-8 sm:gap-8 px-12">
+      <main className="gap-8 sm:gap-8 px-12">
         <Logo />
 
         <div className="flex flex-col gap-6">

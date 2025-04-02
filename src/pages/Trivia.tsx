@@ -156,7 +156,7 @@ export function Trivia() {
       <div className="px-2">
         <h2
           key={`title-${currentQuestionIndex}`}
-          className="animate-slide-in-1 text-center text-3xl sm:text-5xl"
+          className="text-center text-3xl sm:text-5xl"
           dangerouslySetInnerHTML={htmlTitle}
         />
       </div>

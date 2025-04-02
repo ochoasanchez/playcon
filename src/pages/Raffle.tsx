@@ -51,8 +51,8 @@ export function Raffle() {
   }
 
   const getRaffleName = () => {
-    if (tipo === "main") return "Gran sorteo";
-    if (tipo === "memory") return "Sorteo Mikia Memory Challenge";
+    if (tipo === "main") return "Sorteo";
+    if (tipo === "memory") return "Sorteo memoria";
     return "Sorteo Desafío Mental";
   };
 
@@ -77,7 +77,7 @@ export function Raffle() {
 
   if (raffleWinner && !isLoading) {
     return (
-      <main className="animate-fade-in px-6 gap-12">
+      <main className="px-6 gap-12">
         <Confetti
           width={width}
           height={height}
@@ -103,7 +103,7 @@ export function Raffle() {
   }
 
   return (
-    <main className="animate-fade-in gap-12 px-4">
+    <main className="gap-12 px-4">
       <Logo />
       <h1 className="text-center text-5xl sm:text-6xl font-bold uppercase">{getRaffleName()}</h1>
       <p className="text-center text-3xl sm:text-5xl font-bold mt-4">

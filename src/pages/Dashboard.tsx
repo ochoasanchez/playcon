@@ -22,7 +22,7 @@ export function Dashboard() {
   };
   
   return (
-    <main className="animate-fade-in gap-4 sm:gap-8 px-8">
+    <main className="gap-4 sm:gap-8 px-8">
   
       <Logo />
 

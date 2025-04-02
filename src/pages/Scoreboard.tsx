@@ -42,13 +42,13 @@ export function Scoreboard({
   };
 
   const getFullGameName = () => {
-    if (game === "memory") return "Mikia Memory Challenge";
-    if (game === "trivia") return "Desafío Mental";
+    if (game === "memory") return "Memoria";
+    if (game === "trivia") return "Trivia";
     return "";
   };
 
   return (
-    <main className="animate-slide-in-1 px-4 sm:px-6 gap-4">
+    <main className="px-4 sm:px-6 gap-4">
       <Logo />
       <MainTitle text={getFullGameName()} />
       <MainSubtitle text="Tabla de posiciones" />

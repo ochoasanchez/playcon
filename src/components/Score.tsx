@@ -21,8 +21,8 @@ const Score = ({
       id="confetti"
       className="trivia-score relative flex h-lvh w-full flex-col items-center px-4 text-center md:px-0"
     >
-      <div className="flex h-3/5 flex-col items-center justify-center">
-        <img src={image} className="w-8/12" alt="Result" />
+      <div className="flex h-3/5 gap-y-6 flex-col items-center justify-center">
+        <img src={image} className="w-6/12" alt="Result" />
         <p className="w-10/12 text-5xl sm:text-5xl">{result}</p>
       </div>
       <div className="orange-circle flex h-2/5 gap-y-8">

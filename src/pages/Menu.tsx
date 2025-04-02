@@ -16,7 +16,7 @@ export function Menu() {
   const title = `¡Es hora de la verdad${user !== "" ? `, ${userName}` : ""}!`  
   
   return (
-    <main className="animate-fade-in gap-8 px-4 sm:px-12">
+    <main className="gap-8 px-4 sm:px-12">
       <Logo />
 
       <MainTitle text={title} uppercase/>

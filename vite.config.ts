@@ -12,8 +12,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['vite.svg', 'logo-192.png', 'logo-512.png'],
       manifest: {
-        name: 'Mikia App',
-        short_name: 'Mikia',
+        name: 'FC App',
+        short_name: 'FC',
         description: 'App de interactiva de trivia y memoria',
         theme_color: '#33d9b2',
         icons: [
