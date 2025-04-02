@@ -10,7 +10,6 @@ type RadioInputProps = {
 
 const RadioInput = ({
   id,
-  index,
   label,
   selectedOption,
   onChange,
