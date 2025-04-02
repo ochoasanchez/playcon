@@ -27,7 +27,7 @@ const Score = ({
       </div>
       <div className="orange-circle flex h-2/5 gap-y-8">
         <div className="w-8/12 pt-16">
-          <p className="score-message font-splash animate-bounce text-4xl sm:text-6xl">
+          <p className="score-message font-splash text-4xl sm:text-6xl">
             {message}
           </p>
         </div>

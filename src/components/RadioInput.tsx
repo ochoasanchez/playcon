@@ -36,9 +36,7 @@ const RadioInput = ({
     <div
       className={`${backgroundColor} border-4 ${
         isSelected ? "border-green-500" : "border-white"
-      } flex cursor-pointer rounded-full p-2 sm:p-4 text-lg transition duration-300 focus-within:border-green-500 hover:border-green-500 animate-slide-in-${
-        index + 1
-      }`}
+      } flex cursor-pointer rounded-full p-2 sm:p-4 text-lg transition duration-300 focus-within:border-green-500 hover:border-green-500`}
       onClick={handleClick}
     >
       <input
