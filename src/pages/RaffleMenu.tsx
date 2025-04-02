@@ -1,5 +1,5 @@
 import { ActionButton } from "../components/ActionButton";
-import FooterIcons from "../components/FooterIcons";
+// import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
 import { MainTitle } from "../components/MainTitle";
 
@@ -21,7 +21,7 @@ export function RaffleMenu() {
         />
       </div>
 
-      <FooterIcons />
+      {/* <FooterIcons /> */}
     </main>
   );
 }
