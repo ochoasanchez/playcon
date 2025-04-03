@@ -58,14 +58,14 @@ interface TriviaData {
   questions: QuestionsData;
 }
 
-type ScoreType = {
-  playerId?: number;
-  playerName: string;
-  playerCompany: string;
-  scoreValue: number;
-  scoreType: string;
-  game: string;
-};
+// type ScoreType = {
+//   playerId?: number;
+//   playerName: string;
+//   playerCompany: string;
+//   scoreValue: number;
+//   scoreType: string;
+//   game: string;
+// };
 
 type ParticipantType = {
   userId: number;
@@ -77,28 +77,44 @@ type ParticipantType = {
 };
 
 interface User {
-  name: string,
-  phone: string,
-  company: string,
-  position: string,
-  email?: string,
-  level?: string,
-  isActive?: boolean,
+  id?: number;
+  name: string;
+  phone?: string;
+  company: string;
+  position?: string;
+  email?: string;
+  level?: string;
+  isActive?: boolean;
 }
 
-// interface ScoreAttributes {
-//   playerId?: number;
-//   playerName: string;
-//   playerCompany: string;
-//   scoreValue: number;
-//   scoreType: string;
-//   game: string;
-//   createdAt: string;
-//   updatedAt: string;
-//   publishedAt: string;
-// }
+interface ScoreType {
+  playerId?: number;
+  playerName: string;
+  playerCompany: string;
+  scoreValue: number;
+  scoreType: string;
+  game: 'memory' | 'trivia';
+}
+
+interface UserModalProps {
+  user: User;
+  onClose: () => void;
+}
+
+
+interface ScoreAttributes {
+  playerId?: number;
+  playerName: string;
+  playerCompany: string;
+  scoreValue: number;
+  scoreType: string;
+  game: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
 
 interface ScoreEntry {
   id: number;
-  attributes: ScoreType;
+  attributes: ScoreAttributes;
 }

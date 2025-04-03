@@ -1,21 +1,6 @@
 import { useState } from "react";
 import { ActionButton } from "./ActionButton";
 
-interface User {
-  name: string;
-  phone: string;
-  company: string;
-  position: string;
-  email?: string;
-  level?: string;
-  isActive?: boolean;
-}
-
-interface UserModalProps {
-  user: User;
-  onClose: () => void;
-}
-
 export default function UserModal({ user, onClose }: UserModalProps) {
   const [userData, setUserData] = useState<User>(user);
 
