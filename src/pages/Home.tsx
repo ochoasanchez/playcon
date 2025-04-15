@@ -8,10 +8,10 @@ export function Home() {
   return (
     <>
       <main className="gap-8 sm:gap-8 px-12">
-        <Logo />
+        <Logo size="large"/>
 
         <div className="flex flex-col gap-6">
-          <MainTitle text="¡Desafía tus conocimientos!" uppercase/>
+          <MainTitle text="¡Desafía tus conocimientos!" size="large"/>
           <MainSubtitle text="Descubre el lado divertido de los medicamentos y el cuidado personal" />
         </div>
 

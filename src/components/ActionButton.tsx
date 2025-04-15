@@ -20,7 +20,7 @@ export function ActionButton({
   size = "large",
 }: ActionButtonProps) {
   const baseClasses =
-    "bg-green-600 rounded-full font-bold uppercase text-2xl sm:text-4xl text-center w-full flex items-center justify-center";
+    "bg-orange-500 rounded-full font-bold uppercase text-2xl sm:text-4xl text-center w-full flex items-center justify-center";
   const sizeClasses = size === "large" ? "p-4 sm:p-6" : "p-4";
   const combinedClasses = `${baseClasses} ${sizeClasses} ${className ?? ""}`;
 

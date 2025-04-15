@@ -1,4 +1,4 @@
-import ruletaMikia from "../assets/images/roulette.gif";
+import ruletaImg from "../assets/images/roulette.gif";
 
 function Loader({
   roulette,
@@ -15,7 +15,7 @@ function Loader({
     );
     return (
       <main>
-        <img src={ruletaMikia} className="w-6/12" />
+        <img src={ruletaImg} className="w-6/12" />
 
         <div className="scrolling-names-container">
           <div className="scrolling-names">
@@ -46,7 +46,7 @@ function Loader({
     );
     return (
       <main>
-        <img src={ruletaMikia} className="w-8/12" />
+        <img src={ruletaImg} className="w-8/12" />
 
         <div className="scrolling-names-container">
           <div className="scrolling-names">

@@ -1,5 +1,16 @@
-export function MainTitle({text, uppercase} : {text?: string, uppercase?: boolean}) {
+export function MainTitle({
+    text,
+    size = "small"
+  }: {
+    text?: string,
+    uppercase?: boolean,
+    size?: "small" | "large"
+  }) {
+    const sizeClass = size === "large" ? "text-5xl sm:text-7xl" : "text-6xl sm:text-5xl";
+    
     return (
-        <h1 className={`${uppercase ? 'uppercase' : ''} text-center text-5xl sm:text-6xl font-bold`}>{text}</h1>
-    )
-}
+      <h1 className={`text-center font-bold playfair-display-400 ${sizeClass}`}>
+        {text}
+      </h1>
+    );
+  }

@@ -62,5 +62,5 @@ export default defineConfig({
       },
     })
   ],
-  base: '/mikiapwa/',  // Ensure this matches your GitHub Pages project name
+  base: '/playcon/',  // Ensure this matches your GitHub Pages project name
 });
