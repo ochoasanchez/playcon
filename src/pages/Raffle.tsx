@@ -7,7 +7,6 @@ import useWindowDimensions from "../helpers/app.helper";
 import Confetti from "react-confetti";
 import Loader from "../components/Loader";
 import { getRaffleParticipants } from "../utils/db";
-import { MainSubtitle } from "../components/MainSubitle";
 import { MainTitle } from "../components/MainTitle";
 
 export function Raffle() {
@@ -88,7 +87,6 @@ export function Raffle() {
         />
         <Logo />
         <p className="text-center text-5xl sm:text-5xl font-bold uppercase">El ganador es</p>
-        {/* <MainSubtitle text="El ganador es" c/> */}
         <div className="rounded-full bg-orange-500 py-6 px-12 text-white">
           <MainTitle text={raffleWinner.name} size="large" />
         </div>
