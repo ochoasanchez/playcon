@@ -63,7 +63,7 @@ const saveScore =  ({ data, game }: { data: ScoreType, game: "trivia" | "memory"
 
 function getResultMessage(scoreValue: number, game: string) {
   const badMessage = "Las estrellas no se alinearon hoy… ¡La próxima será tu revancha!";
-  const regularMessage = "No estuvo mal, pero sé que puedes dar aún más. ¡Sigue así!";
+  const regularMessage = "Sé que puedes dar aún más. ¡Sigue así!";
   const goodMessage = "Alguien aquí merece una medalla… ¡Excelente trabajo";
 
   if (game === "trivia") {
