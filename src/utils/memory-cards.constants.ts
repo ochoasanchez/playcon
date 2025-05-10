@@ -8,22 +8,22 @@ import Card4 from "../assets/images/zolpidex.jpg";
 export const cardsArray: CardType[] = [
   {
     id: 1,
-    type: "Bexitol",
+    type: "Corentel",
     image: Card1,
   },
   {
     id: 2,
-    type: "Oxifer",
+    type: "Dorixina",
     image: Card2,
   },
   {
     id: 3,
-    type: "Dbg",
+    type: "Rowetos",
     image: Card3,
   },
   {
     id: 4,
-    type: "Poltrak",
+    type: "Zolpidex",
     image: Card4,
   }
 ];
