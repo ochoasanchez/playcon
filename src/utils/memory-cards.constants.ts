@@ -1,9 +1,9 @@
-import Card1 from "../assets/images/celistia.jpg";
-import Card2 from "../assets/images/frondos.jpg";
-import Card3 from "../assets/images/levamox.jpg"; 
-import Card4 from "../assets/images/perlavis.jpg"; 
-import Card5 from "../assets/images/urodotan.jpg";
-import Card6 from "../assets/images/vagilenr.jpg"; 
+import Card1 from "../assets/images/corentel.jpg";
+import Card2 from "../assets/images/dorixina.jpg";
+import Card3 from "../assets/images/rowetos.jpg"; 
+import Card4 from "../assets/images/zolpidex.jpg"; 
+// import Card5 from "../assets/images/urodotan.jpg";
+// import Card6 from "../assets/images/vagilenr.jpg"; 
 
 export const cardsArray: CardType[] = [
   {
@@ -25,15 +25,5 @@ export const cardsArray: CardType[] = [
     id: 4,
     type: "Poltrak",
     image: Card4,
-  },
-  {
-    id: 5,
-    type: "Lafocit",
-    image: Card5,
-  },
-  {
-    id: 6,
-    type: "Secuvax",
-    image: Card6,
-  },
+  }
 ];

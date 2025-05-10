@@ -19,10 +19,9 @@ export function Home() {
           <ActionButton
             url="/form/player"
             text="Registrarme y jugar"
-            className=""
           />
           <ActionButton url="/form" text="Solo registrarme" />
-          <ActionButton url="/dashboard" text="panel de administrador" className="btn-alternate"/>
+          <ActionButton url="/dashboard" text="configuración" variant="alternate"/>
         </div>
 
       </main>

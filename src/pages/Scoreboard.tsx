@@ -24,17 +24,17 @@ export function Scoreboard({
   const getRowClassName = (scoreValue: number) => {
     if (game === "memory") {
       const scoreValueInSeconds = scoreValue / 1000;
-      if (scoreValueInSeconds <= 15) return "bg-green-500";
-      if (scoreValueInSeconds <= 25) return "bg-green-600";
-      if (scoreValueInSeconds < 50) return "bg-green-700";
-      return "bg-green-900";
+      if (scoreValueInSeconds <= 15) return "bg-slate-500";
+      if (scoreValueInSeconds <= 25) return "bg-slate-600";
+      if (scoreValueInSeconds < 50) return "bg-slate-700";
+      return "bg-slate-900";
     }
   
     if (game === "trivia") {
-      if (scoreValue === 0) return "bg-green-800";
-      if (scoreValue < 3) return "bg-green-700";
-      if (scoreValue < 5) return "bg-green-600";
-      if (scoreValue === 5) return "bg-green-500";
+      if (scoreValue === 0) return "bg-slate-800";
+      if (scoreValue < 3) return "bg-slate-700";
+      if (scoreValue < 5) return "bg-slate-600";
+      if (scoreValue === 5) return "bg-slate-500";
       return "bg-green-900"; 
     }
   

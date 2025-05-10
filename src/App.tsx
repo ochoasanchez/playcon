@@ -13,17 +13,21 @@ import { Dashboard } from "./pages/Dashboard";
 import { Sync } from "./pages/Sync";
 import { Users } from "./pages/Users";
 import { Participate } from "./pages/Participate";
+import { Onboarding } from "./pages/Onboarding";
+import { SpinningWheel } from "./pages/Wheel";
 
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/onboarding" element={<Onboarding />} />
       <Route path="/form" element={<Form />} />
       <Route path="/form/:player" element={<Form />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/trivia" element={<Trivia />} />
       <Route path="/memory" element={<Memory />} />
+      <Route path="/wheel" element={<SpinningWheel />} />
       <Route path="/sorteo" element={<RaffleMenu />} />
       <Route path="/sorteo/:tipo" element={<Raffle />} />
       <Route path="/memory/scoreboard" element={<MemoryScoreboard />} />

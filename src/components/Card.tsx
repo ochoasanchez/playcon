@@ -1,5 +1,5 @@
 // import classnames from "classnames";
-import logo from "../assets/images/logo-fc.png";
+import logo from "../assets/images/isotipo_blanco.svg";
 // import "./card.scss";
 
 type CardProps = {

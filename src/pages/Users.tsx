@@ -66,7 +66,7 @@ export function Users() {
         </table>
       </div>
 
-      <ActionButton url="/dashboard" text="Volver" className="btn-alternate"/>
+      <ActionButton url="/dashboard" text="Volver" variant="alternate"/>
 
       {isModalOpen && selectedUser && (
         <UserModal user={selectedUser} onClose={handleCloseModal} />

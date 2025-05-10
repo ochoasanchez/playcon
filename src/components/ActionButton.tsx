@@ -8,6 +8,8 @@ type ActionButtonProps = {
   className?: string;
   disabled?: boolean;
   size?: "small" | "large";
+  fullWidth?: boolean;
+  variant?: "main" | "alternate" | "transparent"; // New variant prop
 };
 
 export function ActionButton({
@@ -18,11 +20,24 @@ export function ActionButton({
   className,
   disabled,
   size = "large",
+  fullWidth = true,
+  variant = "main", // Default to "main"
 }: ActionButtonProps) {
-  const baseClasses =
-    "bg-orange-500 rounded-full font-bold uppercase text-2xl sm:text-4xl text-center w-full flex items-center justify-center";
+  // Base classes that don't change
+  const baseClasses = "rounded-full font-bold uppercase text-2xl sm:text-4xl text-center flex items-center justify-center";
+  
+  // Variant-specific classes
+  const variantClasses = {
+    main: "bg-emerald-200 text-emerald-700",
+    alternate: "bg-white text-emerald-600",
+    transparent: "bg-transparent text-white",
+  };
+  
   const sizeClasses = size === "large" ? "p-4 sm:p-6" : "p-4";
-  const combinedClasses = `${baseClasses} ${sizeClasses} ${className ?? ""}`;
+  const widthClasses = fullWidth ? "w-full" : "w-fit";
+  
+  // Combine all classes
+  const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses} ${className ?? ""} ${widthClasses}`;
 
   return url ? (
     <Link to={url} className={combinedClasses} onClick={onClick}>

@@ -4,6 +4,7 @@ import { getTriviaQuestionsNew, saveTriviaScore } from "../helpers/trivia.helper
 import TriviaScore from "../components/TriviaScore";
 import { ActionButton } from "../components/ActionButton";
 import Loader from "../components/Loader";
+import { MainTitle } from "../components/MainTitle";
 
 export function Trivia() {
   const [triviaQuestion, setTriviaQuestion] = useState<any>(null);
@@ -23,7 +24,7 @@ export function Trivia() {
           setTriviaQuestion(questionData);
         } else {
           setError(
-            "¡Ya llegaste al límite de intentos! <br> Gracias por Participar",
+            "¡Llegaste al límite <br />de intentos! <br> Gracias por participar",
           );
         }
       setIsLoading(false);
@@ -98,12 +99,12 @@ export function Trivia() {
     return (
       <main className="gap-24 px-12">
         <p
-          className="text-center text-7xl"
+          className="text-center text-6xl"
           dangerouslySetInnerHTML={htmlError}
         ></p>
         <div className="flex flex-col w-full gap-12">
           <ActionButton url="/menu" text="Volver al menú de juegos" />
-          <ActionButton url="/trivia/scoreboard" text="Ver tabla de posiciones" className="btn-alternate"/>
+          <ActionButton url="/trivia/scoreboard" text="Ver tabla de posiciones" variant="alternate"/>
         </div>
       </main>
     );
@@ -133,21 +134,18 @@ export function Trivia() {
 
   return (
     <main className="gap-8 px-2 sm:px-4">
-      <h1 className="text-center text-5xl sm:text-6xl font-bold uppercase">
-        Trivia
-      </h1>
-
+      <MainTitle text="Trivia" size="large"/>
       <div className="flex flex-col w-full items-center gap-4 px-4">
         <div id="progressBar" className="flex w-full gap-6 md:gap-4">
           {triviaQuestion.attributes.map((_: any, i: any) => (
             <div
               key={i}
-              className={`w-full bg-${i <= currentQuestionIndex ? "green-600" : "white"} h-4 rounded-lg`}
+              className={`w-full bg-${i <= currentQuestionIndex ? "yellow-300" : "white"} h-4 rounded-lg`}
             ></div>
           ))}
         </div>
 
-        <p id="currentQuestionIndicator" className="text-2xl sm:text-4xl font-bold uppercase text-green-600">
+        <p id="currentQuestionIndicator" className="text-2xl sm:text-4xl font-bold uppercase text-yellow-300">
           Pregunta {currentQuestionIndex + 1} de{" "}
           {triviaQuestion.attributes.length}
         </p>
@@ -182,12 +180,13 @@ export function Trivia() {
             onClick={handleNextQuestion}
             disabled={!selectedOption || showFeedback}
             text={"Siguiente"}
+            className="bg-emerald-700 !text-white"
           />
         
           <ActionButton
               url="/menu"
               text={"Volver al menú"}
-              className="btn-alternate"
+              className="bg-white text-emerald-500"
             />
 
         </div>

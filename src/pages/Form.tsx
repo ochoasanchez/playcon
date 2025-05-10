@@ -122,19 +122,19 @@ async function handleFormSubmitIDB() {
   };
 
   return (
-    <main className="gap-4 sm:gap-6">
+    <main className="gap-4 sm:gap-12">
       <div className="flex w-full justify-center px-4">
         <Logo />
       </div>
       <div className="px-4 text-center">
         {isPlayer ? (
-          <MainTitle text="Llena este formulario y empieza el desafío" />
+          <MainTitle text="Completa el formulario" />
         ) : (
-          <MainTitle text="¡Completa este formulario!" />
+          <MainTitle text="Completa el siguiente formulario" />
         )}
       </div>
       <div className="flex w-full flex-col sm:w-10/12">
-        <form className="flex flex-col gap-y-2 px-4 sm:px-0" onSubmit={confirmFormSubmit}>
+        <form className="flex flex-col gap-y-3 px-4 sm:px-0" onSubmit={confirmFormSubmit}>
           <div>
             <label className="form__label" htmlFor="name">
               Nombre y Apellido <span>*</span>
@@ -144,7 +144,7 @@ async function handleFormSubmitIDB() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`form__input ${fieldErrors.name ? "form__input--empty" : ""}`}
+              className={`form__input ${fieldErrors.name ? "form__input--" : ""}`}
             />
           </div>
           <div>
@@ -197,9 +197,9 @@ async function handleFormSubmitIDB() {
           </div>
           <ActionButton
             type="submit"
-            text="Siguiente"
+            text="Enviar"
             disabled={loading}
-            className="mt-2 rounded-xl"
+            className="mt-8"
           />
           {/* <p className='text-yellow-300 text-4xl text-center'>(*) Campos obligatorios</p> */}
         </form>
@@ -207,18 +207,18 @@ async function handleFormSubmitIDB() {
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50">
-          <div className="flex w-10/12 flex-col gap-4 sm:gap-8 rounded-md bg-white px-2 sm:px-6 py-4 sm:py-16">
+          <div className="flex w-10/12 flex-col gap-4 sm:gap-16 rounded-md bg-white px-2 sm:px-6 py-4 sm:py-12">
             <p className="text-center text-2xl sm:text-5xl text-black">
-              ¿Confirmas que deseas enviar este formulario?
+              ¿Deseas enviar este formulario?
             </p>
             <div className="flex justify-around gap-4 sm:gap-12 px-4 sm:px-8">
               <ActionButton
                 onClick={handleGoBack}
                 text="Volver"
                 size="small"
-                className="btn-alternate border-4 border-green-500"
+                className="text-emerald-500 border-emerald-500"
               />
-              <ActionButton onClick={handleFormSubmitIDB} text="Enviar" size="small" />
+              <ActionButton onClick={handleFormSubmitIDB} text="Enviar" size="small"  className="text-emerald-500 border-emerald-500"/>
             </div>
           </div>
         </div>

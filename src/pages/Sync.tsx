@@ -70,27 +70,27 @@ export function Sync() {
   }
 
   return (
-    <main className="gap-4 sm:gap-8 px-2 sm:px-12">
-      <Logo />
-      <MainTitle text="Respaldo de datos" uppercase />
+    <main className="gap-4 sm:gap-16 px-2 sm:px-12">
+      <Logo size="large"/>
+      <MainTitle text="Respaldo de datos" size="large"/>
 
-      <div className="flex flex-col gap-4 sm:gap-6">
+      <div className="flex flex-col gap-4 sm:gap-6 w-full">
         <ActionButton 
-          text="Enviar datos por correo" 
+          text="Enviar por correo" 
           onClick={handleShareDataToMail} 
           disabled={users.length === 0}
         />
         <ActionButton 
-          text="Compartir datos a otra app" 
+          text="Compartir a otra app" 
           onClick={handleShare} 
           disabled={users.length === 0}
         />
         <ActionButton 
-          text="Descargar datos" 
+          text="Descargar" 
           onClick={handleDownload} 
           disabled={users.length === 0}
         />
-        <ActionButton url="/dashboard" text="Volver" className="btn-alternate" />
+        <ActionButton url="/dashboard" text="Volver" variant="alternate" />
       </div>
     </main>
   );

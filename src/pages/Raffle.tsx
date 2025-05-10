@@ -7,6 +7,8 @@ import useWindowDimensions from "../helpers/app.helper";
 import Confetti from "react-confetti";
 import Loader from "../components/Loader";
 import { getRaffleParticipants } from "../utils/db";
+import { MainSubtitle } from "../components/MainSubitle";
+import { MainTitle } from "../components/MainTitle";
 
 export function Raffle() {
   const [raffleParticipants, setRaffleParticipants] = useState<User[] | null>(null);
@@ -86,11 +88,9 @@ export function Raffle() {
         />
         <Logo />
         <p className="text-center text-5xl sm:text-5xl font-bold uppercase">El ganador es</p>
-        <div className="rounded-xl bg-orange-500 p-4 text-white">
-          <p className="text-center text-6xl sm:text-7xl font-bold uppercase">
-            {/* {tipo === "main" ? raffleWinner.name : raffleWinner.playerName} */}
-            {raffleWinner.name}
-          </p>
+        {/* <MainSubtitle text="El ganador es" c/> */}
+        <div className="rounded-full bg-orange-500 py-6 px-12 text-white">
+          <MainTitle text={raffleWinner.name} size="large" />
         </div>
         <img src={escudoGanador} className="w-4/12 py-4" alt="Result" />
         <ActionButton

@@ -3,7 +3,7 @@ import { ActionButton } from "../components/ActionButton";
 // import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
 import { MainSubtitle } from "../components/MainSubitle";
-import { MainTitle } from "../components/MainTitle";
+// import { MainTitle } from "../components/MainTitle";
 
 // TODO: Video or image background
 
@@ -13,26 +13,27 @@ export function Menu() {
     ? user.name.replace(/ .*/, "")
     : "";
 
-  const title = `¡Es hora de la verdad${user !== "" ? `, ${userName}` : ""}!`  
+  const title = <>¡Es la hora de<br /> la verdad{user !== "" ? `, ${userName}` : ""}!</>;  
   
   return (
-    <main className="gap-8 px-4 sm:px-12">
-      <Logo />
+    <main className="gap-12 px-4 sm:px-12">
+      <Logo size="large"/>
 
-      <MainTitle text={title} uppercase/>
-      <MainSubtitle text="¿A qué quieres enfrentarte?" />
+      <h1 className={`text-center font-bold playfair-display-400 text-5xl sm:text-6xl`}>
+        {title}
+      </h1>
+      <MainSubtitle text="¿A qué quieres enfrentarte?"/>
 
-      <div className="flex w-full flex-col gap-4">
+      <div className="flex w-full flex-col gap-8">
         <ActionButton url="/trivia" text="Juego de trivia" />
         <ActionButton url="/memory" text="Juego de memoria" />
+        <ActionButton url="/wheel" text="Ruleta" />
         <ActionButton
           url="/"
           text="Volver al Inicio"
-          className="btn-alternate"
+          variant="alternate"
         />
       </div>
-
-      {/* <FooterIcons clickable /> */}
     </main>
   );
 }

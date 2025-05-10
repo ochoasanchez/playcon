@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ActionButton } from "../components/ActionButton";
-// import FooterIcons from "../components/FooterIcons";
 import Logo from "../components/Logo";
 import { MainTitle } from "../components/MainTitle";
 
@@ -8,9 +7,6 @@ export function Dashboard() {
   
   const [showModal, setShowModal] = useState(false);
 
-  // const handleDeleteData = () => {
-  //   setShowModal(true);
-  // }
 
   const deleteData = () => {
     localStorage.clear();
@@ -22,17 +18,17 @@ export function Dashboard() {
   };
   
   return (
-    <main className="gap-4 sm:gap-8 px-8">
+    <main className="gap-4 sm:gap-16 px-8">
   
-      <Logo />
+      <Logo size="large"/>
 
-      <MainTitle text="Panel de Administrador" uppercase/>
+      <MainTitle text="Configuración" size="large"/>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-full">
       <ActionButton url="/sync" text="Respaldar datos" />
       <ActionButton url="/users" text="Lista de usuarios" />
-      {/* <ActionButton onClick={handleDeleteData} text="Borrar datos" /> */}
-      <ActionButton url="/sorteo/main" text="Sorteo" className="btn-alternate" />
+      <ActionButton url="/sorteo/main" text="Sorteo" />
+      <ActionButton url="/" text="Volver" variant="alternate"/>
       </div>
 
       {showModal && (
@@ -55,7 +51,6 @@ export function Dashboard() {
         </div>
       )}
 
-      {/* <FooterIcons /> */}
     </main>
   );
 }

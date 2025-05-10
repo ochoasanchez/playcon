@@ -4,6 +4,7 @@ import { cardsArray as uniqueCardsArray } from "../utils/memory-cards.constants"
 import { saveMemoryScore } from "../helpers/memory.helper";
 import { ActionButton } from "../components/ActionButton";
 import MemoryScore from "../components/MemoryScore";
+import { MainTitle } from "../components/MainTitle";
 
 interface CardType {
   id: number;
@@ -155,24 +156,26 @@ export function Memory() {
   if (isCompleted) return <MemoryScore timeInMs={elapsedTime} />;
 
   return (
-    <main className="memory gap-2 sm:gap-6">
+    <main className="memory gap- sm:gap-6">
       <div className="flex flex-col gap-6">
-        <h1 className="text-center text-5xl sm:text-6xl font-bold">
+        <MainTitle text="Reto de Memoria" size="large"/>
+        {/* <h1 className="text-center text-5xl sm:text-6xl font-bold">
           Reto de Memoria
-        </h1>
+        </h1> */}
 
-        <p className="text-center text-3xl sm:text-4xl font-bold">
+        <p className="text-center text-3xl sm:text-4xl">
           Revela todos los pares de cartas
           <br />
-          en menos de <span className="text-yellow-300">50 segundos</span>
+          en menos de <span className="text-yellow-300 font-bold">50 segundos</span>
         </p>
       </div>
 
-      <div className="flex w-full items-center justify-center gap-x-2 sm:gap-x-8">
+      <div className="flex w-full items-center justify-center gap-x-2 sm:gap-x-4">
         <ActionButton
           url="/menu"
           text="Volver"
-          className="btn-alternate w-min px-4"
+          variant="alternate"
+          className="w-min px-2"
         />
 
         <ActionButton
