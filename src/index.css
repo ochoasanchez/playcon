@@ -229,7 +229,7 @@ header {
 }
 
 .form__label span {
-  @apply text-green-500;
+  @apply text-yellow-300 font-bold;
 }
 .form__input {
   @apply mt-2 flex w-full rounded-full sm:px-3 sm:py-3 text-4xl text-black shadow-sm outline-none ring-1 ring-inset ring-gray-300 focus-within:ring-4 focus-within:ring-inset focus-within:ring-emerald-600;

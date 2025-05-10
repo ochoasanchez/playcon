@@ -25,7 +25,7 @@ export function Onboarding() {
           {/* <h2 className="text-zinc-600 text-center text-4xl sm:text-4xl ">Descubre el lado divertido de <br/>los medicamentos y el cuidado personal</h2> */}
           <h2 className="text-zinc-600 font-normal text-center text-4xl sm:text-5xl">Juega, aprende y gana <br />con nuestros productos</h2>
           <ActionButton
-            url="/form/player"
+            url="/start"
             text="Empezar"
             className="bg-emerald-500:im mt-8 self-center animate-bounce"
             // fullWidth={false}

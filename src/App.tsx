@@ -20,7 +20,8 @@ import { SpinningWheel } from "./pages/Wheel";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Onboarding />} />
+      <Route path="/start" element={<Home />} />
       <Route path="/onboarding" element={<Onboarding />} />
       <Route path="/form" element={<Form />} />
       <Route path="/form/:player" element={<Form />} />

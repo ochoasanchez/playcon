@@ -20,7 +20,7 @@ export function Home() {
             url="/form/player"
             text="Registrarme y jugar"
           />
-          <ActionButton url="/form" text="Solo registrarme" />
+          {/* <ActionButton url="/form" text="Solo registrarme" /> */}
           <ActionButton url="/dashboard" text="configuración" variant="alternate"/>
         </div>
 
