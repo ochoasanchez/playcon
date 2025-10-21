@@ -2,11 +2,11 @@ import { ActionButton } from "../components/ActionButton";
 // import FooterIcons from "../components/FooterIcons";
 // import Logo from "../components/Logo";
 import { Link } from "react-router-dom";
-import Science from "../assets/images/science.svg";
+import Science from "../assets/images/science.png";
 // import { MainSubtitle } from "../components/MainSubitle";
 // import { MainTitle } from "../components/MainTitle";
 // import Logo from "../components/Logo";
-import logo from "../assets/images/megalabs.svg";
+import logo from "../assets/images/logo_dark.png";
 
 export function Onboarding() {
   return (
@@ -18,16 +18,17 @@ export function Onboarding() {
         </Link>
 
         <div className="flex flex-col gap-6 mt-16">
-          <h1 className={`text-emerald-700 font-bold playfair-display-400 text-5xl sm:text-7xl text-center`}>
+          <h1 className={`text-blue-700 font-bold playfair-display-400 text-5xl sm:text-6xl text-center`}>
             {/* Desafía <br /><span className="text-5xl sm:text-8xl">tu mente</span> */}
-            Pon a prueba <br />tus conocimientos
+            Bienvenidos a PHK
+
           </h1>
           {/* <h2 className="text-zinc-600 text-center text-4xl sm:text-4xl ">Descubre el lado divertido de <br/>los medicamentos y el cuidado personal</h2> */}
-          <h2 className="text-zinc-600 font-normal text-center text-4xl sm:text-5xl">Juega, aprende y gana <br />con nuestros productos</h2>
+          <h2 className="text-zinc-600 font-medium text-center text-4xl sm:text-4xl">Somos una farmaceútica veterinaria <br/>100% Venezolana</h2>
           <ActionButton
             url="/start"
             text="Empezar"
-            className="bg-emerald-500:im mt-8 self-center animate-bounce"
+            className="bg-blue-500:im mt-8 self-center animate-bounce"
             // fullWidth={false}
           />
                {/* <img src={Science} className="w-6/12 self-end"/> */}
@@ -37,7 +38,7 @@ export function Onboarding() {
           {/* <ActionButton
             url="/form/player"
             text="Empezar"
-            className="bg-emerald-500:im"
+            className="bg-blue-500:im"
           /> */}
           {/* <Link to="/form/player" className="bg-orange-500 rounded-full font-bold uppercase text-2xl sm:text-4xl text-center w-full flex items-center justify-center">
             Empezar

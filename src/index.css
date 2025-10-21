@@ -14,7 +14,8 @@
 
   /* color-scheme: light dark; */
   color: rgba(255, 255, 255, 1);
-  background: linear-gradient(-45deg, #005f5a, #00d492, #009966);
+  background: linear-gradient(-45deg, #1e3a8a, #3b82f6, #1d4ed8);
+  /* background: linear-gradient(-45deg, #005f5a, #00d492, #009966); */
   /* background: red; */
 
   /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
@@ -103,13 +104,13 @@
 }
 
 .card-container {
-  @apply grid max-w-max grid-cols-3 grid-rows-3 gap-2 sm:gap-4;
-  grid-template-areas:
+  @apply grid max-w-max grid-cols-4 grid-rows-4 gap-2 sm:gap-4;
+  /* grid-template-areas:
     "a b c"
     "d e f"
-    "g h i";
+    "g h i"; */
 }
-
+/*
 .card:nth-child(1) { grid-area: a; }
 .card:nth-child(2) { grid-area: b; }
 .card:nth-child(3) { grid-area: c; }
@@ -118,11 +119,11 @@
 .card:nth-child(6) { grid-area: g; }
 .card:nth-child(7) { grid-area: h; }
 .card:nth-child(8) { grid-area: i; }
-.card:nth-child(9) { grid-area: e; }
+.card:nth-child(9) { grid-area: e; } */
 
 .card {
-  @apply mx-auto flex h-24 w-24 sm:h-48 sm:w-48 items-center justify-center rounded-3xl;
-  background-color: #0a452c;
+  @apply mx-auto flex h-20 w-20 sm:h-40 sm:w-40 items-center justify-center rounded-3xl;
+  background-color: #172554;
   /* border-radius: 1rem; */
   transition: 0.3s;
   transform-style: preserve-3d;
@@ -131,7 +132,7 @@
 }
 
 .bg-green {
-  background-color: #0a452c;
+  background-color: #172554;
 }
 
 .card-face.card-front-face > img {
@@ -239,7 +240,7 @@ header {
   @apply text-center text-6xl font-bold;
 }
 .form__label {
-  @apply text-2xl;
+  @apply text-3xl;
 }
 
 .form__label span {

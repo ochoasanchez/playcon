@@ -28,8 +28,8 @@ export function ActionButton({
   
   // Variant-specific classes
   const variantClasses = {
-    main: "bg-emerald-200 text-emerald-700",
-    alternate: "bg-white text-emerald-600",
+    main: "bg-blue-200 text-blue-700",
+    alternate: "bg-white text-blue-600",
     transparent: "bg-transparent text-white",
   };
   

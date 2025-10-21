@@ -5,8 +5,6 @@ import Logo from "../components/Logo";
 import { MainSubtitle } from "../components/MainSubitle";
 // import { MainTitle } from "../components/MainTitle";
 
-// TODO: Video or image background
-
 export function Menu() {
   const user = localStorage.currentUser ? JSON.parse(localStorage.currentUser) : "";
   const userName = localStorage.currentUser
@@ -27,7 +25,7 @@ export function Menu() {
       <div className="flex w-full flex-col gap-8">
         <ActionButton url="/trivia" text="Juego de trivia" />
         <ActionButton url="/memory" text="Juego de memoria" />
-        <ActionButton url="/wheel" text="Ruleta" />
+        {/* <ActionButton url="/wheel" text="Ruleta" /> */}
         <ActionButton
           url="/"
           text="Volver al Inicio"

@@ -21,8 +21,8 @@ export function Form() {
   const [fieldErrors, setFieldErrors] = useState({
     name: false,
     phone: false,
-    company: false,
-    position: false,
+    // company: false,
+    // position: false,
   });
 
   const [loading, setLoading] = useState(false);
@@ -100,8 +100,8 @@ async function handleFormSubmitIDB() {
     const errors = {
       name: formData.name === "",
       phone: formData.phone === "",
-      company: formData.company === "",
-      position: formData.position === "",
+      // company: formData.company === "",
+      // position: formData.position === "",
     };
 
     setFieldErrors(errors);
@@ -128,7 +128,7 @@ async function handleFormSubmitIDB() {
       </div>
       <div className="px-4 text-center">
         {isPlayer ? (
-          <MainTitle text="Completa el formulario" />
+          <MainTitle text="¿Como te llamas?" />
         ) : (
           <MainTitle text="Completa el siguiente formulario" />
         )}
@@ -136,8 +136,8 @@ async function handleFormSubmitIDB() {
       <div className="flex w-full flex-col sm:w-10/12">
         <form className="flex flex-col gap-y-3 px-4 sm:px-0" onSubmit={confirmFormSubmit}>
           <div>
-            <label className="form__label" htmlFor="name">
-              Nombre y Apellido <span>*</span>
+            <label className="form__label mb-4" htmlFor="name">
+              Nombre y Apellido
             </label>
             <input
               type="text"
@@ -147,7 +147,7 @@ async function handleFormSubmitIDB() {
               className={`form__input ${fieldErrors.name ? "form__input--" : ""}`}
             />
           </div>
-          <div>
+          {/* <div>
             <label className="form__label" htmlFor="company">
               Compañía <span>*</span>
             </label>
@@ -158,8 +158,8 @@ async function handleFormSubmitIDB() {
               onChange={handleChange}
               className={`form__input ${fieldErrors.company ? "form__input--empty" : ""}`}
             />
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <label className="form__label" htmlFor="position">
               Cargo <span>*</span>
             </label>
@@ -170,10 +170,10 @@ async function handleFormSubmitIDB() {
               onChange={handleChange}
               className={`form__input ${fieldErrors.position ? "form__input--empty" : ""}`}
             />
-          </div>
+          </div> */}
           <div>
             <label className="form__label" htmlFor="phone">
-              Teléfono <span>*</span>
+              Teléfono
             </label>
             <input
               type="tel"
@@ -183,7 +183,7 @@ async function handleFormSubmitIDB() {
               className={`form__input ${fieldErrors.phone ? "form__input--empty" : ""}`}
             />
           </div>
-          <div>
+          {/* <div>
             <label className="form__label" htmlFor="email">
               Correo electrónico
             </label>
@@ -194,7 +194,7 @@ async function handleFormSubmitIDB() {
               onChange={handleChange}
               className="form__input"
             />
-          </div>
+          </div> */}
           <ActionButton
             type="submit"
             text="Enviar"
@@ -216,9 +216,9 @@ async function handleFormSubmitIDB() {
                 onClick={handleGoBack}
                 text="Volver"
                 size="small"
-                className="text-emerald-500 border-emerald-500"
+                className="text-blue-500 border-blue-500"
               />
-              <ActionButton onClick={handleFormSubmitIDB} text="Enviar" size="small"  className="text-emerald-500 border-emerald-500"/>
+              <ActionButton onClick={handleFormSubmitIDB} text="Enviar" size="small"  className="text-blue-500 border-blue-500"/>
             </div>
           </div>
         </div>

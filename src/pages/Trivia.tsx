@@ -180,13 +180,13 @@ export function Trivia() {
             onClick={handleNextQuestion}
             disabled={!selectedOption || showFeedback}
             text={"Siguiente"}
-            className="bg-emerald-700 !text-white"
+            className="bg-orange-500 !text-white"
           />
         
           <ActionButton
               url="/menu"
               text={"Volver al menú"}
-              className="bg-white text-emerald-500"
+              className="bg-white text-blue-500"
             />
 
         </div>

@@ -12,7 +12,7 @@ export function Home() {
 
         <div className="flex flex-col gap-6">
           <MainTitle text="¡Desafía tus conocimientos!" size="large"/>
-          <MainSubtitle text="Descubre el lado divertido de los medicamentos y el cuidado personal" />
+          <MainSubtitle text="Descubre el lado divertido de los farmaceutios veterinarios" />
         </div>
 
         <div className="flex w-full flex-col gap-4">

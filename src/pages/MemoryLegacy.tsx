@@ -4,7 +4,6 @@ import { cardsArray as uniqueCardsArray } from "../utils/memory-cards.constants"
 import { saveMemoryScore } from "../helpers/memory.helper";
 import { ActionButton } from "../components/ActionButton";
 import MemoryScore from "../components/MemoryScore";
-import { MainTitle } from "../components/MainTitle";
 
 interface CardType {
   id: number;
@@ -156,26 +155,24 @@ export function Memory() {
   if (isCompleted) return <MemoryScore timeInMs={elapsedTime} />;
 
   return (
-    <main className="memory gap- sm:gap-6">
+    <main className="memory gap-2 sm:gap-6">
       <div className="flex flex-col gap-6">
-        <MainTitle text="Reto de Memoria" size="large"/>
-        {/* <h1 className="text-center text-5xl sm:text-6xl font-bold">
+        <h1 className="text-center text-5xl sm:text-6xl font-bold">
           Reto de Memoria
-        </h1> */}
+        </h1>
 
-        <p className="text-center text-3xl sm:text-4xl">
+        <p className="text-center text-3xl sm:text-4xl font-bold">
           Revela todos los pares de cartas
           <br />
-          en menos de <span className="text-yellow-300 font-bold">50 segundos</span>
+          en menos de <span className="text-yellow-300">50 segundos</span>
         </p>
       </div>
 
-      <div className="flex w-full items-center justify-center gap-x-2 sm:gap-x-4">
+      <div className="flex w-full items-center justify-center gap-x-2 sm:gap-x-8">
         <ActionButton
           url="/menu"
           text="Volver"
-          variant="alternate"
-          className="w-min px-2"
+          className="btn-alternate w-min px-4"
         />
 
         <ActionButton
@@ -183,6 +180,13 @@ export function Memory() {
           text="Reiniciar"
           className="w-min px-4"
         />
+
+        <p
+          className={`rounded-full px-4 py-6 text-4xl text-white ${elapsedTime > 40000 ? "bg-red-500" : elapsedTime > 30000 ? "bg-yellow-400" : "bg-green-500"}`}
+        >
+          <span className="font-bold uppercase">Tiempo:</span>{" "}
+          {(elapsedTime / 1000).toFixed(0)} s
+        </p>
 
         {/* <p className={`text-5xl bg-green p-8 rounded-full ${elapsedTime > 30000 ? 'text-red-500' : 'text-white'}`}><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s</p> */}
         {/* <p className="text-6xl text-red-500 bg-green p-6 rounded-full"><span className="font-bold uppercase">Tiempo:</span> {(elapsedTime / 1000).toFixed(0)} s</p> */}
@@ -200,21 +204,6 @@ export function Memory() {
             onClick={handleCardClick}
           />
         ))}
-        <div
-          className={`flex items-center justify-center font-bold rounded-full px-4 py-6 text-4xl text-white ${
-            elapsedTime > 40000 
-              ? "bg-red-500" 
-              : elapsedTime > 30000 
-                ? "bg-yellow-400" 
-                : "bg-green-500"
-          }`}
-        >
-          {elapsedTime === 0 ? (
-            <span className="text-xl sm:text-xl font-normal text-center">Toca una carta<br /> para empezar</span>
-          ) : (
-            `${(elapsedTime / 1000).toFixed(0)} s`
-          )}
-        </div>
       </div>
     </main>
   );

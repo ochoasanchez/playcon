@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/images/megalabs_blanco.svg";
+import logo from "../assets/images/logo_main.png";
 
 export default function Logo({ size = "small" }) {
   const widthClass = size === "large" ? "w-8/12" : "w-6/12";
