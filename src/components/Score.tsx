@@ -29,7 +29,7 @@ const Score = ({
       <div className="score-circle flex h-2/5 gap-y-8 bg-emerald-500 justify-between">
         <div className="w-8/12 pt-16">
           
-      <h1 className={`text-center font-bold playfair-display-400 text-5xl`}>
+      <h1 className={`text-center font-bold playfair-display-400 text-4xl`}>
         {message}
       </h1>
         </div>
