@@ -1,6 +1,6 @@
 // import { getResultMessage } from "../helpers/game.helper";
 import { ActionButton } from "./ActionButton";
-import { MainTitle } from "./MainTitle";
+// import { MainTitle } from "./MainTitle";
 // import $ from 'jquery';
 // import '../utils/confetti.js';
 
@@ -28,7 +28,10 @@ const Score = ({
       </div>
       <div className="score-circle flex h-2/5 gap-y-8 bg-emerald-500 justify-between">
         <div className="w-8/12 pt-16">
-          <MainTitle text={message} />
+          
+      <h1 className={`text-center font-bold playfair-display-400 text-5xl`}>
+        {message}
+      </h1>
         </div>
         <div className="flex gap-x-4">
           <ActionButton
