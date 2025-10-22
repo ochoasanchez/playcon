@@ -2,7 +2,7 @@ import { ActionButton } from "../components/ActionButton";
 // import FooterIcons from "../components/FooterIcons";
 // import Logo from "../components/Logo";
 import { Link } from "react-router-dom";
-import Science from "../assets/images/science.png";
+import Science from "../assets/images/science.svg";
 // import { MainSubtitle } from "../components/MainSubitle";
 // import { MainTitle } from "../components/MainTitle";
 // import Logo from "../components/Logo";
@@ -31,6 +31,7 @@ export function Onboarding() {
             className="bg-blue-500:im mt-8 self-center animate-bounce"
             // fullWidth={false}
           />
+          <h2 className="text-zinc-500 font-medium text-center text-3xl">Síguenos en nuestras redes sociales: <br/><span className="text-blue-500">@Pharmakum</span></h2>
                {/* <img src={Science} className="w-6/12 self-end"/> */}
         </div>
 

@@ -207,7 +207,7 @@ async function handleFormSubmitIDB() {
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50">
-          <div className="flex w-10/12 flex-col gap-4 sm:gap-16 rounded-md bg-white px-2 sm:px-6 py-4 sm:py-12">
+          <div className="flex w-10/12 flex-col gap-4 sm:gap-16 rounded-md bg-white px-2 sm:px-6 py-6 sm:py-12">
             <p className="text-center text-2xl sm:text-5xl text-black">
               ¿Deseas enviar este formulario?
             </p>
