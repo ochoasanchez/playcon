@@ -10,7 +10,7 @@ export default defineConfig({
     mkcert(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['vite.svg', 'logo-192.png', 'logo-512.png'],
+      includeAssets: ['vite.svg', 'logo-sm.png', 'logo-md.png'],
       manifest: {
         name: 'PHK',
         short_name: 'PHK',
@@ -18,12 +18,12 @@ export default defineConfig({
         theme_color: '#2563eb',
         icons: [
           {
-            src: './logo-sm.png',  // Updated path
+            src: '/logo-sm.png',  // Updated path
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: './logo-md.png',  // Updated path
+            src: '/logo-md.png',  // Updated path
             sizes: '512x512',
             type: 'image/png'
           }
